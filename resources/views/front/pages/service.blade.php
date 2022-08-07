@@ -48,114 +48,21 @@ Services - خدماتنا
             </div>
             
             <div class="row">
+              @foreach($services as $service)
               <div class="col-lg-4 col-md-6 mb-4">
                 <div class="promo-item">
                   <div class="promo-img">
-                    <i class="fas fa-mobile fa-fw"></i>
+                  <img src="{{ asset('images/service/'.$service->image)}}">
                   </div>
-                  <h5><a href="{{route('Front.services-details')}}"> تصميم تطبيقات الهواتف   </a></h5>
-                  <p>لدينا خبره كبيره في تصميم تطبيقات الهواتف وفريق عمل مميز</p>
+                  <h5><a href="{{route('Front.services-details')}}"> {{$service->getTranslation('title',\App::getLocale())}} </a></h5>
+                  <p>{{$service->getTranslation('title',\App::getLocale())}}</p>
                   <div class="promo-bottom-shape">
                     <img src="{{ asset('assets/front/img/bottom.png')}}">
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="promo-item">
-                  <div class="promo-img">
-                    <i class="fas fa-laptop fa-fw"></i>
-                  </div>
-                  <h5><a href="{{route('Front.services-details')}}"> تصميم مواقع الانترنت   </a></h5>
-                  <p>تهتم تك سوفت باخراج مواقع لعملائها بالوان عصريه وجذابه</p>
-                  <div class="promo-bottom-shape">
-                    <img src="{{ asset('assets/front/img/bottom.png')}}">
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="promo-item">
-                  <div class="promo-img">
-                    <i class="fas fa-video fa-fw"></i>
-                  </div>
-                  <h5><a href="{{route('Front.services-details')}}"> تصميم فيديوهات الموشن   </a></h5>
-                  <p>فيديو الموشن جرافيك يعتبر من اسهل الطرق الدعائيه للتطبيقات وكل انواع الشركات</p>
-                  <div class="promo-bottom-shape">
-                    <img src="{{ asset('assets/front/img/bottom.png')}}">
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="promo-item">
-                  <div class="promo-img">
-                    <i class="fas fa-desktop fa-fw"></i>
-                  </div>
-                  <h5><a href="{{route('Front.services-details')}}"> التصميم والبرمجه   </a></h5>
-                  <p>نستخدم تقنيات حديثه ومتنوعه جدا وموثقه من شركة ابل وجوجل لان هدفنا اخراج مشاريع احترافيه</p>
-                  <div class="promo-bottom-shape">
-                    <img src="{{ asset('assets/front/img/bottom.png')}}">
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="promo-item">
-                  <div class="promo-img">
-                    <i class="fab fa-sketch fa-fw"></i>
-                  </div>
-                  <h5><a href="{{route('Front.services-details')}}"> تطبيقات متنوعه   </a></h5>
-                  <p>جميع التخصصات ( المتاجر – الجي بي إس – الإعلانية – المدارس والتعليم – السوبر ماركت – العقارية ) …</p>
-                  <div class="promo-bottom-shape">
-                    <img src="{{ asset('assets/front/img/bottom.png')}}">
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="promo-item">
-                  <div class="promo-img">
-                    <i class="fas fa-layer-group fa-fw"></i>
-                  </div>
-                  <h5><a href="{{route('Front.services-details')}}"> استخدام احدث التقنيات   </a></h5>
-                  <p>دائما نواكب التطور التكنولوجي ونستخدم احدث التقنيات في البرمجه والتصميم</p>
-                  <div class="promo-bottom-shape">
-                    <img src="{{ asset('assets/front/img/bottom.png')}}">
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="promo-item">
-                  <div class="promo-img">
-                    <i class="fas fa-bezier-curve fa-fw"></i>
-                  </div>
-                  <h5><a href="{{route('Front.services-details')}}"> الاستضافه والسرفرات   </a></h5>
-                  <p>نقدم لعملائها كل انواع الاستضافات والكلود والسرفرات بعروض واسعار متنوعه</p>
-                  <div class="promo-bottom-shape">
-                    <img src="{{ asset('assets/front/img/bottom.png')}}">
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="promo-item">
-                  <div class="promo-img">
-                    <i class="fas fa-democrat fa-fw"></i>
-                  </div>
-                  <h5><a href="{{route('Front.services-details')}}"> دعم فني مستمر   </a></h5>
-                  <p>لدينا دعم فني مميز ومستمر لحل كل المشاكل فورا والاجابه علي كل اسئلة واستفسارات عملائنا الكرام</p>
-                  <div class="promo-bottom-shape">
-                    <img src="{{ asset('assets/front/img/bottom.png')}}">
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="promo-item">
-                  <div class="promo-img">
-                    <i class="fa  fa-code"></i>
-                  </div>
-                  <h5><a href="{{route('Front.services-details')}}"> التحليل الفني   </a></h5>
-                  <p>لدينا فريق عمل من المهندسين التقنيين المتخصصين في التحليل الفني للمشروعات</p>
-                  <div class="promo-bottom-shape">
-                    <img src="{{ asset('assets/front/img/bottom.png')}}">
-                  </div>
-                </div>
-              </div>
+              @endforeach
+           
             </div>
        
           </div>

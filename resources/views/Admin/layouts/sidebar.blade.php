@@ -38,6 +38,10 @@
                                 data-feather="layout"></i><span>Blogs</span></a>
                        
                     </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.ourwork.index')}}"><i
+                                data-feather="layout"></i><span>Our-Works</span></a>
+                       
+                    </li>
                 </ul>
             </div>
         </div>

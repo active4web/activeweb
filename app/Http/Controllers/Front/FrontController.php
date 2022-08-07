@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\OurWork;
 use Illuminate\Database\Eloquent\Model;
 
 class FrontController extends Controller
@@ -14,20 +15,23 @@ class FrontController extends Controller
     protected $bannerModel;
     protected $serviceModel;
     protected $blogModel;
+    protected $ourWorkModel;
 
-    public function __construct(Banner $banners ,Service $services,Blog $blogs)
+    public function __construct(Banner $banners ,Service $services,Blog $blogs,OurWork $ourWorks)
     {
         $this->bannerModel=$banners;
         $this->serviceModel=$services;
         $this->blogModel =$blogs;
+        $this->ourWorkModel =$ourWorks;
     }
     public function index(){
 
         $banners =$this->bannerModel::get();
         $services =$this->serviceModel::get();
         $blogs =$this->blogModel::get();
+        $ourworks =$this->ourWorkModel::get();
      
-        return view('index',compact('banners','services','blogs'));
+        return view('index',compact('banners','services','blogs','ourworks'));
     }
 
     public function about(){
@@ -35,7 +39,8 @@ class FrontController extends Controller
     }
 
     public function blog(){
-        return view('front.pages.blog');
+        $blogs =$this->blogModel::get();
+        return view('front.pages.blog',compact('blogs'));
     }
 
     public function blogDetails(){
@@ -47,7 +52,8 @@ class FrontController extends Controller
     }
 
     public function ourWorks(){
-        return view('front.pages.our-works');
+        $ourworks =$this->ourWorkModel::get();
+        return view('front.pages.our-works',compact('ourworks'));
     }
 
     public function ourWorksDetails(){
@@ -55,7 +61,8 @@ class FrontController extends Controller
     }
 
     public function services(){
-        return view('front.pages.service');
+        $services =$this->serviceModel::get();
+        return view('front.pages.service',compact('services'));
     }
 
     public function myServices(){
