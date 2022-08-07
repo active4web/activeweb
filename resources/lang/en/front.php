@@ -20,7 +20,7 @@ return[
     'register-now'                      =>  'Register Now',
     'read-more'                         =>  'read more',
     'more'                              =>  'more',
-
+    'send'                              =>   'Send',
 
     /* -------------------Contact Page ----------------*/
 

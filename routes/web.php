@@ -38,6 +38,7 @@ Route::group([ 'as'=>'Front.' ],function(){
     Route::get('/blog',[FrontController::class,'blog'])->name('blog');
     Route::get('/blog/details',[FrontController::class,'blogDetails'])->name('blog.details');
     Route::get('/contactus',[FrontController::class,'contactUs'])->name('contactus');
+    Route::post('/contactus/store',[FrontController::class,'storeContactUs'])->name('storecontactus');
     Route::get('/ourworks',[FrontController::class,'ourWorks'])->name('ourworks');
     Route::get('/ourworks/details',[FrontController::class,'ourWorksDetails'])->name('ourworks.details');
     Route::get('/services',[FrontController::class,'services'])->name('services');

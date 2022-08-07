@@ -4,25 +4,32 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Blog;
 use App\Models\Banner;
+use App\Models\Contact;
+use App\Models\OurWork;
 use App\Models\Service;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\OurWork;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Requests\Contact\CreateContactRequest;
 
 class FrontController extends Controller
 { 
+    protected $settingModel;
     protected $bannerModel;
     protected $serviceModel;
     protected $blogModel;
     protected $ourWorkModel;
+    protected $contactModel;
 
-    public function __construct(Banner $banners ,Service $services,Blog $blogs,OurWork $ourWorks)
+    public function __construct(Setting $setting,Banner $banners ,Service $services,Blog $blogs,OurWork $ourWorks,Contact $contact)
     {
+        $this->settingModel=$setting;
         $this->bannerModel=$banners;
         $this->serviceModel=$services;
         $this->blogModel =$blogs;
         $this->ourWorkModel =$ourWorks;
+        $this->contactModel=$contact;
     }
     public function index(){
 
@@ -48,7 +55,16 @@ class FrontController extends Controller
     }
 
     public function contactUs(){
-        return view('front.pages.contact-us');
+      $setting=  $this->settingModel::first();
+        return view('front.pages.contact-us',compact('setting'));
+    }
+    public function storeContactUs(CreateContactRequest $request){
+        $contact =$this->contactModel::create([
+            'name' =>$request->name,
+            'email' =>$request->email,
+            'message' =>$request->message,
+        ]);
+        return redirect()->back();
     }
 
     public function ourWorks(){
