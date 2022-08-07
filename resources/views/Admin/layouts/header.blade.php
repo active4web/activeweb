@@ -105,7 +105,13 @@
             </ul>
           </li>
           <li class="onhover-dropdown p-0">
-            <button class="btn btn-primary-light" type="button"><a href="#"><i data-feather="log-out"></i>Log out</a></button>
+           
+                <button class="btn btn-primary-light" type="button"><a href="{{ route('logout') }}"
+                                     onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i data-feather="log-out"></i>Log out</a></button>
+           <form id="logout-form"action="{{route('logout')}}" method="post">
+              @csrf     
+             </form>
+          
           </li>
         </ul>
       </div>
