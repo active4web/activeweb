@@ -18,7 +18,8 @@ return[
     'logout'                            =>  'Logout',
     'subscribe'                         =>  'Latest exclusive offers from Taqi violet via email',
     'register-now'                      =>  'Register Now',
-    'read-more'                         =>   'read more',
+    'read-more'                         =>  'read more',
+    'more'                              =>  'more',
 
 
     /* -------------------Contact Page ----------------*/

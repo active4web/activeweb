@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\OurWorkController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SocialMediaController;
@@ -68,6 +69,15 @@ Route::group(['prefix'=> 'blog', 'as' => 'blog.'],function(){
     Route::post('/store',[BlogController::class,'store'])->name('store');
     Route::put('/update/{id}',[BlogController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[BlogController::class,'destroy'])->name('destroy');
+});
+
+                       /*   our-works   */
+Route::group(['prefix'=> 'ourwork', 'as' => 'ourwork.'],function(){
+    Route::get('/',[OurWorkController::class,'index'])->name('index');
+    Route::get('/create',[OurWorkController::class,'create'])->name('create');
+    Route::post('/store',[OurWorkController::class,'store'])->name('store');
+    Route::put('/update/{id}',[OurWorkController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[OurWorkController::class,'destroy'])->name('destroy');
 });
 });
 
