@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Banners;
+use App\Models\Banner;
 use Illuminate\Http\Request;
 use App\Http\Traits\ImageTrait;
 use PhpParser\Node\Expr\FuncCall;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\Admin\Banners\CreateBannerRequest;
 use App\Http\Requests\Admin\Banners\UpdateBannerRequest;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class BannerController extends Controller
 {
     use ImageTrait;
     protected $bannerModel;
  
-    public function __construct(Banners $bannerModel)
+    public function __construct(Banner $bannerModel)
     {
       $this->bannerModel=$bannerModel;
     }

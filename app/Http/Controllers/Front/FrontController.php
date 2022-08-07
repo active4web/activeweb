@@ -2,29 +2,32 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Models\Banners;
-use App\Models\Setting;
+use App\Models\Blog;
+use App\Models\Banner;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Service;
 use Illuminate\Database\Eloquent\Model;
 
 class FrontController extends Controller
 { 
     protected $bannerModel;
     protected $serviceModel;
+    protected $blogModel;
 
-    public function __construct(Banners $banners ,Service $services)
+    public function __construct(Banner $banners ,Service $services,Blog $blogs)
     {
         $this->bannerModel=$banners;
         $this->serviceModel=$services;
+        $this->blogModel =$blogs;
     }
     public function index(){
 
         $banners =$this->bannerModel::get();
         $services =$this->serviceModel::get();
+        $blogs =$this->blogModel::get();
      
-        return view('index',compact('banners','services'));
+        return view('index',compact('banners','services','blogs'));
     }
 
     public function about(){

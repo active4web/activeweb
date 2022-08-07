@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
@@ -58,6 +59,15 @@ Route::group(['prefix'=> 'service', 'as' => 'service.'],function(){
     Route::post('/store',[ServiceController::class,'store'])->name('store');
     Route::put('/update/{id}',[ServiceController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[ServiceController::class,'destroy'])->name('destroy');
+});
+
+                       /*   blogs   */
+Route::group(['prefix'=> 'blog', 'as' => 'blog.'],function(){
+    Route::get('/',[BlogController::class,'index'])->name('index');
+    Route::get('/create',[BlogController::class,'create'])->name('create');
+    Route::post('/store',[BlogController::class,'store'])->name('store');
+    Route::put('/update/{id}',[BlogController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[BlogController::class,'destroy'])->name('destroy');
 });
 });
 

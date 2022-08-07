@@ -1,6 +1,6 @@
 @extends('Admin.layouts.master')
 
-@section('title','services')
+@section('title','blogs')
 @section('css')
 
 @endsection
@@ -9,9 +9,9 @@
 
 <div class="card">
   <div class="card-header pb-0">
-    <h5>Add Service</h5>
+    <h5>Add BLog</h5>
   </div>
-  <form class="form theme-form" action="{{route('Admin.service.store')}}" method="post" enctype="multipart/form-data">
+  <form class="form theme-form" action="{{route('Admin.blog.store')}}" method="post" enctype="multipart/form-data">
     @csrf
 
     <div class="card-body">
@@ -63,6 +63,31 @@
             @enderror
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-3">
+            <label class="form-label" for="exampleFormControlInput1">Category in English </label>
+            <input class="form-control @error('category_en') is-invalid fparsley-error parsley-error @enderror" name="category_en" id="exampleFormControlInput1" type="text" placeholder="category" value="{{old('category_en')}}">
+            @error('category_en')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label class="form-label" for="exampleFormControlInput1"> Category in Arabic </label>
+            <input class="form-control @error('category_ar') is-invalid fparsley-error parsley-error @enderror" name="category_ar" id="exampleFormControlInput1" type="text" placeholder="category" value="{{old('category_ar')}}">
+            @error('category_ar')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+
       </div>
       <div class="row">
 

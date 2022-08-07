@@ -34,6 +34,10 @@
                                 data-feather="layout"></i><span>Services</span></a>
                        
                     </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.blog.index')}}"><i
+                                data-feather="layout"></i><span>Blogs</span></a>
+                       
+                    </li>
                 </ul>
             </div>
         </div>
