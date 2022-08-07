@@ -73,6 +73,7 @@ class BannerController extends Controller
         $banner= $this->bannerModel::findorfail($id);
         if($banner){
             $banner->delete();
+            unlink(public_path('images/banner/'.$banner->image));
         }
         Alert::success('success', 'Banner deleted  Successfully');
         return redirect(route('Admin.banner.index'));

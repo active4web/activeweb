@@ -73,6 +73,7 @@ class OurWorkController extends Controller
       if($ourwork){
 
         $ourwork->delete();
+        unlink(public_path('images/ourwork/'.$ourwork->image));
       }
       Alert::success('success', ' deleted  Successfully');
       return redirect(route('Admin.ourwork.index'));

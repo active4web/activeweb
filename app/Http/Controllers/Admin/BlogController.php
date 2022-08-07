@@ -78,6 +78,7 @@ class BlogController extends Controller
       if($blog){
 
         $blog->delete();
+        unlink(public_path('images/blog/'.$blog->image));
       }
       Alert::success('success', 'blog deleted  Successfully');
       return redirect(route('Admin.blog.index'));

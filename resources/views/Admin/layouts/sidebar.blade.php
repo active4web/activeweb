@@ -42,6 +42,10 @@
                                 data-feather="layout"></i><span>Our-Works</span></a>
                        
                     </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.contact.index')}}"><i
+                                data-feather="layout"></i><span>Contacts</span></a>
+                       
+                    </li>
                 </ul>
             </div>
         </div>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\OurWorkController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
@@ -78,6 +79,12 @@ Route::group(['prefix'=> 'ourwork', 'as' => 'ourwork.'],function(){
     Route::post('/store',[OurWorkController::class,'store'])->name('store');
     Route::put('/update/{id}',[OurWorkController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[OurWorkController::class,'destroy'])->name('destroy');
+});
+
+                      /*   contact   */
+Route::group(['prefix'=> 'contact', 'as' => 'contact.'],function(){
+    Route::get('/',[ContactController::class,'index'])->name('index');
+    Route::put('/delete/{id}',[ContactController::class,'destroy'])->name('destroy');
 });
 });
 
