@@ -75,6 +75,7 @@ class ServiceController extends Controller
       if($service){
 
         $service->delete();
+        unlink(public_path('images/service/'.$service->image));
       }
       Alert::success('success', 'Service deleted  Successfully');
       return redirect(route('Admin.service.index'));
