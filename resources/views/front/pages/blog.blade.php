@@ -37,82 +37,28 @@ Blog-المقالات
           <div class="row justify-content-center">
             <div class="col-lg-8 px-0">
               <div class="row ">
+                @foreach($blogs as $blog)
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 blog--post">
                   <div class="blog-item">
                     <div class="image-wrap">
-                      <a href="{{route('Front.blog.details')}}"><img src= "{{ asset('assets/front/img/img-1.png')}}"></a>
+                      <a href="{{route('Front.blog.details')}}"><img src= "{{ asset('images/blog/'.$blog->image)}}"></a>
                       <ul class="post-categories">
-                        <li><a href="{{route('Front.blog.details')}}">برمجة</a></li>
+                        <li><a href="{{route('Front.blog.details')}}">{{$blog->getTranslation('category',\App::getLocale())}}</a></li>
                       </ul>
                     </div>
                     <div class="blog-content">
                       <ul class="blog-meta">
-                          <li class="date"><i class="fa fa-calendar-check-o"></i>1 ديسمبر 2020</li>
-                          <li class="admin"><i class="fas fa-user"></i> admin</li>
+                          <li class="date"><i class="fa fa-calendar-check-o"></i>{{date('Y-m-d ', strtotime($blog->created_at))}}</li>
+                          <li class="admin"><i class="fas fa-user"></i> {{$blog->created_by}}</li>
                        </ul>
-                       <h3 class="blog-title"><a href="{{route('Front.blog.details')}}">تطبيق الخدمات البترولية</a></h3>
-                       <p class="desc">تتشرف شركة تك سوفت بالتعاقد مع أحد أكبر مزودي خدمات النفط في المملكة العربية السعودية.</p>
-                       <div class="blog-button"><a href="{{route('Front.blog.details')}}"> اقرأ أكثر  <i class="fas fa-angle-right fa-fw"></i></a></div>
+                       <h3 class="blog-title"><a href="{{route('Front.blog.details')}}">{{$blog->getTranslation('title',\App::getLocale())}}</a></h3>
+                       <p class="desc">{{$blog->getTranslation('description',\App::getLocale())}}</p>
+                       <div class="blog-button"><a href="{{route('Front.blog.details')}}">{{trans('front.read-more')}} <i class="fas fa-angle-right fa-fw"></i></a></div>
                     </div>
                   </div>
                 </div><!--col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12  -->
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 blog--post">
-                  <div class="blog-item">
-                    <div class="image-wrap">
-                      <a href="{{route('Front.blog.details')}}"><img src="{{ asset('assets/front/img/img-1.png')}}"></a>
-                      <ul class="post-categories">
-                        <li><a href="{{route('Front.blog.details')}}">برمجة</a></li>
-                      </ul>
-                    </div>
-                    <div class="blog-content">
-                      <ul class="blog-meta">
-                          <li class="date"><i class="fa fa-calendar-check-o"></i>1 ديسمبر 2020</li>
-                          <li class="admin"><i class="fas fa-user"></i> admin</li>
-                       </ul>
-                       <h3 class="blog-title"><a href="{{route('Front.blog.details')}}">تطبيق الخدمات البترولية</a></h3>
-                       <p class="desc">تتشرف شركة تك سوفت بالتعاقد مع أحد أكبر مزودي خدمات النفط في المملكة العربية السعودية.</p>
-                       <div class="blog-button"><a href="{{route('Front.blog.details')}}"> اقرأ أكثر  <i class="fas fa-angle-right fa-fw"></i></a></div>
-                    </div>
-                  </div>
-                </div><!--col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12  -->
-                <div class=" col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 blog--post">
-                  <div class="blog-item">
-                    <div class="image-wrap">
-                      <a href="{{route('Front.blog.details')}}"><img src="{{ asset('assets/front/img/img-1.png')}}"></a>
-                      <ul class="post-categories">
-                        <li><a href="{{route('Front.blog.details')}}">برمجة</a></li>
-                      </ul>
-                    </div>
-                    <div class="blog-content">
-                      <ul class="blog-meta">
-                          <li class="date"><i class="fa fa-calendar-check-o"></i>1 ديسمبر 2020</li>
-                          <li class="admin"><i class="fas fa-user"></i> admin</li>
-                       </ul>
-                       <h3 class="blog-title"><a href="{{route('Front.blog.details')}}">تطبيق الخدمات البترولية</a></h3>
-                       <p class="desc">تتشرف شركة تك سوفت بالتعاقد مع أحد أكبر مزودي خدمات النفط في المملكة العربية السعودية.</p>
-                       <div class="blog-button"><a href="{{route('Front.blog.details')}}"> اقرأ أكثر  <i class="fas fa-angle-right fa-fw"></i></a></div>
-                    </div>
-                  </div>
-                </div><!--col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12  -->
-                <div class=" col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 blog--post">
-                  <div class="blog-item">
-                    <div class="image-wrap">
-                      <a href="{{route('Front.blog.details')}}"><img src="{{ asset('assets/front/img/img-1.png')}}"></a>
-                      <ul class="post-categories">
-                        <li><a href="{{route('Front.blog.details')}}">برمجة</a></li>
-                      </ul>
-                    </div>
-                    <div class="blog-content">
-                      <ul class="blog-meta">
-                          <li class="date"><i class="fa fa-calendar-check-o"></i>1 ديسمبر 2020</li>
-                          <li class="admin"><i class="fas fa-user"></i> admin</li>
-                       </ul>
-                       <h3 class="blog-title"><a href="{{route('Front.blog.details')}}">تطبيق الخدمات البترولية</a></h3>
-                       <p class="desc">تتشرف شركة تك سوفت بالتعاقد مع أحد أكبر مزودي خدمات النفط في المملكة العربية السعودية.</p>
-                       <div class="blog-button"><a href="{{route('Front.blog.details')}}"> اقرأ أكثر  <i class="fas fa-angle-right fa-fw"></i></a></div>
-                    </div>
-                  </div>
-                </div><!--col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12  -->
+                @endforeach
+              
               </div><!-- row -->
               <div class="pagination-wrap mt-50">
                 <ul>

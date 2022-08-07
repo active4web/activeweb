@@ -39,7 +39,8 @@ class FrontController extends Controller
     }
 
     public function blog(){
-        return view('front.pages.blog');
+        $blogs =$this->blogModel::get();
+        return view('front.pages.blog',compact('blogs'));
     }
 
     public function blogDetails(){
@@ -51,7 +52,8 @@ class FrontController extends Controller
     }
 
     public function ourWorks(){
-        return view('front.pages.our-works');
+        $ourworks =$this->ourWorkModel::get();
+        return view('front.pages.our-works',compact('ourworks'));
     }
 
     public function ourWorksDetails(){
@@ -59,7 +61,8 @@ class FrontController extends Controller
     }
 
     public function services(){
-        return view('front.pages.service');
+        $services =$this->serviceModel::get();
+        return view('front.pages.service',compact('services'));
     }
 
     public function myServices(){
