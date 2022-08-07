@@ -6,21 +6,25 @@ use App\Models\Banners;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Database\Eloquent\Model;
 
 class FrontController extends Controller
 { 
     protected $bannerModel;
+    protected $serviceModel;
 
-    public function __construct(Banners $banners)
+    public function __construct(Banners $banners ,Service $services)
     {
         $this->bannerModel=$banners;
+        $this->serviceModel=$services;
     }
     public function index(){
 
         $banners =$this->bannerModel::get();
+        $services =$this->serviceModel::get();
      
-        return view('index',compact('banners'));
+        return view('index',compact('banners','services'));
     }
 
     public function about(){

@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SocialMediaController;
 
@@ -19,12 +21,16 @@ use App\Http\Controllers\Admin\SocialMediaController;
 
 
 
-Route::get('/', function () {
-    return view('admin.home');
-});
+Auth::routes();
+
+
+
 
 Route::group([ 'as'=>'Admin.', 'middleware'=>'auth' ],function(){
-          
+
+ Route::get('/', function () {
+    return view('admin.home');
+});
                     /*   setting */
   Route::group(['prefix'=> 'setting', 'as' => 'setting.'],function(){
       Route::get('/edit',[SettingController::class,'edit'])->name('edit');
@@ -44,4 +50,15 @@ Route::group(['prefix'=> 'banner', 'as' => 'banner.'],function(){
     Route::put('/update/{id}',[BannerController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[BannerController::class,'destroy'])->name('destroy');
 });
+
+                  /*   services    */
+Route::group(['prefix'=> 'service', 'as' => 'service.'],function(){
+    Route::get('/',[ServiceController::class,'index'])->name('index');
+    Route::get('/create',[ServiceController::class,'create'])->name('create');
+    Route::post('/store',[ServiceController::class,'store'])->name('store');
+    Route::put('/update/{id}',[ServiceController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[ServiceController::class,'destroy'])->name('destroy');
 });
+});
+
+

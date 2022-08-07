@@ -1,6 +1,6 @@
 @extends('Admin.layouts.master')
 
-@section('title','setting')
+@section('title','banners')
 @section('css')
 
 @endsection
@@ -9,7 +9,7 @@
 
 <div class="card">
                   <div class="card-header pb-0">
-                    <h5>Basic form control</h5>
+                    <h5>Add Banner</h5>
                   </div>
                   <form class="form theme-form" action="{{route('Admin.banner.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
