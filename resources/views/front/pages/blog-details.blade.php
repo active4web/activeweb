@@ -50,7 +50,7 @@ Blog-المقالات
                
                   </div>
                 </div><!-- blog-header -->
-                <div class="image-set"><img src="{{ asset('assets/front/img/blog__thumb01.png')}}" class="img-fluid"></div>
+                <div class="image-set"><img src="{{ asset('images/blog/'.$blog->image)}}" class="img-fluid"></div>
                 <div class="span8">
                   <h4 class="visible-desktop">{{$blog->getTranslation('title',\App::getLocale())}} </h4>
                   <p>{{$blog->getTranslation('description',\App::getLocale())}}</p>

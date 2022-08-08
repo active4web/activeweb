@@ -12,10 +12,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests\Contact\CreateContactRequest;
+use App\Models\About;
+use App\Models\AboutStep;
 use App\Models\Category;
 
 class FrontController extends Controller
-{ 
+{
     protected $settingModel;
     protected $bannerModel;
     protected $serviceModel;
@@ -23,90 +25,115 @@ class FrontController extends Controller
     protected $ourWorkModel;
     protected $contactModel;
     protected $categoryModel;
+    protected $aboutModel;
+    protected $aboutStepModel;
 
     public function __construct(
-    Setting $setting,Banner $banners ,
-    Service $services,Blog $blogs,
-    OurWork $ourWorks,Contact $contact,
-    Category $category,)
+        Setting $setting,
+        Banner $banners,
+        Service $services,
+        Blog $blogs,
+        OurWork $ourWorks,
+        Contact $contact,
+        Category $category,
+        About $about,
+        AboutStep $aboutstep
+    ) {
+        $this->settingModel = $setting;
+        $this->bannerModel = $banners;
+        $this->serviceModel = $services;
+        $this->blogModel = $blogs;
+        $this->ourWorkModel = $ourWorks;
+        $this->contactModel = $contact;
+        $this->categoryModel = $category;
+        $this->aboutModel = $about;
+        $this->aboutStepModel = $aboutstep;
+    }
+    public function index()
     {
-        $this->settingModel=$setting;
-        $this->bannerModel=$banners;
-        $this->serviceModel=$services;
-        $this->blogModel =$blogs;
-        $this->ourWorkModel =$ourWorks;
-        $this->contactModel=$contact;
-        $this->categoryModel=$category;
-    }
-    public function index(){
 
-        $banners =$this->bannerModel::get();
-        $services =$this->serviceModel::get();
-        $blogs =$this->blogModel::get();
-        $ourworks =$this->ourWorkModel::get();
-     
-        return view('index',compact('banners','services','blogs','ourworks'));
+        $banners    =        $this->bannerModel::get();
+        $services   =        $this->serviceModel::get();
+        $blogs      =        $this->blogModel::get();
+        $ourworks   =        $this->ourWorkModel::get();
+        $about    =        $this->aboutModel::first();
+
+        return view('index', compact('banners', 'services', 'blogs', 'ourworks', 'about'));
     }
 
-    public function about(){
-        return view('front.pages.about');
+    public function about()
+    {
+        $about         =      $this->aboutModel::first();
+        $aboutSteps    =      $this->aboutStepModel::get();
+          return view('front.pages.about',compact('about','aboutSteps'));
     }
 
-    public function blog(){
-        $blogs =$this->blogModel::get();
-        $categories=$this->categoryModel::get();
-        return view('front.pages.blog',compact('categories','blogs'));
+    public function blog()
+    {
+        $blogs = $this->blogModel::get();
+        $categories = $this->categoryModel::get();
+        return view('front.pages.blog', compact('categories', 'blogs'));
     }
 
-    public function blogDetails($id){
-        $blogs =$this->blogModel::take(4)->orderBy('id', 'DESC')->get();
-        $blog=$this->blogModel::with('blogDetails','blogComponents')->whereHas('blogDetails',function($q) use($id){
-            $q->where('blog_id',$id);
+    public function blogDetails($id)
+    {
+        $blogs = $this->blogModel::take(4)->orderBy('id', 'DESC')->get();
+        $blog = $this->blogModel::with('blogDetails', 'blogComponents')->whereHas('blogDetails', function ($q) use ($id) {
+            $q->where('blog_id', $id);
         })->first();
-        $categories=$this->categoryModel::get();
-        return view('front.pages.blog-details',compact('categories','blogs','blog'));
+        $categories = $this->categoryModel::get();
+        return view('front.pages.blog-details', compact('categories', 'blogs', 'blog'));
     }
 
-    public function contactUs(){
-      $setting=  $this->settingModel::first();
-        return view('front.pages.contact-us',compact('setting'));
+    public function contactUs()
+    {
+        $setting =  $this->settingModel::first();
+        return view('front.pages.contact-us', compact('setting'));
     }
-    public function storeContactUs(CreateContactRequest $request){
-        $contact =$this->contactModel::create([
-            'name' =>$request->name,
-            'email' =>$request->email,
-            'message' =>$request->message,
+    public function storeContactUs(CreateContactRequest $request)
+    {
+        $contact = $this->contactModel::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
         ]);
         return redirect()->back();
     }
 
-    public function ourWorks(){
-        $ourworks =$this->ourWorkModel::get();
-        return view('front.pages.our-works',compact('ourworks'));
+    public function ourWorks()
+    {
+        $ourworks = $this->ourWorkModel::get();
+        return view('front.pages.our-works', compact('ourworks'));
     }
 
-    public function ourWorksDetails(){
+    public function ourWorksDetails()
+    {
         return view('front.pages.our-works-details');
     }
 
-    public function services(){
-        $services =$this->serviceModel::get();
-        return view('front.pages.service',compact('services'));
+    public function services()
+    {
+        $services = $this->serviceModel::get();
+        return view('front.pages.service', compact('services'));
     }
 
-    public function myServices(){
+    public function myServices()
+    {
         return view('front.pages.my-services');
     }
 
-    public function serviceDetails(){
+    public function serviceDetails()
+    {
         return view('front.pages.service-details');
     }
 
-    public function serviceRequest(){
+    public function serviceRequest()
+    {
         return view('front.pages.Request-new-service');
     }
 
-    public function serviceRequestDetails(){
+    public function serviceRequestDetails()
+    {
         return view('front.pages.service-request-details');
     }
 }

@@ -23,6 +23,7 @@ return[
     'send'                              =>   'Send',
     'categories'                        => 'Categories',
     'last-blogs'                        => 'Last shared Blogs',
+    'see-more'                          =>  'See More',
 
     /* -------------------Contact Page ----------------*/
 

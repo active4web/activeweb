@@ -28,7 +28,7 @@
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="left-content">
-          <img src="{{ asset('assets/front/img/bout-pic.png')}}">
+          <img src="{{ asset('images/about/'.$about->image)}}">
         </div>
       </div>
       <div class="col-lg-6">
@@ -37,15 +37,10 @@
             <span class="line"></span>
             <span class="line-text">من نحن</span>
           </div>
-          <h2 class="h2">اكتيف ويب للحلول الذكية.</h2>
-          <p class="text-p">اكتيف ويب هي شركة متخصصة في تصميم وبرمجة تطبيقات الهواتف الذكية بخبرة طويلة وفريق عمل متميز يقدم لك أقوى وأحدث التصميمات. حن شركة متخصصة فى حلول الويب: تصميم وتطوير مواقع التسويقية</p>
-          <ul>
-            <li>إذا لم يتمكن محرك بحث Google من الزحف إلى موقعك ، فلن يتم ترتيبه - لكن هذا لا يعني تجنب جافا سكريبت.</li>
-            <li>للشركات التي تبيع المنتجات عبر الإنترنت وتحسن قوائم منتجاتها في نتائج البحث.</li>
-            <li>إذا كنت تستثمر في موقع ويب جديد ، فمن المهم التأكد من أنه مصمم لتحقيق النجاح في نتائج البحث أيضًا.</li>
-            <li>إذا لم يتمكن محرك بحث Google من الزحف إلى موقعك ، فلن يتم ترتيبه - لكن هذا لا يعني تجنب جافا سكريبت.</li>
-          </ul>
-          <a href="{{route('Front.about')}}" class="btn btn-primary">مشاهده المزيد</a>
+          <h2 class="h2">{{$about->getTranslation('title',\App::getLocale())}}</h2>
+          <p class="text-p">{!!$about->getTranslation('description',\App::getLocale()) !!}</p>
+          
+          <a href="{{route('Front.about')}}" class="btn btn-primary">{{trans('front.see-more')}}</a>
         </div>
       </div>
     </div>
@@ -147,9 +142,9 @@
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="blog-item">
           <div class="image-wrap">
-            <a href="{{route('Front.blog.details')}}"><img src="{{ asset('images/blog/'.$blog->image)}}"></a>
+            <a href="{{route('Front.blog.details',$blog->id)}}"><img src="{{ asset('images/blog/'.$blog->image)}}"></a>
             <ul class="post-categories">
-              <li><a href="{{route('Front.blog.details')}}">{{$blog->getTranslation('category',\App::getLocale())}}</a></li>
+              <li><a href="{{route('Front.blog.details',$blog->id)}}">{{$blog->getTranslation('category',\App::getLocale())}}</a></li>
             </ul>
           </div>
           <div class="blog-content">
@@ -157,13 +152,14 @@
               <li class="date"><i class="fa fa-calendar-check-o"></i>{{date('Y-m-d ', strtotime($blog->created_at))}}</li>
               <li class="admin"><i class="fas fa-user"></i> {{$blog->created_by}}</li>
             </ul>
-            <h3 class="blog-title"><a href="{{route('Front.blog.details')}}">{{$blog->getTranslation('title',\App::getLocale())}}</a></h3>
+            <h3 class="blog-title"><a href="{{route('Front.blog.details',$blog->id)}}">{{$blog->getTranslation('title',\App::getLocale())}}</a></h3>
             <p class="desc">{{$blog->getTranslation('description',\App::getLocale())}}</p>
-            <div class="blog-button"><a href="{{route('Front.blog.details')}}"> {{trans('front.read-more')}} <i class="fas fa-angle-right fa-fw"></i></a></div>
+            <div class="blog-button"><a href="{{route('Front.blog.details',$blog->id)}}"> {{trans('front.read-more')}} <i class="fas fa-angle-right fa-fw"></i></a></div>
           </div>
-        </div>
-        @endforeach
+        </div> 
       </div>
+        @endforeach
+     
 
 
     </div>

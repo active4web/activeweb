@@ -30,6 +30,14 @@
                                 data-feather="layout"></i><span>Banners</span></a>
                        
                     </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.about.index')}}"><i
+                                data-feather="home"></i><span>About-Us</span></a>
+                     
+                    </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.aboutstep.index')}}"><i
+                                data-feather="home"></i><span>About-Steps</span></a>
+                     
+                    </li>
                     <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.service.index')}}"><i
                                 data-feather="layout"></i><span>Services</span></a>
                        
