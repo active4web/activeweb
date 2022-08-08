@@ -38,6 +38,18 @@
                                 data-feather="layout"></i><span>Blogs</span></a>
                        
                     </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.blogDetail.index')}}"><i
+                                data-feather="layout"></i><span>Blog Details</span></a>
+                       
+                    </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.blogComponent.index')}}"><i
+                                data-feather="layout"></i><span>Blog Components</span></a>
+                       
+                    </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.category.index')}}"><i
+                                data-feather="layout"></i><span>Categories</span></a>
+                       
+                    </li>
                     <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.ourwork.index')}}"><i
                                 data-feather="layout"></i><span>Our-Works</span></a>
                        

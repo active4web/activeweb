@@ -16,4 +16,13 @@ class Blog extends Model
     protected $fillable=[
         'title','description','image', 'category','created_by'
     ];
+
+
+    public function blogDetails(){
+        return $this->hasMany(BlogDetail::class,'blog_id');
+    }
+
+    public function blogComponents(){
+        return $this->hasMany(BlogComponent::class,'blog_id');
+    }
 }

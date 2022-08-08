@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests\Contact\CreateContactRequest;
+use App\Models\Category;
 
 class FrontController extends Controller
 { 
@@ -21,8 +22,13 @@ class FrontController extends Controller
     protected $blogModel;
     protected $ourWorkModel;
     protected $contactModel;
+    protected $categoryModel;
 
-    public function __construct(Setting $setting,Banner $banners ,Service $services,Blog $blogs,OurWork $ourWorks,Contact $contact)
+    public function __construct(
+    Setting $setting,Banner $banners ,
+    Service $services,Blog $blogs,
+    OurWork $ourWorks,Contact $contact,
+    Category $category,)
     {
         $this->settingModel=$setting;
         $this->bannerModel=$banners;
@@ -30,6 +36,7 @@ class FrontController extends Controller
         $this->blogModel =$blogs;
         $this->ourWorkModel =$ourWorks;
         $this->contactModel=$contact;
+        $this->categoryModel=$category;
     }
     public function index(){
 
@@ -47,11 +54,17 @@ class FrontController extends Controller
 
     public function blog(){
         $blogs =$this->blogModel::get();
-        return view('front.pages.blog',compact('blogs'));
+        $categories=$this->categoryModel::get();
+        return view('front.pages.blog',compact('categories','blogs'));
     }
 
-    public function blogDetails(){
-        return view('front.pages.blog-details');
+    public function blogDetails($id){
+        $blogs =$this->blogModel::take(4)->orderBy('id', 'DESC')->get();
+        $blog=$this->blogModel::with('blogDetails','blogComponents')->whereHas('blogDetails',function($q) use($id){
+            $q->where('blog_id',$id);
+        })->first();
+        $categories=$this->categoryModel::get();
+        return view('front.pages.blog-details',compact('categories','blogs','blog'));
     }
 
     public function contactUs(){

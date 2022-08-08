@@ -1,6 +1,6 @@
 @extends('Admin.layouts.master')
 
-@section('title','الرئيسية')
+@section('title','Home')
 @section('css')
 
 @endsection
