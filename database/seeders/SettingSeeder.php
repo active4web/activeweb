@@ -16,11 +16,11 @@ class SettingSeeder extends Seeder
     {
          
             Setting::create([
-           'app_name'  =>  json_encode(['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب ']),
-            'description' => json_encode( ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب ']),
+           'app_name'  =>  ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
+            'description' => ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
            'logo'       =>   '1659607371.jpg',
             'email'      =>  'Web.active.smart@gmail.com',
-           'address'    => json_encode( ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب ']),
+           'address'    =>  ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
           'phone'      =>   '01234567898'
              ]);
        

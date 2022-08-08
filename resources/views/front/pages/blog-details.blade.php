@@ -39,36 +39,27 @@ Blog-المقالات
             <div class="col-lg-8 px-0">
               <div class="contentblog">
                 <div class="blog-header">
-                  <h1>برنامج مكتبات المحاسب العربى</h1>
+                  <h1> {{$blog->getTranslation('title',\App::getLocale())}}</h1>
                   <div class="row mt20 mb20">
                     <div class="media col-md-6 col-12">
-                      <h5><i class="far fa-smile-wink"></i>برنامج مكتبات المحاسب العربى</h5>
+                      <h5><i class="far fa-smile-wink"></i> {{$blog->getTranslation('title',\App::getLocale())}}</h5>
                     </div>
                     <div class="media-body user-info col-md-6 col-12">
-                      <p><i class="far fa-calendar-alt"></i>7 أغسطس 2020</p>
+                      <p><i class="far fa-calendar-alt"></i>{{date('Y-m-d ', strtotime($blog->created_at))}}</p>
                     </div>
                
                   </div>
                 </div><!-- blog-header -->
                 <div class="image-set"><img src="{{ asset('assets/front/img/blog__thumb01.png')}}" class="img-fluid"></div>
                 <div class="span8">
-                  <h4 class="visible-desktop">برنامج مكتبات المحاسب العربى  </h4>
-                  <p>برنامج مكتبات المحاسب العربى من العلمية سوفت صمم خصيصا لاصحاب محلات المكتبات فهو يلبى كل احتيجاتهم و تعاملاتهم الحسابية من فواتير ومخازن وخزينه وعملاء وموردين واوراق قبض ودفع والبنوك فهو:</p>
+                  <h4 class="visible-desktop">{{$blog->getTranslation('title',\App::getLocale())}} </h4>
+                  <p>{{$blog->getTranslation('description',\App::getLocale())}}</p>
                   <ul class="ul-list mb30">
-                    <li>يعطيك كل القوائم الماليه التي تحتاجها لاتخاذ قرارتك.</li>
-                    <li>يساعدك في دراسة منتجاتك فهو يظهر لك اكثر الاصناف مبيعا واقلها مبيعا.</li>
-                    <li>يرتب تصنيفات مكتبتك داخل المخزن.</li>
-                    <li>يدعم نظام الباركود لسهولة ترتيب أصنافك فى البرنامج.</li>
-                    <li>دعم نظام المخازن و المخازن الفرعية.</li>
-                    <li>دعم نظام الخزينة وادارة المصاريف الاضافية.</li>
-                    <li>نظام الفواتير وامكانية البحث عنها.</li>
-                    <li>سهولة إستخراج التقارير.</li>
-                    <li>مستويات المستخدمين لتمكنك من تخصيص امكانيات لكل مستخدم.</li>
-                    <li>حسابات العملاء و الموردين.</li>
-                    <li>حسابات البنوك و أوراق الدفع و القبض.</li>
-                    <li>يعمل علي جميع الطبعات وجميع المقاسات.</li>
-                    <li>يدعم اجهزه الباركود.</li>
-                    <li>يدعم Windows XP – Windows Vista – Windows 7 – Windows server – Windows8.</li>
+                    @foreach($blog->blogDetails as $blogdetail)
+
+                    <li>{{$blogdetail->getTranslation('description',\App::getLocale())}} </li>
+                    @endforeach
+                 
                   </ul>
                   <h2>
                     <span style="text-decoration: underline; font-size: 14pt;">
@@ -78,36 +69,16 @@ Blog-المقالات
                     </span>
                   </h2>
                   <ul>
+                  @foreach($blog->blogComponents as $blogComponent)
                     <li>
                       <strong>
-                        <span style="text-decoration: underline;">نظام</span>
-                        <span style="text-decoration: underline;"> الفواتير:</span>
+                        <span style="text-decoration: underline;"> {{$blogComponent->getTranslation('title',\App::getLocale())}} :</span>
+                    
                         <span style="text-decoration: underline;"><br> </span>
-                      </strong>يمكنك من عمل الفواتير بأنواعها (البيع و الشراء ، المرتجع ، الضريبية ، اضافة الخصومات و الأكازيون).
+                      </strong> 
+                      {{$blogComponent->getTranslation('description',\App::getLocale())}} .
                     </li>
-                    <li>
-                      <span style="text-decoration: underline;">
-                        <strong>المخازن و الخزينة:&nbsp;</strong>
-                      </span><br> اضافة الأصناف وترتيبها داخل المخزن.<br> عمل جرد للأصناف داخل المخزن وحركة المخزن والخزينة.<br> التنبيه عند نقص أى صنف من المخزن.<br> دعم تعدد المخزان اذ كان لديك أكثر من فرع وسهولة التحرك بينهم.<br> متابعة حركة الخزينة من جرد و مصروفات وغيرها.<br> دعم لكل دفاتر المحاسبة.<br> عمل حساب المتاجرة و الأرباح و الخسائر.
-                    </li>
-                    <li>
-                      <strong>
-                        <span style="text-decoration: underline;">العملاء و الموردين:</span><br> 
-                      </strong>عمل حسابات العملاء و الموردين.<br> معرفة مدفوعاتهم و الأققساط للعميل و التأخرات و المديونية وغيرها.<br> تسجيل خصومات على فاتورة عميل معين. 
-                    </li>
-                    <li>
-                      <strong>
-                        <span style="text-decoration: underline;">أوراق الدفع و القبض:</span><br> 
-                      </strong>يعرض قوائم الأوراق التى تم تحصيلها والتى تم سداداها و المرفوضة وغيرها.
-                    </li>
-                    <li>
-                      <strong><span style="text-decoration: underline;">الحسابات البنكية:</span><br> 
-                      </strong>امكانية اضافة حساباتك البنكية مع تذكيرك بمواعيد استحقاقها وسداداها.
-                    </li>
-                    <li>
-                      <span style="text-decoration: underline;"><strong>ادارة البرنامج:</strong>
-                      </span><br> البرنامج يمكنك من إدارة المستخدمين لديك وعمل حساب لكل مستخدم ومراقبة تحركاتهم على البرنامج وماقاموا به لحمايتك من السرقة أو الأحتيال.
-                    </li>
+                  @endforeach
                   </ul>
                   <p style="text-align: center;" class="salesbuy">
                     <span style="font-size: 14pt;">
@@ -159,67 +130,34 @@ Blog-المقالات
                   </div><!-- sidebar-form -->
                 </div><!-- widget mb-30 -->
                 <div class="widget mb-30">
-                  <h3 class="widget-title">المشاركات الاخيرة</h3>
+                  <h3 class="widget-title">{{trans('front.last-blogs')}}</h3>
                   <div class="rc-post">
                     <ul>
+                      @foreach($blogs as $blog)
                       <li>
-                        <a href="blog-details.html">
+                        <a href="{{route('Front.blog.details',$blog->id)}}">
                           <div class="rc-post-thumb">
-                            <img src="{{ asset('assets/front/img/library-225x169.png')}}" alt="img">
+                            <img src="{{ asset('images/blog/'.$blog->image)}}" alt="img">
                           </div>
                           <div class="rc-post-content">
-                            <h5>رنامج مكتبات المحاسب العربى  </h5>
-                            <span><i class="far fa-calendar-alt"></i> 17 أغسطس 2020</span>
+                            <h5> {{$blog->getTranslation('title',\App::getLocale())}} </h5>
+                            <span><i class="far fa-calendar-alt"></i> {{date('Y-m-d ', strtotime($blog->created_at))}}</span>
                           </div>
                         </a>
                       </li>
-                      <li>
-                        <a href="blog-details.html">
-                          <div class="rc-post-thumb">
-                            <img src="{{ asset('assets/front/img/library-225x169.png')}}" alt="img">
-                          </div>
-                          <div class="rc-post-content">
-                            <h5>برنامج ادرة شركات الكمبيوتر و الصيانة المحاسب العربى</h5>
-                            <span><i class="far fa-calendar-alt"></i> 17 أغسطس 2020</span>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="blog-details.html">
-                          <div class="rc-post-thumb">
-                            <img src="{{ asset('assets/front/img/library-225x169.png')}}" alt="img">
-                          </div>
-                          <div class="rc-post-content">
-                            <h5>برنامج مستلزمات طبية المحاسب العربى</h5>
-                            <span><i class="far fa-calendar-alt"></i> 17 أغسطس 2020</span>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="blog-details.html">
-                          <div class="rc-post-thumb">
-                            <img src="{{ asset('assets/front/img/library-225x169.png')}}" alt="img">
-                          </div>
-                          <div class="rc-post-content">
-                            <h5>برنامج مراحل التصنيع والانتاج المحاسب العربى</h5>
-                            <span><i class="far fa-calendar-alt"></i> 17 أغسطس 2020</span>
-                          </div>
-                        </a>
-                      </li>
+                      @endforeach
+                    
                     </ul>
                   </div><!-- rc-post -->
                 </div><!-- widget mb-30 -->
                 <div class="widget mb-30">
-                  <h3 class="widget-title">التصنفيات</h3>
+                  <h3 class="widget-title">{{trans('front.categories')}}</h3>
                   <div class="sidebar-cat">
                     <ul>
-                      <li><a href="#">خدمة تصميم المواقع <span>26</span></a></li>
-                      <li><a href="#">خدمة تصميم المتاجر الالكترونية <span>30</span></a></li>
-                      <li><a href="#">خدمة تصميم تطبيقات الموبايل <span>56</span></a></li>
-                      <li><a href="#">نظام شئون الموظفين<span>60</span></a></li>
-                      <li><a href="#">نظام الحسابات والمخزون<span>60</span></a></li>
-                      <li><a href="#">نظام المناديب وخدمات توصيل الطلبات<span>60</span></a></li>
-                      <li><a href="#">نظام ادارة مكاتب المحاماة <span>60</span></a></li>
+                      @foreach($categories as $category )
+                      <li><a href="#">{{$category->getTranslation('title',\App::getLocale())}}<span>{{$category->count}}</span></a></li>
+                      
+                      @endforeach
                     </ul>
                   </div>
                 </div><!-- widget mb-30 -->

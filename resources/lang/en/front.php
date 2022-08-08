@@ -21,6 +21,8 @@ return[
     'read-more'                         =>  'read more',
     'more'                              =>  'more',
     'send'                              =>   'Send',
+    'categories'                        => 'Categories',
+    'last-blogs'                        => 'Last shared Blogs',
 
     /* -------------------Contact Page ----------------*/
 

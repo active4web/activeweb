@@ -10,7 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class ContactController extends Controller
 {
-    use ImageTrait;
+  
     protected $contactModel;
 
     public function __construct(Contact $contactModel)

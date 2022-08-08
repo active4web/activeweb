@@ -8,7 +8,10 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\OurWorkController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\BlogDetailController;
 use App\Http\Controllers\Admin\SocialMediaController;
+use App\Http\Controllers\Admin\BlogComponentController;
 
 
 /*
@@ -71,7 +74,30 @@ Route::group(['prefix'=> 'blog', 'as' => 'blog.'],function(){
     Route::put('/update/{id}',[BlogController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[BlogController::class,'destroy'])->name('destroy');
 });
-
+                    /*   blog-details  */
+Route::group(['prefix'=> 'blogDetail', 'as' => 'blogDetail.'],function(){
+    Route::get('/',[BlogDetailController::class,'index'])->name('index');
+    Route::get('/create',[BlogDetailController::class,'create'])->name('create');
+    Route::post('/store',[BlogDetailController::class,'store'])->name('store');
+    Route::put('/update/{id}',[BlogDetailController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[BlogDetailController::class,'destroy'])->name('destroy');
+});
+                 /*   blog-components  */
+Route::group(['prefix'=> 'blogComponent', 'as' => 'blogComponent.'],function(){
+    Route::get('/',[BlogComponentController::class,'index'])->name('index');
+    Route::get('/create',[BlogComponentController::class,'create'])->name('create');
+    Route::post('/store',[BlogComponentController::class,'store'])->name('store');
+    Route::put('/update/{id}',[BlogComponentController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[BlogComponentController::class,'destroy'])->name('destroy');
+});
+                          /*   categories   */
+Route::group(['prefix'=> 'category', 'as' => 'category.'],function(){
+    Route::get('/',[CategoryController::class,'index'])->name('index');
+    Route::get('/create',[CategoryController::class,'create'])->name('create');
+    Route::post('/store',[CategoryController::class,'store'])->name('store');
+    Route::put('/update/{id}',[CategoryController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[CategoryController::class,'destroy'])->name('destroy');
+});
                        /*   our-works   */
 Route::group(['prefix'=> 'ourwork', 'as' => 'ourwork.'],function(){
     Route::get('/',[OurWorkController::class,'index'])->name('index');
