@@ -3,12 +3,14 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\OurWorkController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\AboutStepController;
 use App\Http\Controllers\Admin\BlogDetailController;
 use App\Http\Controllers\Admin\SocialMediaController;
 use App\Http\Controllers\Admin\BlogComponentController;
@@ -55,6 +57,23 @@ Route::group(['prefix'=> 'banner', 'as' => 'banner.'],function(){
     Route::post('/store',[BannerController::class,'store'])->name('store');
     Route::put('/update/{id}',[BannerController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[BannerController::class,'destroy'])->name('destroy');
+});
+
+                  /*   about-us    */
+Route::group(['prefix'=> 'about', 'as' => 'about.'],function(){
+    Route::get('/',[AboutController::class,'index'])->name('index');
+    Route::get('/create',[AboutController::class,'create'])->name('create');
+    Route::post('/store',[AboutController::class,'store'])->name('store');
+    Route::put('/update/{id}',[AboutController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[AboutController::class,'destroy'])->name('destroy');
+});
+          /*   about-steps    */
+Route::group(['prefix'=> 'aboutstep', 'as' => 'aboutstep.'],function(){
+    Route::get('/',[AboutStepController::class,'index'])->name('index');
+    Route::get('/create',[AboutStepController::class,'create'])->name('create');
+    Route::post('/store',[AboutStepController::class,'store'])->name('store');
+    Route::put('/update/{id}',[AboutStepController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[AboutStepController::class,'destroy'])->name('destroy');
 });
 
                   /*   services    */
