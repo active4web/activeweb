@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Blogs;
+namespace App\Http\Requests\Admin\ServiceDetails;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateBlogRequest extends FormRequest
+class CreateServiceDetailRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +26,7 @@ class CreateBlogRequest extends FormRequest
         return [
             'title_ar' => 'required',
             'description_ar'=> 'required',
-            'image' =>'required|image|mimes:jpeg,png,jpg,gif,svg',
-            'category_ar' =>'required',
-            
+            'image' =>'required|image|mimes:jpeg,png,jpg,gif,svg'
         ];
     }
 }

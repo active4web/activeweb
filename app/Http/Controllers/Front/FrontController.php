@@ -78,9 +78,7 @@ class FrontController extends Controller
     public function blogDetails($id)
     {
         $blogs = $this->blogModel::take(4)->orderBy('id', 'DESC')->get();
-        $blog = $this->blogModel::with('blogDetails', 'blogComponents')->whereHas('blogDetails', function ($q) use ($id) {
-            $q->where('blog_id', $id);
-        })->first();
+        $blog = $this->blogModel::where('id',$id)->with('blogDetails', 'blogComponents')->first();    
         $categories = $this->categoryModel::get();
         return view('front.pages.blog-details', compact('categories', 'blogs', 'blog'));
     }
@@ -106,9 +104,12 @@ class FrontController extends Controller
         return view('front.pages.our-works', compact('ourworks'));
     }
 
-    public function ourWorksDetails()
+    public function ourWorksDetails($id)
     {
-        return view('front.pages.our-works-details');
+        $work= $this->ourWorkModel::where('id',$id)->with('ourWorkDetails')->first();
+        $blogs = $this->blogModel::take(4)->orderBy('id', 'DESC')->get();
+        $categories = $this->categoryModel::get();
+        return view('front.pages.our-works-details',compact('blogs','categories','work'));
     }
 
     public function services()
@@ -122,9 +123,10 @@ class FrontController extends Controller
         return view('front.pages.my-services');
     }
 
-    public function serviceDetails()
+    public function serviceDetails($id)
     {
-        return view('front.pages.service-details');
+        $service = $this->serviceModel::where('id',$id)->with('serviceDetails')->first();
+        return view('front.pages.service-details',compact('service'));
     }
 
     public function serviceRequest()

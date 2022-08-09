@@ -1,6 +1,6 @@
 @extends('Admin.layouts.master')
 
-@section('title','contact-us')
+@section('title','TechnicalSupport')
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/datatables.css')}}">
 @endsection
@@ -11,7 +11,7 @@
 <div class="col-sm-12">
   <div class="card">
     <div class="card-header">
-      <h5>Contacts</h5>
+      <h5>Technical supports </h5>
 
     </div>
     <div class="card-body">
@@ -23,7 +23,7 @@
               <th scope="col">ID</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
-              <th scope="col">Message</th>
+              <th scope="col">category</th>
               <th scope="col">Action</th>
 
 
@@ -31,30 +31,30 @@
           </thead>
           <tbody>
             
-            @foreach($contacts as $key=> $contact)
+            @foreach($technicalsupports   as $key=> $technicalsupport)
             <tr>
-              <td>{{$key +1}}</td>
-              <td>{{$contact->name}}</td>
-              <td>{{$contact->email}}</td>
-              <td>{{$contact->message}}</td>
+              <td>{{$key +1  }}</td>
+              <td>{{$technicalsupport->name}}</td>
+              <td>{{$technicalsupport->email}}</td>
+              <td>{{$technicalsupport->category_id}}</td>
               <td>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$contact->id}}">delete</button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$technicalsupport->id}}">delete</button>
               </td>
             </tr>
          
             <!-- modal delete !-->
-            <div class="modal fade" id="exampleModal{{$contact->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal{{$technicalsupport->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">delete contact</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">delete technicalsupport</h5>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form method="post" action="{{route('Admin.contact.destroy',$contact->id)}}">
+                    <form method="post" action="{{route('Admin.technicalsupport.destroy',$technicalsupport->id)}}">
                       @csrf
                       @method('PUT')
-                      <p> Are you sure you want to delete this contact ?</p>
+                      <p> Are you sure you want to delete this technicalsupport ?</p>
                   </div>
                   <div class="modal-footer">
                     <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Close</button>
@@ -69,11 +69,12 @@
           </tbody>
           <tfoot>
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Message</th>
-              <th>Action</th>
+            <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">category</th>
+              <th scope="col">Action</th>
+
             </tr>
           </tfoot>
         </table>

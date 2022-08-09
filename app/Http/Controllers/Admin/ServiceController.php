@@ -62,7 +62,7 @@ class ServiceController extends Controller
      $service->update([
       'title'         => ['en'=>$request->title_en,'ar'=>$request->title_ar,],
       'description'   => ['en'=>$request->description_en,'ar'=>$request->description_ar,],
-      'image'         => $image  ?? $request->image,
+      'image'         => $image  ?? $service->image,
      ]);
 
      Alert::success('success', 'Service  updated  Successfully');

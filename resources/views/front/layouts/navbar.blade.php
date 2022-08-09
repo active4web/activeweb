@@ -8,12 +8,14 @@
               <div class="col-md-6 col-12 px-0">
                 <div class="right-part">
                  
-                  <a href="tel:01001161097" class="cont-link">{{$setting->first()->phone}}</a>
+                  <a href="tel:01001161097" class="cont-link p-2">{{$setting->first()->phone}}</a>
+                  <a href="{{$setting->email}}" class="cont-link p-2">{{$setting->first()->email}}</a> 
                
-                  <a href="{{$setting->email}}" class="cont-link ">{{$setting->first()->email}}</a> 
-               
-                  <li><a href="{{url('lang/ar')}}" >{{trans('front.arabic')}}</a></li>
-                  <li><a href="{{url('lang/en')}}">{{trans('front.english')}}</a></li>
+                  @if(App::getLocale() == 'en')
+                  <a  class="cont-link p-2 " href="{{url('lang/ar')}}" >{{trans('front.arabic')}}</a>
+                  @else
+                  <a   class="cont-link p-2"href="{{url('lang/en')}}">{{trans('front.english')}}</a>
+                  @endif
                 </div>
               </div>
               <div class="col-md-6 col-12 px-0">

@@ -27,7 +27,7 @@ class UpdateOurWorkRequest extends FormRequest
             'id' =>'required|exists:our_works,id',
             'title_ar' => 'required',
             'description_ar'=> 'required',
-            'image' =>'required|image|mimes:jpeg,png,jpg,gif,svg'
+           
         ];
     }
 }

@@ -6,7 +6,7 @@
     </div>
     <nav>
         <div class="main-navbar">
-            <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
+            
             <div id="mainnav">
                 <ul class="nav-menu custom-scrollbar">
                     <li class="back-btn">
@@ -42,6 +42,10 @@
                                 data-feather="layout"></i><span>Services</span></a>
                        
                     </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.service.index')}}"><i
+                                data-feather="layout"></i><span>Service Details</span></a>
+                       
+                    </li>
                     <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.blog.index')}}"><i
                                 data-feather="layout"></i><span>Blogs</span></a>
                        
@@ -62,8 +66,16 @@
                                 data-feather="layout"></i><span>Our-Works</span></a>
                        
                     </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.ourworkdetail.index')}}"><i
+                                data-feather="layout"></i><span>Our-Works-Details</span></a>
+                       
+                    </li>
                     <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.contact.index')}}"><i
                                 data-feather="layout"></i><span>Contacts</span></a>
+                       
+                    </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="{{route('Admin.technicalsupport.index')}}"><i
+                                data-feather="layout"></i><span>TechnicalSupport</span></a>
                        
                     </li>
                 </ul>

@@ -75,7 +75,7 @@
                 <div class="s2-footer_logo">
                   <img   src="{{ asset('images/setting/'.$setting->first()->logo)}}">
                 </div>
-                <p class="mb-3">افضل شركة تصميم مواقع<br> افضل شركة تصميم تطبيقات و برمجة مواقع و برمجة تطبيقات<br> هنجيبلك العميل و انت عليك الباقي الشركة الوحيدة المعتمدة من جوجل في مصر وحاصلة علي حساب الجولد بارتنر الذي يتيح لك الكثير من مزايا جوجل احصل علي اعلي عائد في جوجل بأقل التكاليف</p>
+                <p class="mb-3">{{$setting->first()->getTranslation('description', \App::getLocale())}} </p>
                 <div class="social-icons social-border circle social-hover mt-5">
                   <h4 class="title">تابعنا</h4>
                   <ul class="list-inline">
@@ -96,12 +96,30 @@
                   <i></i>
                 </h3>
                 <ul>
-                  <li><a href="{{route('Front.index')}}"> الرئيسية</a></li>
-                  <li><a href="{{route('Front.about')}}"> من نحن</a></li>
-                  <li><a href="{{route('Front.ourworks')}}"> اعمالنا  </a></li>
-                  <li><a href="{{route('Front.services')}}">   خدماتنا  </a></li>
-                  <li><a href="{{route('Front.contactus')}}"> تواصل  معانا </a></li>
-                  <li><a href="{{route('Front.service.request')}}"> دعم فني وطلب خدمة </a></li>
+                <li class="">
+                      <a class=" active" aria-current="page" href="{{route('Front.index')}}">{{trans('front.Home')}}</a>
+                    </li>
+                    <li class="">
+                      <a class="" href="{{route('Front.about')}}">{{trans('front.about')}}</a>
+                    </li>
+                      <li class="">
+                      <a class="" href="{{route('Front.ourworks')}}">{{trans('front.our-works')}} </a>
+                    </li>
+                   
+                    <li class="">
+                      <a class="" href="{{route('Front.services')}}">  {{trans('front.services')}} </a>
+                    </li>
+                    <li class="">
+                      <a class="" href="{{route('Front.blog')}}">{{trans('front.blogs')}}</a>
+                    </li>
+
+                    <li class="">
+                      <a class="" href="{{route('Front.contactus')}}">{{trans('front.contact-us')}}</a>
+                    </li>
+                        
+                    <li class="">
+                      <a class="" href="{{route('Front.service.request')}}">{{trans('front.requestservice')}}</a>
+                    </li>
                 </ul>
               </div>
             </div>
@@ -113,9 +131,9 @@
                 </h3>
                 <ul class="media-icon list-unstyled">
                 
-                  <li><span style="color:#b6b5b4"> العنوان  : </span><strong> {{$setting->first()->getTranslation('address', 'en');}} </strong></li>
-                  <li><span style="color:#b6b5b4"> الهاتف : </span> <a href="">{{$setting->first()->phone}}</a></li>
-                  <li><span style="color:#b6b5b4"> البريد الإلكتروني :</span><a href="#"> &nbsp;{{$setting->first()->email}}</a></li>
+                  <li><span style="color:#b6b5b4"> {{trans('front.address')}} : </span><strong> {{$setting->first()->getTranslation('address', \App::getLocale())}} </strong></li>
+                  <li><span style="color:#b6b5b4"> {{trans('front.phone')}}: </span> <a href="">{{$setting->first()->phone}}</a></li>
+                  <li><span style="color:#b6b5b4">{{trans('front.email')}}:</span><a href="#"> &nbsp;{{$setting->first()->email}}</a></li>
                  
                   <li>
                     <p class="mb-0"><span style="color:#fff;font-weight:bold"> لابد من حجز ميعاد مسبق علي الاقل بيوم من موعد المقابلة بفرع الادارة </span></p>

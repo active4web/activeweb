@@ -63,7 +63,7 @@ class BlogController extends Controller
      $blog->update([
       'title'         => ['en'=>$request->title_en,'ar'=>$request->title_ar,],
       'description'   => ['en'=>$request->description_en,'ar'=>$request->description_ar,],
-      'image'         => $image  ?? $request->image,
+      'image'         => $image  ?? $blog->image,
       'category'      => ['en'=>$request->category_en,'ar'=>$request->category_ar,],
     
     ]);

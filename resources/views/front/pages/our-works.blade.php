@@ -56,7 +56,7 @@ OurWorks  - اعمالنا
               <div class="grid-item">
                    
                 <div class="work-item">
-                  <a href="{{route('Front.ourworks.details')}}">
+                  <a href="{{route('Front.ourworks.details',$ourwork->id)}}">
                     <img src="{{ asset('images/ourwork/'.$ourwork->image)}}">
                     <div class="div-overlay">
                       <h4 class="fw-bold">{{$ourwork->getTranslation('title',\App::getLocale())}}</h4>

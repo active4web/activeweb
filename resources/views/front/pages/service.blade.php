@@ -54,8 +54,8 @@ Services - خدماتنا
                   <div class="promo-img">
                   <img src="{{ asset('images/service/'.$service->image)}}">
                   </div>
-                  <h5><a href="{{route('Front.services-details')}}"> {{$service->getTranslation('title',\App::getLocale())}} </a></h5>
-                  <p>{{$service->getTranslation('title',\App::getLocale())}}</p>
+                  <h5><a href="{{route('Front.services-details',$service->id)}}"> {{$service->getTranslation('title',\App::getLocale())}} </a></h5>
+                  <p>{!!  Str::words($service->getTranslation('description',\App::getLocale()),20) !!}</p>
                   <div class="promo-bottom-shape">
                     <img src="{{ asset('assets/front/img/bottom.png')}}">
                   </div>

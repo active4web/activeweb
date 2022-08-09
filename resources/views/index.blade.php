@@ -68,8 +68,8 @@
           <div class="promo-img">
             <img src="{{ asset('images/service/'.$service->image)}}">
           </div>
-          <h5><a href="{{route('Front.services-details')}}"> {{$service->getTranslation('title',\App::getLocale())}} </a></h5>
-          <p>{{$service->getTranslation('description',\App::getLocale())}} </p>
+          <h5><a href="{{route('Front.services-details',$service->id)}}"> {{$service->getTranslation('title',\App::getLocale())}} </a></h5>
+          <p>{!!  Str::words($service->getTranslation('description',\App::getLocale()),20) !!} </p>
           <div class="promo-bottom-shape">
             <img src="{{ asset('assets/front/img/bottom.png')}}">
           </div>
@@ -109,17 +109,18 @@
           <div class="figcaption item-img-overlay">
             <h4 class="fw-bold"> {{$ourwork->getTranslation('title',\App::getLocale())}} </h4>
             <p> {{$ourwork->getTranslation('description',\App::getLocale())}}</p>
-            <a href="{{route('Front.ourworks.details')}}" class="actiomfp-link"> {{trans('front.more')}}<i class="fa fa-arrows-alt"></i></a>
+            <a href="{{route('Front.ourworks.details',$ourwork->id)}}" class="actiomfp-link"> {{trans('front.more')}}<i class="fa fa-arrows-alt"></i></a>
           </div>
         </div>
-      </div>
+      </div> 
+    
       @endforeach
-
-    </div> <!-- /clintgallery -->
+</div> <!-- /clintgallery -->
 
     <div class="text-center works-content">
-      <a href="{{route('Front.ourworks.details')}}" class="btn btn-primary">عرض كل الأعمال</a>
+      <a href="{{route('Front.ourworks')}}" class="btn btn-primary">عرض كل الأعمال</a>
     </div>
+   
 
   </div>
 </section>

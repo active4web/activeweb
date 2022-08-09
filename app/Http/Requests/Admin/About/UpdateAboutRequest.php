@@ -27,7 +27,7 @@ class UpdateAboutRequest extends FormRequest
             'id' =>'required|exists:abouts,id',
             'title_ar' => 'required',
             'description_ar'=> 'required',
-            'image' =>'required|image|mimes:jpeg,png,jpg,gif,svg'
+           
         ];
     }
 }

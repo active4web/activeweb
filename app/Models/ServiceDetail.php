@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class OurWork extends Model
+class ServiceDetail extends Model
 {
     use HasTranslations;
     use HasFactory;
@@ -14,10 +14,11 @@ class OurWork extends Model
         'title','description'
     ];
     protected $fillable=[
-        'title','description','image'
+        'title','description','image','service_id'
     ];
 
-    public function ourWorkDetails(){
-        return $this->hasMany(OurWorkDetail::class,'ourwork_id');
+    public function service(){
+        return $this->belongsTo(Service::class,'service_id');
     }
 }
+

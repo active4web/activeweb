@@ -17,9 +17,10 @@ class ChangeLang
     public function handle(Request $request, Closure $next)
     {
         
-        app()->setLocale('ar');
-        if (isset($request->lang)&& $request->lang == 'en')
-           app()->setLocale('en');
+        if(session()->has('lang')) {
+            app()->setLocale(session('lang'));
+            app()->setLocale(config('app.locale'));
+        }
 
         return $next($request);
     }

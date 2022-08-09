@@ -43,16 +43,16 @@ Services - خدماتنا
               <div class="left-sec contact-page">
                 <h2 class="titleopo">طلب خدمة جديدة</h2>
                 
-                <form class="form-contact">
-
+                <form class="form-contact"  method="post" action="{{route('front.service.requeststore)}}">
+                   @csrf
                   <div class="form-group form-focus">
                     <label class="control-label">اسم العميل</label>
-                    <input class="form-control floating" type="text">
+                    <input class="form-control floating" type="text" name="name">
                   </div>
 
                   <div class="form-group form-focus">
                     <label class="control-label">باسورد</label>
-                    <input class="form-control floating" type="password">
+                    <input class="form-control floating" type="password" name="email">
                   </div>
                   <div class="form-group">
                     <select id="sseeeopo" class="form-control">
