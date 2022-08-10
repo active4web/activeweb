@@ -73,7 +73,7 @@
             <div class="col-lg-4 col-md-12">
               <div class="s2_footer_about">
                 <div class="s2-footer_logo">
-                  <img   src="{{ asset('images/setting/'.$setting->first()->logo)}}">
+                  <a href="{{route('Front.index')}}"><img   src="{{ asset('images/setting/'.$setting->first()->logo)}}"></a>
                 </div>
                 <p class="mb-3">{{$setting->first()->getTranslation('description', \App::getLocale())}} </p>
                 <div class="social-icons social-border circle social-hover mt-5">

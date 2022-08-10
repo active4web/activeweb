@@ -21,7 +21,7 @@ use App\Http\Controllers\Front\FrontController;
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('lang/{lang}',function ($lang){
 
     App::setLocale($lang);

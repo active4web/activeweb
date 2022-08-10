@@ -30,7 +30,12 @@ return[
     'last-update'                       => 'Get last Updates',
     'links'                             => 'Links',
     'follow-us'                         => 'Follow Us',
-
+    'services-offer'                    => 'We Offer best services',
+    'blogs&news'                        => 'Blogs and News',
+    'components'                        => 'Components',
+    'pages'                             => 'Pages',
+    'search'                            =>  'Search',
+    'information'                       => 'Information About Us ',
     /* -------------------Contact Page ----------------*/
 
     'contact-info'                      =>   'We are pleased to contact you and receive your inquiries',

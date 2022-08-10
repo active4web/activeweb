@@ -35,7 +35,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark ">
               <div class="row  justify-content-between px-0">
                 <div class="col-md-3 col-12 px-0">
-                  <a  class="navbar-brand m-0" href="#"><img src="{{ asset('images/setting/'.$setting->first()->logo)}}"></a>
+                  <a  class="navbar-brand m-0" href="{{route('Front.index')}}"><img src="{{ asset('images/setting/'.$setting->first()->logo)}}"></a>
                 </div>
                 <div class="col-md-9 col-12 pl-0">
                   <ul class="navbar-nav">

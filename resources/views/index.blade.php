@@ -53,7 +53,7 @@
       <div class="col-md-10 col-lg-9">
         <div class="section-heading text-center">
           <strong class="color-secondary">{{trans('front.services')}}</strong>
-          <h2>نحن نقدم خدمات أفضل</h2>
+          <h2> {{trans('front.services-offer')}}</h2>
           <span class="animate-border mr-auto ml-auto mb-4"></span>
           <p class="lead">إعادة اختراع رأس المال البشري متعدد الوحدات عالميًا في حين أن المحفزات الافتراضية للتغيير. شبكة طرق دقيقة للتمكين بشكل حازم بدلاً من التحسينات التي تركز على العميل.</p>
         </div>
@@ -91,7 +91,7 @@
       <div class="col-md-10 col-lg-9">
         <div class="section-heading text-center">
           <strong class="color-secondary">{{trans('front.our-works')}}</strong>
-          <h2>نحن نقدم خدمات أفضل</h2>
+          <h2>{{trans('front.services-offer')}}</h2>
           <span class="animate-border mr-auto ml-auto mb-4"></span>
           <p class="lead">إعادة اختراع رأس المال البشري متعدد الوحدات عالميًا في حين أن المحفزات الافتراضية للتغيير. شبكة طرق دقيقة للتمكين بشكل حازم بدلاً من التحسينات التي تركز على العميل.</p>
         </div>
@@ -131,7 +131,7 @@
       <div class="col-md-10 col-lg-9">
         <div class="section-heading text-center">
           <strong class="color-secondary">{{trans('front.blogs')}}</strong>
-          <h2>الأخبار والمقالات</h2>
+          <h2>{{trans('front.blogs&news')}}</h2>
           <span class="animate-border mr-auto ml-auto mb-4"></span>
           <p class="lead">لدينا العديد من المقالات والأخبار الهامة التي تهم جميع محبي ومتابعي تك سوفت</p>
         </div>

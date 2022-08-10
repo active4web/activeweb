@@ -15,12 +15,12 @@ Blog-المقالات
           <div class="row justify-content-center">
             <div class="col-md-8 col-lg-7">
               <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
-                <h1 class="text-white mb-0">اهم المقالات</h1>
+                <h1 class="text-white mb-0">{{trans('front.blogs')}}</h1></h1>
                 <div class="custom-breadcrumb">
                   <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
-                    <li class="list-inline-item"><a href="index.html">الرئسية</a><i class="fas fa-angle-right fa-fw"></i></li>
-                    <li class="list-inline-item"><a href="#">الصفحات</a><i class="fas fa-angle-right fa-fw"></i></li>
-                    <li class="list-inline-item active">مقالات</li>
+                  <li class="list-inline-item"><a href="{{route('Front.index')}}">{{trans('front.Home')}}</a><i class="fas fa-angle-right fa-fw"></i></li>
+                    <li class="list-inline-item"><a href="#">{{trans('front.pages')}}</a><i class="fas fa-angle-right fa-fw"></i></li>
+                    <li class="list-inline-item active">{{trans('front.blogs')}}</li>
                   </ol>
                 </div>
               </div>
@@ -76,7 +76,7 @@ Blog-المقالات
               <aside class="blog-sidebar">
 
                 <div class="widget mb-30">
-                  <h3 class="widget-title">كائنات البحث</h3>
+                  <h3 class="widget-title">{{trans('front.search')}}</h3>
                   <div class="sidebar-form">
                     <form action="#">
                       <input type="text" placeholder="البحث هنا">
