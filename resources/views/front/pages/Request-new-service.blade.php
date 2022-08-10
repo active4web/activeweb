@@ -63,7 +63,7 @@ Services - خدماتنا
                       @endforeach
                     </select>
                   </div>
-                  <button class="btn btn-primary" type="submit"> {{trans('front.send')}}</button>
+                <button class="btn btn-link  btn-outline-light" type="submit" ><a class="btn btn--primary"> {{trans('front.send')}}</a> </button>
                 </form>                 
               </div>
             </div>
