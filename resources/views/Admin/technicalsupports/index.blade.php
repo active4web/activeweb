@@ -36,7 +36,7 @@
               <td>{{$key +1  }}</td>
               <td>{{$technicalsupport->name}}</td>
               <td>{{$technicalsupport->email}}</td>
-              <td>{{$technicalsupport->category_id}}</td>
+              <td>{{$technicalsupport->category->title}}</td>
               <td>
                 <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$technicalsupport->id}}"><i class="fa fa-trash-o"></i></button>
               </td>

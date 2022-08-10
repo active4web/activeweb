@@ -17,11 +17,15 @@ class SettingSeeder extends Seeder
          
             Setting::create([
            'app_name'  =>  ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
-            'description' => ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
+           'description' => ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
            'logo'       =>   '1659607371.jpg',
-            'email'      =>  'Web.active.smart@gmail.com',
+           'email'      =>  'Web.active.smart@gmail.com',
            'address'    =>  ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
-          'phone'      =>   '01234567898'
+           'phone'      =>   '01234567898',
+           'service_desc' => ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
+           'work_desc'  => ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
+           'blog_desc'  => ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
+
              ]);
        
   

@@ -48,32 +48,14 @@
       </div> 
     </section><!-- contentleft-right -->
 <footer id="saas_two_footer">
-      <div class="s2-newslatter_section">
-        <div class="s2-newslatter_content relative-position">
-          <div class="s2-newslatter_title  text-center saas2-headline pera-content">
-            <h2>  {{trans('front.subscribe')}}</h2>
-            <p> {{trans('front.last-update')}}</p>
-          </div>
-          <div class="s2-newslatter-form  relative-position">
-            <form action="#">
-              <input class="email" name="email" type="email" placeholder="أدخل عنوان بريدك الالكتروني">
-              <div class="nws-button position-absolute text-capitalize">
-                <button class="hover-btn" type="submit" value="Submit"> {{trans('front.subscribe')}}</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="newsletter_pattern_1"><img src="{{ asset('assets/front/img/nb.png')}}" alt=""></div>
-        <div class="newsletter_pattern_4 " style="background-image: url({{ asset('assets/front/img/ns.png')}});"></div>
-        <div class="newsletter_pattern_5 " style="background-image: url({{ asset('assets/front/img/ns2.png')}});"></div>
-      </div>
+      
       <div class="footer_content pera-content">
         <div class="container">
           <div class="row">
-            <div class="col-lg-4 col-md-12">
+            <div class="col-lg-8 col-md-12">
               <div class="s2_footer_about">
                 <div class="s2-footer_logo">
-                  <img   src="{{ asset('images/setting/'.$setting->first()->logo)}}">
+                  <a href="{{route('Front.index')}}"><img   src="{{ asset('images/setting/'.$setting->first()->logo)}}"></a>
                 </div>
                 <p class="mb-3">{{$setting->first()->getTranslation('description', \App::getLocale())}} </p>
                 <div class="social-icons social-border circle social-hover mt-5">

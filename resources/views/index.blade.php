@@ -1,3 +1,4 @@
+@inject('setting', 'App\Models\Setting')
 @extends('front.layouts.master')
 @section('title')
 @endsection
@@ -28,6 +29,7 @@
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="left-content">
+          @if($about)
           <img src="{{ asset('images/about/'.$about->image)}}">
         </div>
       </div>
@@ -39,7 +41,7 @@
           </div>
           <h2 class="h2">{{$about->getTranslation('title',\App::getLocale())}}</h2>
           <p class="text-p">{!!$about->getTranslation('description',\App::getLocale()) !!}</p>
-          
+          @endif
           <a href="{{route('Front.about')}}" class="btn btn-primary">{{trans('front.see-more')}}</a>
         </div>
       </div>
@@ -53,9 +55,9 @@
       <div class="col-md-10 col-lg-9">
         <div class="section-heading text-center">
           <strong class="color-secondary">{{trans('front.services')}}</strong>
-          <h2>نحن نقدم خدمات أفضل</h2>
+          <h2> {{trans('front.services-offer')}}</h2>
           <span class="animate-border mr-auto ml-auto mb-4"></span>
-          <p class="lead">إعادة اختراع رأس المال البشري متعدد الوحدات عالميًا في حين أن المحفزات الافتراضية للتغيير. شبكة طرق دقيقة للتمكين بشكل حازم بدلاً من التحسينات التي تركز على العميل.</p>
+          <p class="lead">{{$setting->first()->service_desc}}</p>
         </div>
       </div>
     </div>
@@ -91,9 +93,9 @@
       <div class="col-md-10 col-lg-9">
         <div class="section-heading text-center">
           <strong class="color-secondary">{{trans('front.our-works')}}</strong>
-          <h2>نحن نقدم خدمات أفضل</h2>
+          <h2>{{trans('front.services-offer')}}</h2>
           <span class="animate-border mr-auto ml-auto mb-4"></span>
-          <p class="lead">إعادة اختراع رأس المال البشري متعدد الوحدات عالميًا في حين أن المحفزات الافتراضية للتغيير. شبكة طرق دقيقة للتمكين بشكل حازم بدلاً من التحسينات التي تركز على العميل.</p>
+          <p class="lead">{{$setting->first()->work_desc}}</p>
         </div>
       </div>
     </div>
@@ -131,9 +133,9 @@
       <div class="col-md-10 col-lg-9">
         <div class="section-heading text-center">
           <strong class="color-secondary">{{trans('front.blogs')}}</strong>
-          <h2>الأخبار والمقالات</h2>
+          <h2>{{trans('front.blogs&news')}}</h2>
           <span class="animate-border mr-auto ml-auto mb-4"></span>
-          <p class="lead">لدينا العديد من المقالات والأخبار الهامة التي تهم جميع محبي ومتابعي تك سوفت</p>
+          <p class="lead">{{$setting->first()->blog_desc}}</p>
         </div>
       </div>
     </div>

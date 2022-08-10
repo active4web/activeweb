@@ -11,4 +11,9 @@ class TechnicalSupport extends Model
     protected $fillable = [
         'name', 'email', 'category_id'
     ];
+
+
+    public function category(){
+       return $this->belongsTo(Category::class,'category_id');
+    }
 }

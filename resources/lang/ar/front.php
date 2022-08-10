@@ -8,7 +8,7 @@ return[
     'about'                                  =>  'من نـحن',
     'our-works'                              =>  'اعمالنـا',
     'services'                               =>  'خدماتنـا',
-    'blogs'                                  =>  'مقـــالات',
+    'blogs'                                  =>  'مدونات',
     'contact-us'                             => 'تواصل معنـا',
     'requestservice'                         => 'طلب خدمة ودعم فني ',
     'pages'                                  => 'الصفحات',
@@ -31,7 +31,13 @@ return[
     'last-update'                            => 'احصل على آخر تحديث',
     'links'                                  => 'الروابط',
     'follow-us'                              => 'تابعنا',
-    /* -------------------Contact Page ----------------*/
+    'services-offer'                         => 'نحن نقدم خدمات أفضل',
+    'blogs&news'                             => 'مدونات',
+    'components'                             => 'مكونات',
+    'pages'                                  => 'الصفحات',
+    'search'                                 => 'كائنات البحث',
+    'information'                            =>' معلومات عنا ',
+       /* -------------------Contact Page ----------------*/
 
    
     'full-name'                              =>   'الاســـم',

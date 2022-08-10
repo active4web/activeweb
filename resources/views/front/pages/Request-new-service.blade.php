@@ -18,12 +18,12 @@ Services - خدماتنا
           <div class="row justify-content-center">
             <div class="col-md-8 col-lg-7">
               <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
-                <h1 class="text-white mb-0">طلب خدمة جديدة</h1>
+              <h1 class="text-white mb-0">{{trans('front.ask-new-service')}}</h1></h1>
                 <div class="custom-breadcrumb">
                   <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
-                    <li class="list-inline-item"><a href="index.html">الرئسية</a><i class="fas fa-angle-right fa-fw"></i></li>
-                    <li class="list-inline-item"><a href="#">الصفحات</a><i class="fas fa-angle-right fa-fw"></i></li>
-                    <li class="list-inline-item active">طلب خدمة جديدة</li>
+                    <li class="list-inline-item"><a href="{{route('Front.index')}}">{{trans('front.Home')}}</a><i class="fas fa-angle-right fa-fw"></i></li>
+                    <li class="list-inline-item"><a href="#">{{trans('front.pages')}}</a><i class="fas fa-angle-right fa-fw"></i></li>
+                    <li class="list-inline-item active">{{trans('front.ask-new-service')}}</li>
                   </ol>
                 </div>
               </div>

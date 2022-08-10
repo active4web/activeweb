@@ -47,7 +47,10 @@ class SettingController extends Controller
             'logo' => $logoname ?? $setting->logo,
             'email' => $request->email,
             'address' => ['en' => $request->address_en, 'ar' => $request->address_ar],
-            'phone'   => $request->phone
+            'phone'   => $request->phone,
+            'service_desc' =>  ['en' => $request->service_desc_en, 'ar' => $request->service_desc_ar],
+            'work_desc' =>  ['en' => $request->work_desc_en, 'ar' => $request->work_desc_ar],
+            'blog_desc' =>  ['en' => $request->blog_desc_en, 'ar' => $request->blog_desc_ar],
         ]);
       
            

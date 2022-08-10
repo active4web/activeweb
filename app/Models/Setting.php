@@ -11,6 +11,6 @@ class Setting extends Model
     use HasFactory;
     use HasTranslations;
 
-    public $translatable = ['app_name','description','address'];
-    protected $fillable=['app_name','description','logo','email','address','phone'];
+    public $translatable = ['app_name','description','address','service_desc','work_desc','blog_desc'];
+    protected $fillable=['app_name','description','logo','email','address','phone','service_desc','work_desc','blog_desc'];
 }
