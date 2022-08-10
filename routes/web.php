@@ -21,7 +21,7 @@ use App\Http\Controllers\Front\FrontController;
 
 
 
-
+Auth::routes();
 Route::get('lang/{lang}',function ($lang){
 
     App::setLocale($lang);

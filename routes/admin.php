@@ -32,7 +32,7 @@ use App\Http\Controllers\Admin\TechnicalSupportController;
 
 
 
-Auth::routes();
+
 
  
 
