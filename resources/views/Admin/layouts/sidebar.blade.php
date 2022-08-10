@@ -44,7 +44,7 @@
                                 data-feather="layout"></i><span>Services</span></a>
                        
                     </li>
-                    <li><a class="nav-link" href="{{route('Admin.service.index')}}"><i
+                    <li><a class="nav-link" href="{{route('Admin.servicedetail.index')}}"><i
                                 data-feather="layout"></i><span>Service Details</span></a>
                        
                     </li>
