@@ -24,6 +24,12 @@ return[
     'categories'                        => 'Categories',
     'last-blogs'                        => 'Last shared Blogs',
     'see-more'                          =>  'See More',
+    'show-works'                        =>  'Show all Work',
+    'show-services'                     =>  'Show all Services',
+    'subscribe'                         =>   'Subscribe',
+    'last-update'                       => 'Get last Updates',
+    'links'                             => 'Links',
+    'follow-us'                         => 'Follow Us',
 
     /* -------------------Contact Page ----------------*/
 
@@ -35,6 +41,9 @@ return[
     'send'                              =>   'Send',
     'details'                           =>   'Details',
     'address'                           =>   'Address',
+    'user-name'                         =>  'User Name',
+    'ask-service'                       =>  ' Services',
+    'ask-new-service'                   => 'Ask for New Service'
 
 
 ];

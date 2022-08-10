@@ -44,7 +44,7 @@
         <div class="col-6">
           <div class="mb-3">
             <label class="form-label" for="exampleFormControlInput1">Description in English </label>
-            <textarea class="form-control ckeditor @error('description_en') is-invalid fparsley-error parsley-error @enderror" name="description_en" id="exampleFormControlTextarea4" rows="3">{ !! old('description_en') !!}</textarea>
+            <textarea class="form-control ckeditor @error('description_en') is-invalid fparsley-error parsley-error @enderror" name="description_en" id="exampleFormControlTextarea4" rows="3">{{ old('description_en')}}</textarea>
             @error('description_en')
             <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
               <p>{{ $message }}</p>
@@ -55,7 +55,7 @@
         <div class="col-6">
           <div class="mb-3">
             <label class="form-label" for="exampleFormControlInput1">Description in Arabic </label>
-            <textarea class="form-control ckeditor @error('description_ar') is-invalid fparsley-error parsley-error @enderror" name="description_ar" id="exampleFormControlTextarea4" rows="3">{ !! old('description_ar') !!}</textarea>
+            <textarea class="form-control ckeditor @error('description_ar') is-invalid fparsley-error parsley-error @enderror" name="description_ar" id="exampleFormControlTextarea4" rows="3">{{old('description_ar')}}</textarea>
             @error('description_ar')
             <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
               <p>{{ $message }}</p>

@@ -51,14 +51,14 @@
       <div class="s2-newslatter_section">
         <div class="s2-newslatter_content relative-position">
           <div class="s2-newslatter_title  text-center saas2-headline pera-content">
-            <h2>إشترك الآن!</h2>
-            <p>احصل على آخر تحديث.</p>
+            <h2>  {{trans('front.subscribe')}}</h2>
+            <p> {{trans('front.last-update')}}</p>
           </div>
           <div class="s2-newslatter-form  relative-position">
             <form action="#">
               <input class="email" name="email" type="email" placeholder="أدخل عنوان بريدك الالكتروني">
               <div class="nws-button position-absolute text-capitalize">
-                <button class="hover-btn" type="submit" value="Submit"> الإشتراك</button>
+                <button class="hover-btn" type="submit" value="Submit"> {{trans('front.subscribe')}}</button>
               </div>
             </form>
           </div>
@@ -77,7 +77,7 @@
                 </div>
                 <p class="mb-3">{{$setting->first()->getTranslation('description', \App::getLocale())}} </p>
                 <div class="social-icons social-border circle social-hover mt-5">
-                  <h4 class="title">تابعنا</h4>
+                  <h4 class="title">{{trans('front.follow-us')}}</h4>
                   <ul class="list-inline">
                     <?php  $socials= $socials::get() ?>
                     @foreach($socials as $social)
@@ -92,7 +92,7 @@
             <div class="col-lg-4 col-md-12">
               <div class="s2_footer_menu">
                 <h3 class="s2_widget_title">
-                  <span>الروابط</span>
+                  <span>{{trans('front.links')}}</span>
                   <i></i>
                 </h3>
                 <ul>
@@ -107,7 +107,7 @@
                     </li>
                    
                     <li class="">
-                      <a class="" href="{{route('Front.services')}}">  {{trans('front.services')}} </a>
+                      <a class="" href="{{route('Front.services')}}">{{trans('front.services')}} </a>
                     </li>
                     <li class="">
                       <a class="" href="{{route('Front.blog')}}">{{trans('front.blogs')}}</a>
@@ -126,7 +126,7 @@
             <div class="col-lg-4 col-md-12">
               <div class="s2_footer_social">
                 <h3 class="s2_widget_title">
-                  <span>تواصل معنا</span> 
+                  <span>{{trans('front.contact-us')}}</span>
                   <i></i>
                 </h3>
                 <ul class="media-icon list-unstyled">

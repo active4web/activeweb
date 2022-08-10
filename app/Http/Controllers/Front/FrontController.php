@@ -12,9 +12,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests\Contact\CreateContactRequest;
+use App\Http\Requests\CreateTechnicalSupportRequest;
 use App\Models\About;
 use App\Models\AboutStep;
 use App\Models\Category;
+use App\Models\TechnicalSupport;
+use CreateTechnicalSupportsTable;
 
 class FrontController extends Controller
 {
@@ -27,6 +30,7 @@ class FrontController extends Controller
     protected $categoryModel;
     protected $aboutModel;
     protected $aboutStepModel;
+    protected $technicalSupportModel;
 
     public function __construct(
         Setting $setting,
@@ -37,7 +41,8 @@ class FrontController extends Controller
         Contact $contact,
         Category $category,
         About $about,
-        AboutStep $aboutstep
+        AboutStep $aboutstep,
+        TechnicalSupport $technicalSupport
     ) {
         $this->settingModel = $setting;
         $this->bannerModel = $banners;
@@ -48,6 +53,7 @@ class FrontController extends Controller
         $this->categoryModel = $category;
         $this->aboutModel = $about;
         $this->aboutStepModel = $aboutstep;
+        $this->technicalSupportModel = $technicalSupport;
     }
     public function index()
     {
@@ -131,9 +137,19 @@ class FrontController extends Controller
 
     public function serviceRequest()
     {
-        return view('front.pages.Request-new-service');
+        $categories = $this->categoryModel::get();
+        return view('front.pages.Request-new-service',compact('categories'));
     }
+    public function serviceRequestStore(CreateTechnicalSupportRequest $request){
 
+      $service = $this->technicalSupportModel::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'category_id' => $request->category_id,
+        ]);
+        return redirect()->back();
+    }
+    
     public function serviceRequestDetails()
     {
         return view('front.pages.service-request-details');

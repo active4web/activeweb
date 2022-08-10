@@ -21,11 +21,11 @@
           <thead>
 
             <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Image</th>
-              <th>Action</th>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Image</th>
+              <th scope="col">Action</th>
 
 
             </tr>
@@ -38,8 +38,8 @@
               <td>{!! Str::words($about->description, 20) !!}</td>
               <td> <img style="width:60px;" src="{{asset('images/about/'.$about->image)}}"></td>
               <td>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$about->id}}" data-whatever="@mdo">edit</button>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$about->id}}">delete</button>
+                <button class="btn btn-primary  btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$about->id}}" data-whatever="@mdo"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$about->id}}"><i class="fa fa-trash-o"></i></button>
 
 
               </td>
@@ -102,7 +102,7 @@
 
                       <div class="mb-3">
                         <label class="col-form-label" for="recipient-name">image </label>
-                        <input class="form-control @error('image') is-invalid fparsley-error parsley-error @enderror" name="image" type="file" value="{{$about->link}}">
+                        <input class="form-control @error('image') is-invalid fparsley-error parsley-error @enderror" name="image" type="file" value="{{$about->image}}">
                         @error('image')
                         <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
                           <p>{{ $message }}</p>

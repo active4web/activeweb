@@ -38,7 +38,7 @@
                             <td>{{$social->link}}</td>
                             <td>            
                               
-                            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$social->id}}" data-whatever="@mdo">edit</button>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$social->id}}" data-whatever="@mdo"><i class="fa fa-edit"></i></button>
                             </td>
                           </tr>
   

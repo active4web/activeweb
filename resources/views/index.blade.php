@@ -79,7 +79,7 @@
 
     </div>
     <div class="text-center">
-      <a href="{{route('Front.services')}}" class="btn btn-primary">عرض كل الخدمات</a>
+      <a href="{{route('Front.services')}}" class="btn btn-primary">{{trans('front.show-services')}}</a>
     </div>
   </div>
 </section>
@@ -118,7 +118,7 @@
 </div> <!-- /clintgallery -->
 
     <div class="text-center works-content">
-      <a href="{{route('Front.ourworks')}}" class="btn btn-primary">عرض كل الأعمال</a>
+      <a href="{{route('Front.ourworks')}}" class="btn btn-primary">{{trans('front.show-works')}}</a>
     </div>
    
 

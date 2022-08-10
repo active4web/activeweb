@@ -18,6 +18,10 @@ use App\Http\Controllers\Front\FrontController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('lang/{lang}',function ($lang){
 
     App::setLocale($lang);
@@ -28,9 +32,6 @@ Route::get('lang/{lang}',function ($lang){
 
 
 Route::group([ 'as'=>'Front.' ],function(){
-    
-    
-
     Route::get('/',[FrontController::class,'index'])->name('index');
     Route::get('/about',[FrontController::class,'about'])->name('about');
     Route::get('/blog',[FrontController::class,'blog'])->name('blog');
@@ -43,14 +44,9 @@ Route::group([ 'as'=>'Front.' ],function(){
     Route::get('/my-services',[FrontController::class,'services'])->name('my-services');
     Route::get('/services/details/{id}',[FrontController::class,'serviceDetails'])->name('services-details');
     Route::get('/service/request',[FrontController::class,'serviceRequest'])->name('service.request');
-    Route::post('/service/request',[FrontController::class,'serviceRequest'])->name('service.requeststore');
+    Route::post('/service/request',[FrontController::class,'serviceRequestStore'])->name('service.requeststore');
     Route::get('/service/request/details',[FrontController::class,'serviceRequestDetails'])->name('service.request.details');
-    
-
-
-
 });
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

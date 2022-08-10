@@ -34,14 +34,14 @@ use App\Http\Controllers\Admin\TechnicalSupportController;
 
 Auth::routes();
 
-
+ Route::get('/', function () {
+    return view('admin.home');
+});
 
 
 Route::group([ 'as'=>'Admin.', 'middleware'=>'auth' ],function(){
 
- Route::get('/', function () {
-    return view('admin.home');
-});
+
                     /*   setting */
   Route::group(['prefix'=> 'setting', 'as' => 'setting.'],function(){
       Route::get('/edit',[SettingController::class,'edit'])->name('edit');

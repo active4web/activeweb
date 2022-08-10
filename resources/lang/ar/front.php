@@ -25,6 +25,12 @@ return[
     'categories'                             => 'التصنفيات',
     'last-blogs'                             => 'المشاركات الاخيرة',
     'see-more'                               =>  'مشاهده المزيد',
+    'show-works'                             =>  'عرض كل الأعمال',
+    'show-services'                          =>  'عرض كل الخدمات',
+    'subscribe'                              =>   'إشترك الآن',
+    'last-update'                            => 'احصل على آخر تحديث',
+    'links'                                  => 'الروابط',
+    'follow-us'                              => 'تابعنا',
     /* -------------------Contact Page ----------------*/
 
    
@@ -35,4 +41,7 @@ return[
     'send'                                   =>   'ارسـل الان',
     'details'                                =>   'التفاصيل',
     'address'                                =>   'العنوان',
+    'user-name'                              =>  'اسم العميل',
+    'ask-service'                            =>  ' طلب الخدمة ',
+    'ask-new-service'                        => 'طلب خدمة جديدة ',
 ];

@@ -38,8 +38,8 @@
               <td>{!! Str::words($service->description,20) !!}</td>
               <td> <img style="width:60px;" src="{{asset('images/service/'.$service->image)}}"></td>
               <td>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$service->id}}" data-whatever="@mdo">edit</button>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$service->id}}">delete</button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$service->id}}" data-whatever="@mdo"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$service->id}}"><i class="fa fa-trash-o"></i></button>
 
 
               </td>
