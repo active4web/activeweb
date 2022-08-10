@@ -9,7 +9,7 @@
 
 <div class="card">
   <div class="card-header pb-0">
-    <h5>Basic form control</h5>
+    <h5>Setting</h5>
   </div>
   <form class="form theme-form" action="{{route('Admin.setting.update')}}" method="post" enctype="multipart/form-data">
     @csrf
@@ -64,6 +64,106 @@
           </div>
         </div>
       </div>
+   
+
+      
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-3">
+            <label class="form-label" for="exampleInputPassword2">address</label>
+            <input class="form-control @error('address_en') is-invalid fparsley-error parsley-error @enderror" name="address_en" id="exampleInputPassword2" type="text" placeholder="adrees in english" value="{{$setting->getTranslation('address','en')}}">
+            @error('address_en')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label class="form-label" for="exampleInputPassword2">address</label>
+            <input class="form-control @error('address_ar') is-invalid fparsley-error parsley-error @enderror" name="address_ar" id="exampleInputPassword2" type="text" placeholder="adress in arabic" value="{{$setting->getTranslation('address','ar')}}">
+            @error('address_ar')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label class="form-label" for="exampleFormControlTextarea4"> Service description in english</label>
+            <textarea class="form-control @error('service_desc_en') is-invalid fparsley-error parsley-error @enderror" name="service_desc_en" id="exampleFormControlTextarea4" rows="3">{{$setting->getTranslation('service_desc','en')}}</textarea>
+            @error('service_desc_en')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label class="form-label" for="exampleFormControlTextarea4"> Service description in arabic</label>
+            <textarea class="form-control @error('service_desc_ar') is-invalid fparsley-error parsley-error @enderror" name="service_desc_ar" id="exampleFormControlTextarea4" rows="3">{{$setting->getTranslation('service_desc','ar')}}</textarea>
+            @error('service_desc_ar')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label class="form-label" for="exampleFormControlTextarea4"> Blog description in english</label>
+            <textarea class="form-control @error('blog_desc_en') is-invalid fparsley-error parsley-error @enderror" name="blog_desc_en" id="exampleFormControlTextarea4" rows="3">{{$setting->getTranslation('blog_desc','en')}}</textarea>
+            @error('blog_desc_en')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label class="form-label" for="exampleFormControlTextarea4"> Blog description in arabic</label>
+            <textarea class="form-control @error('blog_desc_ar') is-invalid fparsley-error parsley-error @enderror" name="blog_desc_ar" id="exampleFormControlTextarea4" rows="3">{{$setting->getTranslation('blog_desc','ar')}}</textarea>
+            @error('blog_desc_ar')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label class="form-label" for="exampleFormControlTextarea4"> Ourwork description in english</label>
+            <textarea class="form-control @error('work_desc_en') is-invalid fparsley-error parsley-error @enderror" name="work_desc_en" id="exampleFormControlTextarea4" rows="3">{{$setting->getTranslation('work_desc','en')}}</textarea>
+            @error('work_desc_en')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label class="form-label" for="exampleFormControlTextarea4"> Ourwork description in arabic</label>
+            <textarea class="form-control @error('ourworkdesc_ar') is-invalid fparsley-error parsley-error @enderror" name="ourworkdesc_ar" id="exampleFormControlTextarea4" rows="3">{{$setting->getTranslation('work_desc','ar')}}</textarea>
+            @error('ourworkdesc_ar')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-6">
           <div class="mb-3">
@@ -82,7 +182,6 @@
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-6">
           <div class="mb-3">
@@ -100,30 +199,6 @@
             <label class="form-label" for="exampleInputPassword2">phone</label>
             <input class="form-control @error('phone') is-invalid fparsley-error parsley-error @enderror" name="phone" id="exampleInputPassword2" type="text" placeholder="phone" value="{{$setting->phone}}">
             @error('phone')
-            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
-              <p>{{ $message }}</p>
-            </span>
-            @enderror
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <div class="mb-3">
-            <label class="form-label" for="exampleInputPassword2">address</label>
-            <input class="form-control @error('address_en') is-invalid fparsley-error parsley-error @enderror" name="address_en" id="exampleInputPassword2" type="text" placeholder="adrees in english" value="{{$setting->getTranslation('address','en')}}">
-            @error('address_en')
-            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
-              <p>{{ $message }}</p>
-            </span>
-            @enderror
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="mb-3">
-            <label class="form-label" for="exampleInputPassword2">address</label>
-            <input class="form-control @error('address_ar') is-invalid fparsley-error parsley-error @enderror" name="address_ar" id="exampleInputPassword2" type="text" placeholder="adress in arabic" value="{{$setting->getTranslation('address','ar')}}">
-            @error('address_ar')
             <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
               <p>{{ $message }}</p>
             </span>

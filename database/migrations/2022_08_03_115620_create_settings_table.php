@@ -21,6 +21,9 @@ class CreateSettingsTable extends Migration
             $table->string('email');
             $table->text('address');
             $table->string('phone');
+            $table->text('service_desc');
+            $table->text('work_desc');
+            $table->text('blog_desc');
             $table->timestamps();
         });
     }

@@ -69,7 +69,7 @@ Blog-المقالات
                       <span style="color: #000080; text-decoration: underline;">
                       {{trans('front.components')}} 
                       <br>
-                      {{$blog->getTranslation('title',\App::getLocale())}} 
+                      {{$blog->getTranslation('title',\App::getLocale())}} :
                       </span>
                     </span>
                   </h2>

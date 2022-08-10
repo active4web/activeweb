@@ -37,17 +37,20 @@ about us
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="left-content">
-            <img src="{{ asset('assets/front/img/bout-pic.png')}}">
+             @if($about)
+            <img src="{{ asset('images/about/'.$about->image)}}">
           </div>
         </div>
         <div class="col-lg-6">
           <div class="about-content">
             <div class="sec-title">
               <span class="line"></span>
-              <span class="line-text">من نحن</span>
+              <span class="line-text"> {{trans('front.about')}}</span>
             </div>
+           
             <h2 class="h2">{{$about->getTranslation('title',\App::getLocale())}}</h2>
             <p class="text-p">{!!$about->getTranslation('description',\App::getLocale()) !!}</p>
+            @endif
           </div>
         </div>
       </div>
