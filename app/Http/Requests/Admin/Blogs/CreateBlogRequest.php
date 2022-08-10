@@ -26,7 +26,8 @@ class CreateBlogRequest extends FormRequest
         return [
             'title_ar' => 'required',
             'description_ar'=> 'required',
-            'image' =>'required|image|mimes:jpeg,png,jpg,gif,svg'
+            'image' =>'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'category_ar' =>'required',
             
         ];
     }

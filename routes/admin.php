@@ -14,6 +14,9 @@ use App\Http\Controllers\Admin\AboutStepController;
 use App\Http\Controllers\Admin\BlogDetailController;
 use App\Http\Controllers\Admin\SocialMediaController;
 use App\Http\Controllers\Admin\BlogComponentController;
+use App\Http\Controllers\Admin\OurWorkDetailController;
+use App\Http\Controllers\Admin\ServiceDetailController;
+use App\Http\Controllers\Admin\TechnicalSupportController;
 
 
 /*
@@ -31,14 +34,14 @@ use App\Http\Controllers\Admin\BlogComponentController;
 
 Auth::routes();
 
-
+ Route::get('/', function () {
+    return view('admin.home');
+});
 
 
 Route::group([ 'as'=>'Admin.', 'middleware'=>'auth' ],function(){
 
- Route::get('/', function () {
-    return view('admin.home');
-});
+
                     /*   setting */
   Route::group(['prefix'=> 'setting', 'as' => 'setting.'],function(){
       Route::get('/edit',[SettingController::class,'edit'])->name('edit');
@@ -84,8 +87,17 @@ Route::group(['prefix'=> 'service', 'as' => 'service.'],function(){
     Route::put('/update/{id}',[ServiceController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[ServiceController::class,'destroy'])->name('destroy');
 });
+ 
+               /*   service-details   */
+Route::group(['prefix'=> 'servicedetail', 'as' => 'servicedetail.'],function(){
+    Route::get('/',[ServiceDetailController::class,'index'])->name('index');
+    Route::get('/create',[ServiceDetailController::class,'create'])->name('create');
+    Route::post('/store',[ServiceDetailController::class,'store'])->name('store');
+    Route::put('/update/{id}',[ServiceDetailController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[ServiceDetailController::class,'destroy'])->name('destroy');
+});
 
-                       /*   blogs   */
+                 /*   blogs   */
 Route::group(['prefix'=> 'blog', 'as' => 'blog.'],function(){
     Route::get('/',[BlogController::class,'index'])->name('index');
     Route::get('/create',[BlogController::class,'create'])->name('create');
@@ -93,7 +105,7 @@ Route::group(['prefix'=> 'blog', 'as' => 'blog.'],function(){
     Route::put('/update/{id}',[BlogController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[BlogController::class,'destroy'])->name('destroy');
 });
-                    /*   blog-details  */
+                           /*   blog-details  */
 Route::group(['prefix'=> 'blogDetail', 'as' => 'blogDetail.'],function(){
     Route::get('/',[BlogDetailController::class,'index'])->name('index');
     Route::get('/create',[BlogDetailController::class,'create'])->name('create');
@@ -101,7 +113,7 @@ Route::group(['prefix'=> 'blogDetail', 'as' => 'blogDetail.'],function(){
     Route::put('/update/{id}',[BlogDetailController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[BlogDetailController::class,'destroy'])->name('destroy');
 });
-                 /*   blog-components  */
+                         /*   blog-components  */
 Route::group(['prefix'=> 'blogComponent', 'as' => 'blogComponent.'],function(){
     Route::get('/',[BlogComponentController::class,'index'])->name('index');
     Route::get('/create',[BlogComponentController::class,'create'])->name('create');
@@ -117,7 +129,7 @@ Route::group(['prefix'=> 'category', 'as' => 'category.'],function(){
     Route::put('/update/{id}',[CategoryController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[CategoryController::class,'destroy'])->name('destroy');
 });
-                       /*   our-works   */
+                        /*   our-works   */
 Route::group(['prefix'=> 'ourwork', 'as' => 'ourwork.'],function(){
     Route::get('/',[OurWorkController::class,'index'])->name('index');
     Route::get('/create',[OurWorkController::class,'create'])->name('create');
@@ -126,10 +138,24 @@ Route::group(['prefix'=> 'ourwork', 'as' => 'ourwork.'],function(){
     Route::delete('/delete/{id}',[OurWorkController::class,'destroy'])->name('destroy');
 });
 
+                        /*   our-works-details  */
+Route::group(['prefix'=> 'ourworkdetail', 'as' => 'ourworkdetail.'],function(){
+    Route::get('/',[OurWorkDetailController::class,'index'])->name('index');
+    Route::get('/create',[OurWorkDetailController::class,'create'])->name('create');
+    Route::post('/store',[OurWorkDetailController::class,'store'])->name('store');
+    Route::put('/update/{id}',[OurWorkDetailController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[OurWorkDetailController::class,'destroy'])->name('destroy');
+});
                       /*   contact   */
 Route::group(['prefix'=> 'contact', 'as' => 'contact.'],function(){
     Route::get('/',[ContactController::class,'index'])->name('index');
     Route::put('/delete/{id}',[ContactController::class,'destroy'])->name('destroy');
+});
+
+                      /*   technical support  */
+Route::group(['prefix'=> 'technicalsupport', 'as' => 'technicalsupport.'],function(){
+    Route::get('/',[TechnicalSupportController::class,'index'])->name('index');
+    Route::put('/delete/{id}',[TechnicalSupportController::class,'destroy'])->name('destroy');
 });
 });
 

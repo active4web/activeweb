@@ -51,14 +51,14 @@
       <div class="s2-newslatter_section">
         <div class="s2-newslatter_content relative-position">
           <div class="s2-newslatter_title  text-center saas2-headline pera-content">
-            <h2>إشترك الآن!</h2>
-            <p>احصل على آخر تحديث.</p>
+            <h2>  {{trans('front.subscribe')}}</h2>
+            <p> {{trans('front.last-update')}}</p>
           </div>
           <div class="s2-newslatter-form  relative-position">
             <form action="#">
               <input class="email" name="email" type="email" placeholder="أدخل عنوان بريدك الالكتروني">
               <div class="nws-button position-absolute text-capitalize">
-                <button class="hover-btn" type="submit" value="Submit"> الإشتراك</button>
+                <button class="hover-btn" type="submit" value="Submit"> {{trans('front.subscribe')}}</button>
               </div>
             </form>
           </div>
@@ -75,9 +75,9 @@
                 <div class="s2-footer_logo">
                   <img   src="{{ asset('images/setting/'.$setting->first()->logo)}}">
                 </div>
-                <p class="mb-3">افضل شركة تصميم مواقع<br> افضل شركة تصميم تطبيقات و برمجة مواقع و برمجة تطبيقات<br> هنجيبلك العميل و انت عليك الباقي الشركة الوحيدة المعتمدة من جوجل في مصر وحاصلة علي حساب الجولد بارتنر الذي يتيح لك الكثير من مزايا جوجل احصل علي اعلي عائد في جوجل بأقل التكاليف</p>
+                <p class="mb-3">{{$setting->first()->getTranslation('description', \App::getLocale())}} </p>
                 <div class="social-icons social-border circle social-hover mt-5">
-                  <h4 class="title">تابعنا</h4>
+                  <h4 class="title">{{trans('front.follow-us')}}</h4>
                   <ul class="list-inline">
                     <?php  $socials= $socials::get() ?>
                     @foreach($socials as $social)
@@ -92,30 +92,48 @@
             <div class="col-lg-4 col-md-12">
               <div class="s2_footer_menu">
                 <h3 class="s2_widget_title">
-                  <span>الروابط</span>
+                  <span>{{trans('front.links')}}</span>
                   <i></i>
                 </h3>
                 <ul>
-                  <li><a href="{{route('Front.index')}}"> الرئيسية</a></li>
-                  <li><a href="{{route('Front.about')}}"> من نحن</a></li>
-                  <li><a href="{{route('Front.ourworks')}}"> اعمالنا  </a></li>
-                  <li><a href="{{route('Front.services')}}">   خدماتنا  </a></li>
-                  <li><a href="{{route('Front.contactus')}}"> تواصل  معانا </a></li>
-                  <li><a href="{{route('Front.service.request')}}"> دعم فني وطلب خدمة </a></li>
+                <li class="">
+                      <a class=" active" aria-current="page" href="{{route('Front.index')}}">{{trans('front.Home')}}</a>
+                    </li>
+                    <li class="">
+                      <a class="" href="{{route('Front.about')}}">{{trans('front.about')}}</a>
+                    </li>
+                      <li class="">
+                      <a class="" href="{{route('Front.ourworks')}}">{{trans('front.our-works')}} </a>
+                    </li>
+                   
+                    <li class="">
+                      <a class="" href="{{route('Front.services')}}">{{trans('front.services')}} </a>
+                    </li>
+                    <li class="">
+                      <a class="" href="{{route('Front.blog')}}">{{trans('front.blogs')}}</a>
+                    </li>
+
+                    <li class="">
+                      <a class="" href="{{route('Front.contactus')}}">{{trans('front.contact-us')}}</a>
+                    </li>
+                        
+                    <li class="">
+                      <a class="" href="{{route('Front.service.request')}}">{{trans('front.requestservice')}}</a>
+                    </li>
                 </ul>
               </div>
             </div>
             <div class="col-lg-4 col-md-12">
               <div class="s2_footer_social">
                 <h3 class="s2_widget_title">
-                  <span>تواصل معنا</span> 
+                  <span>{{trans('front.contact-us')}}</span>
                   <i></i>
                 </h3>
                 <ul class="media-icon list-unstyled">
                 
-                  <li><span style="color:#b6b5b4"> العنوان  : </span><strong> {{$setting->first()->getTranslation('address', 'en');}} </strong></li>
-                  <li><span style="color:#b6b5b4"> الهاتف : </span> <a href="">{{$setting->first()->phone}}</a></li>
-                  <li><span style="color:#b6b5b4"> البريد الإلكتروني :</span><a href="#"> &nbsp;{{$setting->first()->email}}</a></li>
+                  <li><span style="color:#b6b5b4"> {{trans('front.address')}} : </span><strong> {{$setting->first()->getTranslation('address', \App::getLocale())}} </strong></li>
+                  <li><span style="color:#b6b5b4"> {{trans('front.phone')}}: </span> <a href="">{{$setting->first()->phone}}</a></li>
+                  <li><span style="color:#b6b5b4">{{trans('front.email')}}:</span><a href="#"> &nbsp;{{$setting->first()->email}}</a></li>
                  
                   <li>
                     <p class="mb-0"><span style="color:#fff;font-weight:bold"> لابد من حجز ميعاد مسبق علي الاقل بيوم من موعد المقابلة بفرع الادارة </span></p>

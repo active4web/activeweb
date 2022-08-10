@@ -41,29 +41,29 @@ Services - خدماتنا
             <div class="col-lg-7 col-md-7 px-0 contact-form">
 
               <div class="left-sec contact-page">
-                <h2 class="titleopo">طلب خدمة جديدة</h2>
+                <h2 class="titleopo">{{trans('front.ask-new-service')}}</h2>
                 
-                <form class="form-contact">
-
+                <form class="form-contact"  method="post" action="{{route('Front.service.requeststore')}}">
+                   @csrf
                   <div class="form-group form-focus">
-                    <label class="control-label">اسم العميل</label>
-                    <input class="form-control floating" type="text">
+                    <label class="control-label" >{{trans('front.user-name')}}</label>
+                    <input class="form-control floating" type="text" name="name">
                   </div>
 
                   <div class="form-group form-focus">
-                    <label class="control-label">باسورد</label>
-                    <input class="form-control floating" type="password">
+                    <label class="control-label"> {{trans('front.email')}}</label>
+                    <input class="form-control floating" type="email" name="email">
                   </div>
                   <div class="form-group">
-                    <select id="sseeeopo" class="form-control">
-                      <option selected="selected" value="2">طلب الخدمة</option>
-                      <option value="2">تصيمم مواقع</option>
-                      <option value="2">برمجة</option>
-                      <option value="2">خدمات السوشيال ميديا</option>
-                      <option value="2">خدمات السيو</option>
+                    <select  class="form-control" name="category_id">  
+                      <option selected="selected" value="">{{trans('front.ask-service')}}</option>
+                      @foreach($categories as $category)
+                      <option value="{{$category->id}}">{{$category->getTranslation('title',\App::getlocale())}}</option>
+                     
+                      @endforeach
                     </select>
                   </div>
-                  <a class="btn btn--primary" href="service-request-details.html"> ارسال </a>
+                <button class="btn btn-link  btn-outline-light" type="submit" ><a class="btn btn--primary"> {{trans('front.send')}}</a> </button>
                 </form>                 
               </div>
             </div>

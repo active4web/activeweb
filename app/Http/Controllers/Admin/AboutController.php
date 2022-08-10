@@ -60,7 +60,7 @@ class AboutController extends Controller
      $about->update([
       'title'         => ['en'=>$request->title_en,'ar'=>$request->title_ar,],
       'description'   => ['en'=>$request->description_en,'ar'=>$request->description_ar,],
-      'image'         => $image  ?? $request->image,
+      'image'         => $image  ?? $about->image,
      ]);
 
      Alert::success('success', 'About  updated  Successfully');

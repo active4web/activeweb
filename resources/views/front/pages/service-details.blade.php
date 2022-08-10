@@ -46,17 +46,9 @@ Services - خدماتنا
               <div class="col-lg-7 block-1">
                 <div class="common-heading text-l pl25">
                   <div class="normall default-color table-color">
-                    <h2 class="h3 pb-10 orange-color"> تصميم وتطوير المواقع الالكترونية </h2>
-                    <p>علشان تحقق نسبه ارباحك وتقدر ترتب شغلك باحترافية هنقدملك الوسائل المساعدة ليك<br>هنوفرلك ادوات تساعدك على ادارة مشروعك والبزنس بتاعك<br>    وكمان بنوفرلك خدمة الدعم الفني ما بعد البيع  </p>
-                    <ul class="ullistmb30">
-                      <li>خدمة تصميم المواقع  </li>
-                      <li>خدمة تصميم تطبيقات الموبايل  </li>
-                      <li>نظام شئون الموظفين  </li>
-                      <li>نظام الحسابات والمخزون  </li>
-                      <li>نظام المناديب وخدمات توصيل الطلبات  </li>
-                      <li>نظام ادارة مكاتب المحاماة </li>
-                      <li>نظام ادارة مكاتب العقارات  </li>
-                    </ul>
+                    <h2 class="h3 pb-10 orange-color"> {{$service->getTranslation('title',\App::getLocale())}} </h2>
+                    <p>{!!  $service->getTranslation('description',\App::getLocale()) !!}</p>
+               
                   </div>
                 </div>
               </div>
@@ -79,50 +71,23 @@ Services - خدماتنا
 
             <div class="row upset link-hover">
 
+
+
+
+            @foreach($service->serviceDetails as $servicedetail)
               <div class="col-lg-6 col-sm-6 mt30">
                 <div class="s-block wide-sblock">
                   <div class="s-card-icon-large">
-                    <img src="{{ asset('assets/front/img/mob-service-item2.png')}}" class="img-fluid">
+                    <img src="{{ asset('images/servicedetail/'.$servicedetail->image)}}" class="img-fluid">
                   </div>
                     <div class="s-block-content-large">
-                    <h4>تطوير تطبيقات iOS</h4>
-                    <p>هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.</p>
+                    <h4>{{$servicedetail->getTranslation('title',\App::getLocale())}} </h4>
+                    <p>{{$servicedetail->getTranslation('description',\App::getLocale())}}</p>
                     </div>
                 </div>
               </div>
-              <div class="col-lg-6 col-sm-6 mt30">
-                <div class="s-block wide-sblock">
-                  <div class="s-card-icon-large">
-                    <img src="{{ asset('assets/front/img/mob-service-item1.png')}}" class="img-fluid">
-                  </div>
-                    <div class="s-block-content-large">
-                    <h4>تطوير تطبيقات أندرويد</h4>
-                    <p>هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.</p>
-                    </div>
-                </div>
-              </div>
-              <div class="col-lg-6 col-sm-6 mt30">
-                <div class="s-block wide-sblock">
-                  <div class="s-card-icon-large">
-                    <img src="{{ asset('assets/front/img/mob-service-item3.png')}}" class="img-fluid">
-                  </div>
-                    <div class="s-block-content-large">
-                    <h4>تطوير التطبيقات القابلة للارتداء</h4>
-                    <p>هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.</p>
-                    </div>
-                </div>
-              </div>
-              <div class="col-lg-6 col-sm-6 mt30">
-                <div class="s-block wide-sblock">
-                  <div class="s-card-icon-large">
-                    <img src="{{ asset('assets/front/img/mob-service-item4.png')}}" class="img-fluid">
-                  </div>
-                    <div class="s-block-content-large">
-                    <h4>تطوير التطبيقات عبر الأنظمة الأساسية</h4>
-                    <p>هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.</p>
-                    </div>
-                </div>
-              </div>
+              @endforeach
+          
             </div><!-- row upset link-hover -->
           </div><!-- container -->
         </section>

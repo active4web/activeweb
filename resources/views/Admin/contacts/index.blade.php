@@ -1,6 +1,6 @@
 @extends('Admin.layouts.master')
 
-@section('title','contact-usleep')
+@section('title','contact-us')
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/datatables.css')}}">
 @endsection

@@ -16,4 +16,8 @@ class OurWork extends Model
     protected $fillable=[
         'title','description','image'
     ];
+
+    public function ourWorkDetails(){
+        return $this->hasMany(OurWorkDetail::class,'ourwork_id');
+    }
 }

@@ -10,8 +10,8 @@
     <meta name="keywords"
         content="admin template, viho admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('public/assets/images/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="asset('assets/images/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     <title>Login</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 <!-- Font Awesome-->
-<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/fontawesome.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.css') }}">
 <!-- ico-font-->
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/icofont.css') }}">
 <!-- Themify icon-->
@@ -45,12 +45,12 @@
 
 </head>
 <body>
-   
+ 
 
     <!-- page-wrapper Start       -->
-    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+    <div class="page-wrapper compact-wrapper " style="margin: 120px ;" id="pageWrapper">
         <!-- Page Header Start-->
-<div class="container">
+<div class="container  ">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -119,18 +119,8 @@
         </div>
     </div>
 </div>
-
-<!-- footer start-->
-<footer class="footer fixed-bottom">
-    <div class="container-fluid ">
-        <div class="row">
-            <div class="col-md-12 footer-copyright">
-                <p class="mb-0">Copyright 2022 © Active4web All rights reserved.</p>
-            </div>
-         
-        </div>
     </div>
-</footer>
+
 
     <!-- latest jquery-->
     <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
@@ -156,7 +146,6 @@
     <script src="{{ asset('assets/js/counter/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('assets/js/counter/counter-custom.js') }}"></script>
     <script src="{{ asset('assets/js/custom-card/custom-card.js') }}"></script>
-    <script src="{{ asset('assets/js/notify/bootstrap-notify.min.js') }}"></script>
     <script src="{{ asset('assets/js/vector-map/jquery-jvectormap-2.0.2.min.js') }}"></script>
     <script src="{{ asset('assets/js/vector-map/map/jquery-jvectormap-world-mill-en.js') }}"></script>
     <script src="{{ asset('assets/js/vector-map/map/jquery-jvectormap-us-aea-en.js') }}"></script>
@@ -166,14 +155,13 @@
     <script src="{{ asset('assets/js/vector-map/map/jquery-jvectormap-in-mill.js') }}"></script>
     <script src="{{ asset('assets/js/vector-map/map/jquery-jvectormap-asia-mill.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard/default.js') }}"></script>
-    <script src="{{ asset('assets/js/notify/index.js') }}"></script>
     <script src="{{ asset('assets/js/datepicker/date-picker/datepicker.js') }}"></script>
     <script src="{{ asset('assets/js/datepicker/date-picker/datepicker.en.js') }}"></script>
     <script src="{{ asset('assets/js/datepicker/date-picker/datepicker.custom.js') }}"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{ asset('assets/js/script.js') }}"></script>
-    <script src="{{ asset('assets/js/theme-customizer/customizer.js') }}"></script>
+
     <!-- login js-->
  
 </body>

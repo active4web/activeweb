@@ -36,8 +36,8 @@
               <td>{{$category->title}}</td>
               <td>{{$category->count}}</td>
               <td>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$category->id}}" data-whatever="@mdo">edit</button>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$category->id}}">delete</button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$category->id}}" data-whatever="@mdo"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$category->id}}"><i class="fa fa-trash-o"></i></button>
               </td>
             </tr>
             <!-- modal edit !-->

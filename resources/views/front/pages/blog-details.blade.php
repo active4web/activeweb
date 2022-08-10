@@ -32,13 +32,14 @@ Blog-المقالات
 
      
 
-
+ 
       <section class="blog-area">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-8 px-0">
+            <div class="col-lg-8 px-0"> 
               <div class="contentblog">
                 <div class="blog-header">
+                  
                   <h1> {{$blog->getTranslation('title',\App::getLocale())}}</h1>
                   <div class="row mt20 mb20">
                     <div class="media col-md-6 col-12">
@@ -55,11 +56,12 @@ Blog-المقالات
                   <h4 class="visible-desktop">{{$blog->getTranslation('title',\App::getLocale())}} </h4>
                   <p>{{$blog->getTranslation('description',\App::getLocale())}}</p>
                   <ul class="ul-list mb30">
+                    @isset($blog->blogDetails)
                     @foreach($blog->blogDetails as $blogdetail)
 
                     <li>{{$blogdetail->getTranslation('description',\App::getLocale())}} </li>
                     @endforeach
-                 
+                     @endisset
                   </ul>
                   <h2>
                     <span style="text-decoration: underline; font-size: 14pt;">
@@ -69,6 +71,7 @@ Blog-المقالات
                     </span>
                   </h2>
                   <ul>
+                    
                   @foreach($blog->blogComponents as $blogComponent)
                     <li>
                       <strong>
@@ -129,6 +132,7 @@ Blog-المقالات
                     </form>
                   </div><!-- sidebar-form -->
                 </div><!-- widget mb-30 -->
+
                 <div class="widget mb-30">
                   <h3 class="widget-title">{{trans('front.last-blogs')}}</h3>
                   <div class="rc-post">

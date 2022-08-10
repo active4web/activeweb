@@ -38,8 +38,8 @@
               <td>{{$blogComponent->description}}</td>
               <td>{{$blogComponent->blog->title}}</td>
               <td>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$blogComponent->id}}" data-whatever="@mdo">edit</button>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$blogComponent->id}}">delete</button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$blogComponent->id}}" data-whatever="@mdo"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$blogComponent->id}}"><i class="fa fa-trash-o"></i></button>
 
 
               </td>

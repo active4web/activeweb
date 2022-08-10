@@ -12,9 +12,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests\Contact\CreateContactRequest;
+use App\Http\Requests\CreateTechnicalSupportRequest;
 use App\Models\About;
 use App\Models\AboutStep;
 use App\Models\Category;
+use App\Models\TechnicalSupport;
+use CreateTechnicalSupportsTable;
 
 class FrontController extends Controller
 {
@@ -27,6 +30,7 @@ class FrontController extends Controller
     protected $categoryModel;
     protected $aboutModel;
     protected $aboutStepModel;
+    protected $technicalSupportModel;
 
     public function __construct(
         Setting $setting,
@@ -37,7 +41,8 @@ class FrontController extends Controller
         Contact $contact,
         Category $category,
         About $about,
-        AboutStep $aboutstep
+        AboutStep $aboutstep,
+        TechnicalSupport $technicalSupport
     ) {
         $this->settingModel = $setting;
         $this->bannerModel = $banners;
@@ -48,6 +53,7 @@ class FrontController extends Controller
         $this->categoryModel = $category;
         $this->aboutModel = $about;
         $this->aboutStepModel = $aboutstep;
+        $this->technicalSupportModel = $technicalSupport;
     }
     public function index()
     {
@@ -78,9 +84,7 @@ class FrontController extends Controller
     public function blogDetails($id)
     {
         $blogs = $this->blogModel::take(4)->orderBy('id', 'DESC')->get();
-        $blog = $this->blogModel::with('blogDetails', 'blogComponents')->whereHas('blogDetails', function ($q) use ($id) {
-            $q->where('blog_id', $id);
-        })->first();
+        $blog = $this->blogModel::where('id',$id)->with('blogDetails', 'blogComponents')->first();    
         $categories = $this->categoryModel::get();
         return view('front.pages.blog-details', compact('categories', 'blogs', 'blog'));
     }
@@ -106,9 +110,12 @@ class FrontController extends Controller
         return view('front.pages.our-works', compact('ourworks'));
     }
 
-    public function ourWorksDetails()
+    public function ourWorksDetails($id)
     {
-        return view('front.pages.our-works-details');
+        $work= $this->ourWorkModel::where('id',$id)->with('ourWorkDetails')->first();
+        $blogs = $this->blogModel::take(4)->orderBy('id', 'DESC')->get();
+        $categories = $this->categoryModel::get();
+        return view('front.pages.our-works-details',compact('blogs','categories','work'));
     }
 
     public function services()
@@ -122,16 +129,27 @@ class FrontController extends Controller
         return view('front.pages.my-services');
     }
 
-    public function serviceDetails()
+    public function serviceDetails($id)
     {
-        return view('front.pages.service-details');
+        $service = $this->serviceModel::where('id',$id)->with('serviceDetails')->first();
+        return view('front.pages.service-details',compact('service'));
     }
 
     public function serviceRequest()
     {
-        return view('front.pages.Request-new-service');
+        $categories = $this->categoryModel::get();
+        return view('front.pages.Request-new-service',compact('categories'));
     }
+    public function serviceRequestStore(CreateTechnicalSupportRequest $request){
 
+      $service = $this->technicalSupportModel::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'category_id' => $request->category_id,
+        ]);
+        return redirect()->back();
+    }
+    
     public function serviceRequestDetails()
     {
         return view('front.pages.service-request-details');

@@ -35,11 +35,11 @@
             <tr>
               <td>{{$key +1}}</td>
               <td>{{$service->title}}</td>
-              <td>{{$service->description}}</td>
+              <td>{!! Str::words($service->description,20) !!}</td>
               <td> <img style="width:60px;" src="{{asset('images/service/'.$service->image)}}"></td>
               <td>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$service->id}}" data-whatever="@mdo">edit</button>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$service->id}}">delete</button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$service->id}}" data-whatever="@mdo"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$service->id}}"><i class="fa fa-trash-o"></i></button>
 
 
               </td>
@@ -81,9 +81,9 @@
                       <div class="mb-3">
 
                         <label class="col-form-label" for="recipient-name">Description in English </label>
-                        <textarea class="form-control @error('description_en') is-invalid fparsley-error parsley-error @enderror" name="description_en" id="exampleFormControlTextarea4" rows="3">{{old('description_en',$service->getTranslation('description','en'))}}</textarea>
+                        <textarea class="form-control ckeditor @error('description_en') is-invalid fparsley-error parsley-error @enderror" name="description_en" id="exampleFormControlTextarea4" rows="3">{{old('description_en',$service->getTranslation('description','en'))}}</textarea>
                         @error('decription_en')
-                        <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+                        <span class="invalid-feedback ckeditor  text-black font-weight-bold text-capitalize mt-2" role="alert">
                           <p>{{ $message }}</p>
                         </span>
                         @enderror
@@ -92,7 +92,7 @@
                       <div class="mb-3">
 
                         <label class="col-form-label" for="recipient-name">Description in Arabic</label>
-                        <textarea class="form-control @error('description_en') is-invalid fparsley-error parsley-error @enderror" name="description_ar" id="exampleFormControlTextarea4" rows="3">{{old('description_en',$service->getTranslation('description','ar'))}}</textarea>
+                        <textarea class="form-control ckeditor @error('description_en') is-invalid fparsley-error parsley-error @enderror" name="description_ar" id="exampleFormControlTextarea4" rows="3">{{old('description_en',$service->getTranslation('description','ar'))}}</textarea>
                         @error('decription_ar')
                         <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
                           <p>{{ $message }}</p>
@@ -165,6 +165,10 @@
   @section('js')
   <script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js')}}"></script>
   <script src="{{ asset('../assets/js/datatable/datatables/datatable.custom.js')}}"></script>
+  <script src="{{ asset('assets/js/editor/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{ asset('assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
+    <script src="{{ asset('assets/js/editor/ckeditor/styles.js')}}"></script>
+    <script src="{{ asset('assets/js/editor/ckeditor/ckeditor.custom.js')}}"></script>
   <!-- Plugins JS Ends-->
   <script src="{{ asset('assets/js/tooltip-init.js')}}"></script>
   @endsection
