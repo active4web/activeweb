@@ -6,7 +6,7 @@ return[
 
     'Home'                              =>  'Home',
     'about'                             =>  'About Us',
-    'our-works'                         =>  'Our-Works',
+    'our-works'                         =>  'OurWorks',
     'services'                          =>  'Services',
     'blogs'                             =>  'Blogs',
     'contact-us'                        =>  'Contact Us',

@@ -35,7 +35,7 @@
         <div class="about-content">
           <div class="sec-title">
             <span class="line"></span>
-            <span class="line-text">من نحن</span>
+            <span class="line-text">{{trans('front.about')}}</span>
           </div>
           <h2 class="h2">{{$about->getTranslation('title',\App::getLocale())}}</h2>
           <p class="text-p">{!!$about->getTranslation('description',\App::getLocale()) !!}</p>
@@ -52,7 +52,7 @@
     <div class="row justify-content-center">
       <div class="col-md-10 col-lg-9">
         <div class="section-heading text-center">
-          <strong class="color-secondary">خدماتنا</strong>
+          <strong class="color-secondary">{{trans('front.services')}}</strong>
           <h2>نحن نقدم خدمات أفضل</h2>
           <span class="animate-border mr-auto ml-auto mb-4"></span>
           <p class="lead">إعادة اختراع رأس المال البشري متعدد الوحدات عالميًا في حين أن المحفزات الافتراضية للتغيير. شبكة طرق دقيقة للتمكين بشكل حازم بدلاً من التحسينات التي تركز على العميل.</p>
@@ -90,7 +90,7 @@
     <div class="row justify-content-center">
       <div class="col-md-10 col-lg-9">
         <div class="section-heading text-center">
-          <strong class="color-secondary">اعملنا </strong>
+          <strong class="color-secondary">{{trans('front.our-works')}}</strong>
           <h2>نحن نقدم خدمات أفضل</h2>
           <span class="animate-border mr-auto ml-auto mb-4"></span>
           <p class="lead">إعادة اختراع رأس المال البشري متعدد الوحدات عالميًا في حين أن المحفزات الافتراضية للتغيير. شبكة طرق دقيقة للتمكين بشكل حازم بدلاً من التحسينات التي تركز على العميل.</p>
@@ -130,7 +130,7 @@
     <div class="row justify-content-center">
       <div class="col-md-10 col-lg-9">
         <div class="section-heading text-center">
-          <strong class="color-secondary">مقالات</strong>
+          <strong class="color-secondary">{{trans('front.blogs')}}</strong>
           <h2>الأخبار والمقالات</h2>
           <span class="animate-border mr-auto ml-auto mb-4"></span>
           <p class="lead">لدينا العديد من المقالات والأخبار الهامة التي تهم جميع محبي ومتابعي تك سوفت</p>
