@@ -1,46 +1,30 @@
 @inject('setting', 'App\Models\Setting')
 @inject('socials', 'App\Models\SocialMedia')
-<div class="client-section ptb-100">
+@inject('footerimages', 'App\MOdels\FooterImage')
+<div class="client-section ptb-120">
         <div class="container">
           <div class="row">
             <div class="col-md-6 col-lg-6">
               <div class="client-heading-wrap">
-                <h3>من هم سعداء بالخدمات والعمل</h3>
+                <h3>{{trans('front.happy-clients')}}</h3>
               </div>
             </div>
             <div class="col-md-6 col-lg-6">
               <div class="client-para">
-                <p>إدارة استراتيجيات النمو التآزري والأسواق التعاونية بسلاسة. تمكين وسطاء المعلومات غير المكلفين عالميًا بعد مشاركة الأفكار المستدامة. تعاون احترافي للعلامة التجارية Phosfluorescently ومشاركة الأفكار بدون واجهات تتمحور حول المبدأ. </p>
+                <p>{{$setting->first()->getTranslation('footer_desc', \App::getLocale())}} </p>
               </div>
             </div>
           </div>
           <div class="row align-items-center justify-content-center mb-4">
             <div class="col-md-10 col-lg-9">
               <div class="owl-carousel owl-theme clients-carousel dot-indicator client-logo-wrap">
+              <?php  $footerimages= $footerimages::get() ?>
+                    @foreach($footerimages as $footerimage)
               <div class="item single-client">
-                  <img src="{{ asset('assets/front/img/clients-logo-01.png')}}" class="client-img">
+                  <img src="{{ asset('images/footerimage/'.$footerimage->image)}}" class="client-img">
                 </div>
-                <div class="item single-client">
-                  <img src="{{ asset('assets/front/img/clients-logo-02.png')}}" class="client-img">
-                </div>
-                <div class="item single-client">
-                  <img src="{{ asset('assets/front/img/clients-logo-03.png')}}" class="client-img">
-                </div>
-                <div class="item single-client">
-                  <img src="{{ asset('assets/front/img/clients-logo-04.png')}}" class="client-img">
-                </div>
-                <div class="item single-client">
-                  <img src="{{ asset('assets/front/img/clients-logo-05.png')}}" class="client-img">
-                </div>
-                <div class="item single-client">
-                  <img src="{{ asset('assets/front/img/clients-logo-06.png')}}" class="client-img">
-                </div>
-                <div class="item single-client">
-                  <img src="{{ asset('assets/front/img/clients-logo-07.png')}}" class="client-img">
-                </div>
-                <div class="item single-client">
-                  <img src="{{ asset('assets/front/img/clients-logo-08.png')}}" class="client-img">
-                </div>
+                @endforeach
+               
               </div>
             </div>
           </div>
@@ -118,7 +102,7 @@
                   <li><span style="color:#b6b5b4">{{trans('front.email')}}:</span><a href="#"> &nbsp;{{$setting->first()->email}}</a></li>
                  
                   <li>
-                    <p class="mb-0"><span style="color:#fff;font-weight:bold"> لابد من حجز ميعاد مسبق علي الاقل بيوم من موعد المقابلة بفرع الادارة </span></p>
+                    <p class="mb-0"><span style="color:#fff;font-weight:bold"> {{trans('front.reservation')}}</span></p>
                   </li>
                 </ul>
               </div>

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AboutStepController;
 use App\Http\Controllers\Admin\BlogDetailController;
+use App\Http\Controllers\Admin\FooterImageController;
 use App\Http\Controllers\Admin\SocialMediaController;
 use App\Http\Controllers\Admin\BlogComponentController;
 use App\Http\Controllers\Admin\OurWorkDetailController;
@@ -156,6 +157,15 @@ Route::group(['prefix'=> 'contact', 'as' => 'contact.'],function(){
 Route::group(['prefix'=> 'technicalsupport', 'as' => 'technicalsupport.'],function(){
     Route::get('/',[TechnicalSupportController::class,'index'])->name('index');
     Route::put('/delete/{id}',[TechnicalSupportController::class,'destroy'])->name('destroy');
+});
+
+              /*   Footer images    */
+Route::group(['prefix'=> 'footerimage', 'as' => 'footerimage.'],function(){
+    Route::get('/',[FooterImageController::class,'index'])->name('index');
+    Route::get('/create',[FooterImageController::class,'create'])->name('create');
+    Route::post('/store',[FooterImageController::class,'store'])->name('store');
+    Route::put('/update/{id}',[FooterImageController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[FooterImageController::class,'destroy'])->name('destroy');
 });
 });
 

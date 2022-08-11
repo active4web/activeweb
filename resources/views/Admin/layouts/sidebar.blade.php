@@ -80,6 +80,10 @@
                                 data-feather="layout"></i><span>TechnicalSupport</span></a>
                        
                     </li>
+                    <li><a class="nav-link" href="{{route('Admin.footerimage.index')}}"><i
+                                data-feather="layout"></i><span>FooterImages</span></a>
+                       
+                    </li>
                 </ul>
             </div>
         </div>          

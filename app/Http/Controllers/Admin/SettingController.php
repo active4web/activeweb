@@ -51,6 +51,7 @@ class SettingController extends Controller
             'service_desc' =>  ['en' => $request->service_desc_en, 'ar' => $request->service_desc_ar],
             'work_desc' =>  ['en' => $request->work_desc_en, 'ar' => $request->work_desc_ar],
             'blog_desc' =>  ['en' => $request->blog_desc_en, 'ar' => $request->blog_desc_ar],
+            'footer_desc' =>  ['en' => $request->footer_desc_en, 'ar' => $request->footer_desc_ar],
         ]);
       
            
