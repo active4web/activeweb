@@ -1,6 +1,5 @@
 @inject('setting', 'App\Models\Setting')
 @inject('socials', 'App\Models\SocialMedia')
-@inject('footerimages', 'App\MOdels\FooterImage')
 <div class="client-section ptb-120">
         <div class="container">
           <div class="row">
@@ -23,14 +22,13 @@
               <div class="item single-client">
                   <img src="{{ asset('images/footerimage/'.$footerimage->image)}}" class="client-img">
                 </div>
-                @endforeach
-               
+               @endforeach
               </div>
             </div>
           </div>
         </div>
       </div> 
-    
+   
 <footer id="saas_two_footer">
 
       <div class="footer_content pera-content">
@@ -133,5 +131,3 @@
         </a>
       </div>
     </div>
-
-  </div>
