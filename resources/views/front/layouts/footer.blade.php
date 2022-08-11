@@ -1,5 +1,6 @@
 @inject('setting', 'App\Models\Setting')
 @inject('socials', 'App\Models\SocialMedia')
+@inject('footerimages', 'App\MOdels\FooterImage')
 <div class="client-section ptb-120">
         <div class="container">
           <div class="row">
