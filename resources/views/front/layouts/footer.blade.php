@@ -46,13 +46,13 @@
           </div>
         </div>
       </div> 
-    </section><!-- contentleft-right -->
+    
 <footer id="saas_two_footer">
-      
+
       <div class="footer_content pera-content">
         <div class="container">
           <div class="row">
-            <div class="col-lg-8 col-md-12">
+            <div class="col-lg-4 col-md-12">
               <div class="s2_footer_about">
                 <div class="s2-footer_logo">
                   <a href="{{route('Front.index')}}"><img   src="{{ asset('images/setting/'.$setting->first()->logo)}}"></a>
