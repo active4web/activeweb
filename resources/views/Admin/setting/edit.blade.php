@@ -165,6 +165,30 @@
         </div>
       </div>
       <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label class="form-label" for="exampleFormControlTextarea4"> Footer description in english</label>
+            <textarea class="form-control @error('footer_desc_en') is-invalid fparsley-error parsley-error @enderror" name="footer_desc_en" id="exampleFormControlTextarea4" rows="3">{{$setting->getTranslation('footer_desc','en')}}</textarea>
+            @error('footer_desc_en')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label class="form-label" for="exampleFormControlTextarea4"> Footer description in arabic</label>
+            <textarea class="form-control @error('footer_desc_ar') is-invalid fparsley-error parsley-error @enderror" name="footer_desc_ar" id="exampleFormControlTextarea4" rows="3">{{$setting->getTranslation('footer_desc','ar')}}</textarea>
+            @error('footer_desc_ar')
+            <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
+              <p>{{ $message }}</p>
+            </span>
+            @enderror
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-6">
           <div class="mb-3">
             <label class="form-label">Logo</label>

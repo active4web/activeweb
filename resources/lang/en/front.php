@@ -36,6 +36,8 @@ return[
     'pages'                             => 'Pages',
     'search'                            =>  'Search',
     'information'                       => 'Information About Us ',
+    'happy-clients'                     =>  ' Clients who were happy with our work and services',
+    'reservation'                       => 'you have to make early reservation before meeting with the mangers',
     /* -------------------Contact Page ----------------*/
 
     'contact-info'                      =>   'We are pleased to contact you and receive your inquiries',
