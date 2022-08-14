@@ -26,7 +26,7 @@ class SettingController extends Controller
     {
         $setting = $this->settingModel::first();
         $socials= $this->socialmediaModel::get();
-        return view('admin.setting.edit', compact('setting','socials'));
+        return view('Admin.setting.edit', compact('setting','socials'));
     }
 
     public function update(UpdateRequest $request)
@@ -37,7 +37,7 @@ class SettingController extends Controller
         if ($request->hasFile('logo')) {
             $filename = time() . '.' . $request->logo->extension();
             $logoname =  $this->uploadImage($request->logo, $filename, 'setting');
-            unlink(public_path('images/setting/'.$setting->logo));
+            unlink('images/setting/'.$setting->logo);
         }
 
       

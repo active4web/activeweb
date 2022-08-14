@@ -17,6 +17,8 @@ use App\Http\Controllers\Admin\SocialMediaController;
 use App\Http\Controllers\Admin\BlogComponentController;
 use App\Http\Controllers\Admin\OurWorkDetailController;
 use App\Http\Controllers\Admin\ServiceDetailController;
+use App\Http\Controllers\Admin\ServiceCommentController;
+use App\Http\Controllers\Admin\ServiceRequestController;
 use App\Http\Controllers\Admin\TechnicalSupportController;
 
 
@@ -31,18 +33,13 @@ use App\Http\Controllers\Admin\TechnicalSupportController;
 |
 */
 
-
-
-
-
- 
-
-Route::group([ 'as'=>'Admin.', 'middleware'=>'auth' ],function(){
-
 Route::get('/', function () {
-    return view('admin.home');
-});
+    return view('Admin.home');
+})->name('home');
 
+
+Route::group([ 'as'=>'Admin.', 'middleware'=>['admin','auth'] ],function(){
+  
                     /*   setting */
   Route::group(['prefix'=> 'setting', 'as' => 'setting.'],function(){
       Route::get('/edit',[SettingController::class,'edit'])->name('edit');
@@ -96,6 +93,21 @@ Route::group(['prefix'=> 'servicedetail', 'as' => 'servicedetail.'],function(){
     Route::post('/store',[ServiceDetailController::class,'store'])->name('store');
     Route::put('/update/{id}',[ServiceDetailController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[ServiceDetailController::class,'destroy'])->name('destroy');
+});
+
+              /*   service requests  */
+Route::group(['prefix'=> 'servicerequest', 'as' => 'servicerequest.'],function(){
+    Route::get('/',[ServiceRequestController::class,'index'])->name('index');
+    Route::put('/delete/{id}',[ServiceRequestController::class,'destroy'])->name('destroy');
+});
+
+               /*   service-comments   */
+Route::group(['prefix'=> 'servicecomment', 'as' => 'servicecomment.'],function(){
+    Route::get('/',[ServiceCommentController::class,'index'])->name('index');
+    Route::get('/create/{id}',[ServiceCommentController::class,'create'])->name('create');
+    Route::post('/store/{id}',[ServiceCommentController::class,'store'])->name('store');
+    Route::put('/update/{id}',[ServiceCommentController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[ServiceCommentController::class,'destroy'])->name('destroy');
 });
 
                  /*   blogs   */
@@ -153,11 +165,7 @@ Route::group(['prefix'=> 'contact', 'as' => 'contact.'],function(){
     Route::put('/delete/{id}',[ContactController::class,'destroy'])->name('destroy');
 });
 
-                      /*   technical support  */
-Route::group(['prefix'=> 'technicalsupport', 'as' => 'technicalsupport.'],function(){
-    Route::get('/',[TechnicalSupportController::class,'index'])->name('index');
-    Route::put('/delete/{id}',[TechnicalSupportController::class,'destroy'])->name('destroy');
-});
+        
 
               /*   Footer images    */
 Route::group(['prefix'=> 'footerimage', 'as' => 'footerimage.'],function(){

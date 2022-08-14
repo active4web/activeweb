@@ -76,8 +76,8 @@
                                 data-feather="layout"></i><span>Contacts</span></a>
                        
                     </li>
-                    <li><a class="nav-link" href="{{route('Admin.technicalsupport.index')}}"><i
-                                data-feather="layout"></i><span>TechnicalSupport</span></a>
+                    <li><a class="nav-link" href="{{route('Admin.servicerequest.index')}}"><i
+                                data-feather="layout"></i><span>ServiceRequests</span></a>
                        
                     </li>
                     <li><a class="nav-link" href="{{route('Admin.footerimage.index')}}"><i

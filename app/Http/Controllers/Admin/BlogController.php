@@ -25,12 +25,12 @@ class BlogController extends Controller
 
 
       $blogs= $this->blogModel::get();
-     return view('admin.blogs.index',compact('blogs'));
+     return view('Admin.blogs.index',compact('blogs'));
 
     }
 
     public function create(){
-      return view('admin.blogs.create');
+      return view('Admin.blogs.create');
     }
 
     public function store(CreateBlogRequest $request){
@@ -57,7 +57,7 @@ class BlogController extends Controller
       if ($request->hasFile('image')) {
         $filename = time() . '.' . $request->image->extension();
         $image =  $this->uploadImage($request->image, $filename, 'blog');
-        unlink(public_path('images/blog/'.$blog->image));
+        unlink('images/blog/'.$blog->image);
     }
 
      $blog->update([
@@ -78,7 +78,7 @@ class BlogController extends Controller
       if($blog){
 
         $blog->delete();
-        unlink(public_path('images/blog/'.$blog->image));
+        unlink('images/blog/'.$blog->image);
       }
       Alert::success('success', 'blog deleted  Successfully');
       return redirect(route('Admin.blog.index'));

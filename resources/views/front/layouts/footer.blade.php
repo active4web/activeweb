@@ -83,7 +83,7 @@
                     </li>
                         
                     <li class="">
-                      <a class="" href="{{route('Front.service.request')}}">{{trans('front.requestservice')}}</a>
+                      <a class="" href="{{route('Front.technicalsupport.register')}}">{{trans('front.requestservice')}}</a>
                     </li>
                 </ul>
               </div>

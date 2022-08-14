@@ -24,12 +24,12 @@ class AboutController extends Controller
 
 
       $abouts= $this->aboutModel::get();
-     return view('admin.about.index',compact('abouts'));
+     return view('Admin.about.index',compact('abouts'));
 
     }
 
     public function create(){
-      return view('admin.about.create');
+      return view('Admin.about.create');
     }
 
     public function store(CreateAboutRequest $request){
@@ -54,7 +54,7 @@ class AboutController extends Controller
       if ($request->hasFile('image')) {
         $filename = time() . '.' . $request->image->extension();
         $image =  $this->uploadImage($request->image, $filename, 'about');
-        unlink(public_path('images/about/'.$about->image));
+        unlink('images/about/'.$about->image);
     }
 
      $about->update([
@@ -73,7 +73,7 @@ class AboutController extends Controller
       if($about){
 
         $about->delete();
-        unlink(public_path('images/about/'.$about->image));
+        unlink('images/about/'.$about->image);
       }
       Alert::success('success', 'About deleted  Successfully');
       return redirect(route('Admin.about.index'));

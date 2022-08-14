@@ -1,11 +1,9 @@
 <?php
 
-use GuzzleHttp\Middleware;
-use App\Http\Middleware\ChangeLang;
+use App\Http\Controllers\Front\AuthController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Front\FrontController;
 
 /*
@@ -21,7 +19,9 @@ use App\Http\Controllers\Front\FrontController;
 
 
 
-Auth::routes();
+
+    Auth::routes();
+ 
 Route::get('lang/{lang}',function ($lang){
 
     App::setLocale($lang);
@@ -41,12 +41,17 @@ Route::group([ 'as'=>'Front.' ],function(){
     Route::get('/ourworks',[FrontController::class,'ourWorks'])->name('ourworks');
     Route::get('/ourworks/details/{id}',[FrontController::class,'ourWorksDetails'])->name('ourworks.details');
     Route::get('/services',[FrontController::class,'services'])->name('services');
-    Route::get('/my-services',[FrontController::class,'services'])->name('my-services');
+    Route::get('/my-services/{id}',[FrontController::class,'myServices'])->name('my-services');
     Route::get('/services/details/{id}',[FrontController::class,'serviceDetails'])->name('services-details');
     Route::get('/service/request',[FrontController::class,'serviceRequest'])->name('service.request');
     Route::post('/service/request',[FrontController::class,'serviceRequestStore'])->name('service.requeststore');
     Route::get('/service/request/details',[FrontController::class,'serviceRequestDetails'])->name('service.request.details');
+    Route::get('/technicalsupport/register',[FrontController::class,'technicalSupportRegister'])->name('technicalsupport.register');
+    Route::get('/technicalsupport/login',[FrontController::class,'technicalSupportLogin'])->name('technicalsupport.login');
+  
 });
-
+  Route::post('/client-register',[AuthController::class,'register'])->name('client-register');
+  Route::post('/client-login',[AuthController::class,'login'])->name('client-login');
+  Route::post('/client-logout',[AuthController::class,'logout'])->name('client-logout');
 
 

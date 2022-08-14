@@ -22,13 +22,13 @@ class AboutStepController extends Controller
     public function index()
     {
         $aboutsteps = $this->aboutStepModel::get();
-        return view('admin.aboutsteps.index', compact('aboutsteps'));
+        return view('Admin.aboutsteps.index', compact('aboutsteps'));
     }
 
     public function create()
     {
 
-        return view('admin.aboutsteps.create');
+        return view('Admin.aboutsteps.create');
     }
 
     public function store(CreateAboutStepRequest $request)

@@ -21,7 +21,7 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = $this->contactModel::where('status', 0)->get();
-        return view('admin.contacts.index', compact('contacts'));
+        return view('Admin.contacts.index', compact('contacts'));
     }
 
     public function destroy($id)

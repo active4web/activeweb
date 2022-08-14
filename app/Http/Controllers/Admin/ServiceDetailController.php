@@ -28,13 +28,13 @@ class ServiceDetailController extends Controller
 
       $servicedetails= $this->serviceDetailModel::with('service')->get();
       $services= $this->serviceModel::get();
-     return view('admin.servicedetails.index',compact('servicedetails','services'));
+     return view('Admin.servicedetails.index',compact('servicedetails','services'));
 
     }
 
     public function create(){
         $services= $this->serviceModel::get();
-      return view('admin.servicedetails.create',compact('services'));
+      return view('Admin.servicedetails.create',compact('services'));
     }
 
     public function store(CreateServiceDetailRequest $request){
@@ -79,7 +79,7 @@ class ServiceDetailController extends Controller
       $servicedetail = $this->serviceDetailModel::findorfail($id);
       if($servicedetail){
         $servicedetail->delete();
-        unlink(public_path('images/servicedetail/'.$servicedetail->image));
+        unlink('images/servicedetail/'.$servicedetail->image);
 
       }
       Alert::success('success', 'Service detail deleted  Successfully');

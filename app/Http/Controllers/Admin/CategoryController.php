@@ -22,12 +22,12 @@ class CategoryController extends Controller
 
 
       $categories= $this->categoryModel::get();
-     return view('admin.categories.index',compact('categories'));
+     return view('Admin.categories.index',compact('categories'));
 
     }
 
     public function create(){
-      return view('admin.categories.create');
+      return view('Admin.categories.create');
     }
 
     public function store(CreateCategoryRequest $request){

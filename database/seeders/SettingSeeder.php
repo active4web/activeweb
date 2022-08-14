@@ -25,6 +25,7 @@ class SettingSeeder extends Seeder
            'service_desc' => ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
            'work_desc'  => ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
            'blog_desc'  => ['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
+           'footer_desc'=>['en'=> 'Active4web', 'ar'=> 'اكتيف فور ويب '],
 
              ]);
        
