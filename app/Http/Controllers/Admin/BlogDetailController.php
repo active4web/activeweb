@@ -25,13 +25,13 @@ class BlogDetailController extends Controller
 
         $blogs= $this->blogModel::get();
       $blogDetails= $this->blogDetailModel::get();
-     return view('admin.blogDetails.index',compact('blogDetails','blogs'));
+     return view('Admin.blogdetails.index',compact('blogDetails','blogs'));
 
     }
 
     public function create(){
         $blogs= $this->blogModel::get();
-      return view('admin.blogDetails.create',compact('blogs'));
+      return view('Admin.blogdetails.create',compact('blogs'));
     }
 
     public function store(CreateBlogDetailRequest $request){
@@ -44,7 +44,7 @@ class BlogDetailController extends Controller
          
        ]);
       Alert::success('success', 'blogDetail  added  Successfully');
-      return redirect(route('Admin.blogDetail.index'));
+      return redirect(route('Admin.blogdetail.index'));
     }
 
     public function update(UpdateBlogDetailRequest  $request ,$id){
@@ -58,7 +58,7 @@ class BlogDetailController extends Controller
     ]);
 
      Alert::success('success', 'blogDetail  updated  Successfully');
-     return redirect(route('Admin.blogDetail.index'));
+     return redirect(route('Admin.blogdetail.index'));
     }
 
     public function destroy($id){

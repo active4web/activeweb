@@ -29,21 +29,17 @@ class OurWorkDetailController extends Controller
 
       $ourworkDetails= $this->ourWorkDetailModel::with('ourWork')->get();
       $works= $this->ourWorkModel::get();
-     return view('admin.ourWorkDetails.index',compact('ourworkDetails','works'));
+     return view('Admin.ourWorkdetails.index',compact('ourworkDetails','works'));
 
     }
 
     public function create(){
         $works= $this->ourWorkModel::get();
-      return view('admin.ourworkDetails.create',compact('works'));
+      return view('Admin.ourworkdetails.create',compact('works'));
     }
 
     public function store(CreateOurWorkDetailRequest $request){
-      if ($request->hasFile('image')) {
-        $filename = time() . '.' . $request->image->extension();
-        $image =  $this->uploadImage($request->image, $filename, 'ourworkDetail');
-        
-    }
+   
       $ourworkDetail = $this->ourWorkDetailModel::create([
        
          'description'   => ['en'=>$request->description_en,'ar'=>$request->description_ar,],

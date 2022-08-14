@@ -26,7 +26,10 @@
         <!-- Page Body Start-->
         <div class="page-body-wrapper sidebar-icon">
             <!-- Page Sidebar Start-->
+            @if(Auth::user()->role == 1)
             @include('Admin.layouts.sidebar')
+              
+                @endif
             <!-- Page Sidebar Ends-->
             <div class="page-body">
                 <!-- Container-fluid starts-->
@@ -36,6 +39,9 @@
                     </div>
                 </div>
                 @include('Admin.layouts.footer')
+
+               
+             
             </div>
         </div>
         @include('Admin.layouts.js')

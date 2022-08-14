@@ -24,12 +24,12 @@ class BannerController extends Controller
 
     public function index(){
         $banners= $this->bannerModel::get();
-        return view('admin.banners.index',compact('banners'));
+        return view('Admin.banners.index',compact('banners'));
 
     }
 
     public function create(){
-        return view('admin.banners.create');
+        return view('Admin.banners.create');
     }
 
 
@@ -55,7 +55,7 @@ class BannerController extends Controller
         if ($request->hasFile('image')) {
             $filename = time() . '.' . $request->image->extension();
             $image =  $this->uploadImage($request->image, $filename, 'banner');
-            unlink(public_path('images/banner/'.$banner->image));
+            unlink('images/banner/'.$banner->image);
             
         }
       
@@ -73,7 +73,7 @@ class BannerController extends Controller
         $banner= $this->bannerModel::findorfail($id);
         if($banner){
             $banner->delete();
-            unlink(public_path('images/banner/'.$banner->image));
+            unlink('images/banner/'.$banner->image);
         }
         Alert::success('success', 'Banner deleted  Successfully');
         return redirect(route('Admin.banner.index'));

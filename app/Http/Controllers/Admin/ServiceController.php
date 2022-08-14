@@ -26,12 +26,12 @@ class ServiceController extends Controller
 
 
       $services= $this->serviceModel::get();
-     return view('admin.services.index',compact('services'));
+     return view('Admin.services.index',compact('services'));
 
     }
 
     public function create(){
-      return view('admin.services.create');
+      return view('Admin.services.create');
     }
 
     public function store(CreateServiceRequest $request){
@@ -56,7 +56,7 @@ class ServiceController extends Controller
       if ($request->hasFile('image')) {
         $filename = time() . '.' . $request->image->extension();
         $image =  $this->uploadImage($request->image, $filename, 'service');
-        unlink(public_path('images/service/'.$service->image));
+        unlink('images/service/'.$service->image);
     }
 
      $service->update([
@@ -75,7 +75,7 @@ class ServiceController extends Controller
       if($service){
 
         $service->delete();
-        unlink(public_path('images/service/'.$service->image));
+        unlink('images/service/'.$service->image);
       }
       Alert::success('success', 'Service deleted  Successfully');
       return redirect(route('Admin.service.index'));

@@ -3,21 +3,25 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Blog;
+use App\Models\About;
 use App\Models\Banner;
 use App\Models\Contact;
 use App\Models\OurWork;
 use App\Models\Service;
 use App\Models\Setting;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\Model;
-use App\Http\Requests\Contact\CreateContactRequest;
-use App\Http\Requests\CreateTechnicalSupportRequest;
-use App\Models\About;
-use App\Models\AboutStep;
 use App\Models\Category;
+use App\Models\AboutStep;
+use Illuminate\Http\Request;
+use App\Models\ServiceRequest;
 use App\Models\TechnicalSupport;
 use CreateTechnicalSupportsTable;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use App\Http\Requests\CreateServiceRequest;
+use App\Http\Requests\Contact\CreateContactRequest;
+use App\Http\Requests\CreateServiceRequestRequest;
+use App\Http\Requests\CreateTechnicalSupportRequest;
 
 class FrontController extends Controller
 {
@@ -30,7 +34,7 @@ class FrontController extends Controller
     protected $categoryModel;
     protected $aboutModel;
     protected $aboutStepModel;
-    protected $technicalSupportModel;
+    protected $serviceRequestModel;
 
     public function __construct(
         Setting $setting,
@@ -42,7 +46,7 @@ class FrontController extends Controller
         Category $category,
         About $about,
         AboutStep $aboutstep,
-        TechnicalSupport $technicalSupport
+       ServiceRequest $servicerequest,
     ) {
         $this->settingModel = $setting;
         $this->bannerModel = $banners;
@@ -53,7 +57,7 @@ class FrontController extends Controller
         $this->categoryModel = $category;
         $this->aboutModel = $about;
         $this->aboutStepModel = $aboutstep;
-        $this->technicalSupportModel = $technicalSupport;
+        $this->serviceRequestModel= $servicerequest;
     }
     public function index()
     {
@@ -124,9 +128,10 @@ class FrontController extends Controller
         return view('front.pages.service', compact('services'));
     }
 
-    public function myServices()
-    {
-        return view('front.pages.my-services');
+    public function myServices($id)
+    {    
+        $service= $this->serviceModel::where('id',$id)->first();
+        return view('front.pages.my-services',compact('service'));
     }
 
     public function serviceDetails($id)
@@ -137,21 +142,30 @@ class FrontController extends Controller
 
     public function serviceRequest()
     {
-        $categories = $this->categoryModel::get();
-        return view('front.pages.Request-new-service',compact('categories'));
+        $services = $this->serviceModel::get();
+        return view('front.pages.Request-new-service',compact('services'));
     }
-    public function serviceRequestStore(CreateTechnicalSupportRequest $request){
+    public function serviceRequestStore(CreateServiceRequestRequest $request){
 
-      $service = $this->technicalSupportModel::create([
+      $service = $this->serviceRequestModel::create([
             'name' => $request->name,
-            'email' => $request->email,
-            'category_id' => $request->category_id,
+            'user_id' => Auth::user()->id,
+            'service_id' => $request->service_id,
         ]);
         return redirect()->back();
     }
     
     public function serviceRequestDetails()
+    {     $servicerequests= $this->serviceRequestModel::where('user_id',auth()->user()->id)->with('services')->get();
+        return view('front.pages.service-request-details',compact('servicerequests'));
+    }
+   
+    public function technicalSupportRegister()
     {
-        return view('front.pages.service-request-details');
+        return view('front.pages.Technical-support-and-register');
+    }
+    public function technicalSupportLogin()
+    {
+        return view('front.pages.Technical-support-and-login');
     }
 }

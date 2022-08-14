@@ -25,13 +25,13 @@ class BlogComponentController extends Controller
 
         $blogs= $this->blogModel::get();
       $blogComponents= $this->blogComponentModel::get();
-     return view('admin.blogComponents.index',compact('blogComponents','blogs'));
+     return view('Admin.blogcomponents.index',compact('blogComponents','blogs'));
 
     }
 
     public function create(){
         $blogs= $this->blogModel::get();
-      return view('admin.blogComponents.create',compact('blogs'));
+      return view('Admin.blogcomponents.create',compact('blogs'));
     }
 
     public function store(CreateBlogComponentRequest $request){
@@ -43,7 +43,7 @@ class BlogComponentController extends Controller
          
        ]);
       Alert::success('success', 'blogcomponent  added  Successfully');
-      return redirect(route('Admin.blogComponent.index'));
+      return redirect(route('Admin.blogcomponent.index'));
     }
 
     public function update(UpdateBlogComponentRequest  $request ,$id){
@@ -59,7 +59,7 @@ class BlogComponentController extends Controller
     ]);
 
      Alert::success('success', 'blog component  updated  Successfully');
-     return redirect(route('Admin.blogComponent.index'));
+     return redirect(route('Admin.blogcomponent.index'));
     }
 
     public function destroy($id){
@@ -71,7 +71,7 @@ class BlogComponentController extends Controller
        
       }
       Alert::success('success', 'blog component deleted  Successfully');
-      return redirect(route('Admin.blogComponent.index'));
+      return redirect(route('Admin.blogcomponent.index'));
 
     }
 }

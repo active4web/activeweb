@@ -24,12 +24,12 @@ class OurWorkController extends Controller
 
 
       $ourworks= $this->ourWorkModel::get();
-     return view('admin.ourWorks.index',compact('ourworks'));
+     return view('Admin.ourworks.index',compact('ourworks'));
 
     }
 
     public function create(){
-      return view('admin.ourworks.create');
+      return view('Admin.ourworks.create');
     }
 
     public function store(CreateOurWorkRequest $request){
@@ -54,7 +54,7 @@ class OurWorkController extends Controller
       if ($request->hasFile('image')) {
         $filename = time() . '.' . $request->image->extension();
         $image =  $this->uploadImage($request->image, $filename, 'ourwork');
-        unlink(public_path('images/ourwork/'.$ourwork->image));
+        unlink('images/ourwork/'.$ourwork->image);
     }
 
      $ourwork->update([

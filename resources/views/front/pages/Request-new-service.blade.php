@@ -50,15 +50,11 @@ Services - خدماتنا
                     <input class="form-control floating" type="text" name="name">
                   </div>
 
-                  <div class="form-group form-focus">
-                    <label class="control-label"> {{trans('front.email')}}</label>
-                    <input class="form-control floating" type="email" name="email">
-                  </div>
                   <div class="form-group">
-                    <select  class="form-control" name="category_id">  
+                    <select  class="form-control" name="service_id">  
                       <option selected="selected" value="">{{trans('front.ask-service')}}</option>
-                      @foreach($categories as $category)
-                      <option value="{{$category->id}}">{{$category->getTranslation('title',\App::getlocale())}}</option>
+                      @foreach($services as $service)
+                      <option value="{{$service->id}}">{{$service->getTranslation('title',\App::getlocale())}}</option>
                      
                       @endforeach
                     </select>

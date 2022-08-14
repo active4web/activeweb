@@ -40,10 +40,10 @@ Services - خدماتنا
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-9">
             <div class="section-heading text-center">
-              <strong class="color-secondary">تصميم المواقع</strong>
-              <h2>خدمات تصميم الويب - لماذا يحتاج موقع الويب الخاص بك</h2>
+              <!-- <strong class="color-secondary">تصميم المواقع</strong> -->
+              <h2>{{$service->getTranslation('title',\App::getlocale())}}</h2>
               <span class="animate-border mr-auto ml-auto mb-4"></span>
-              <p class="lead">أفضل شركة تصميم مواقع ويب في مصر تقدم لك خدمات تصميم مواقع ويب متطورة وسريعة الاستجابة وتفاعلية. نحن هنا لصياغة التصميم الأكثر سهولة من شأنه تحسين معدل الاحتفاظ بالعملاء وتقليل معدل الارتداد. تميز عن البقية من خلال تصميم الويب الرائد في مصر.</p>
+              <p class="lead">{!! $service->getTranslation('description',\App::getlocale()) !!}</p>
             </div>
           </div>
         </div>
@@ -82,95 +82,15 @@ Services - خدماتنا
       </div><!-- container -->
     </section>
 
-    <section class="secti-spaces">
-      <div class="container">
-
-        <div class="row justify-content-center">
-          <div class="col-md-10 col-lg-9">
-            <div class="section-heading text-center">
-              <strong class="color-secondary">شركة تطوير الويب العالمية</strong>
-              <h2>أفضل شركة تطوير مواقع في مصر والتي تحول فكرتك إلى حقيقة. مع خبرة في تطوير الويب</h2>
-              <span class="animate-border mr-auto ml-auto mb-4"></span>
-              <p class="lead">نحن شركة تطوير الويب الرائدة في مصر التي تقدم لك مجموعة واسعة من أطر العمل التقنية. سواء كان ذلك WordPress CMS ، Magento ، تطوير CMS ، .Net التنمية. أو تطوير الويب PHP المخصص ، أو تطوير تطبيقات الأجهزة المحمولة ، لقد قمنا بتغطيتك.لا يعد تطوير موقع ويب كافيًا ، حيث يعد تقديم تجربة مستخدم جيدة على سطح المكتب والجوال أمرًا حيويًا. نظرًا لأن محركات البحث تركز أكثر على قابلية الاستخدام ، فإننا نلبي جميع الاعتبارات اللازمة. احصل على أفضل تطوير ويب في مصر والعالم</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          
-          <div class="col-lg-6 col-md-6 col-12 mb-30">
-            <div class="fl-ca-img">
-              <img src="public/img/hero-image-1.png">
-            </div><!-- fl-callout-content -->
-          </div><!-- col-lg-6 col-md-6 col-12 mb-30 -->
-
-          <div class="col-lg-6 col-md-6 col-12 mb-30">
-            <div class="clanding-page-content1">
-              <p>تطوير مواقع الويب واسع ولا يوجد موقعان تجاريان متماثلان. تختلف تكلفة خدمات تطوير الموقع على عدة عوامل. هذه العوامل هي نوع موقع الويب ، والحجم ، سواء كنت بحاجة إلى CMS أو تطوير مخصص. لا يوجد سعر ثابت يمكنك الحصول عليه من شركة تطوير مواقع الويب في مصر حيث تختلف العوامل. تكلفة مواقع الويب الخاصة بالشركات أقل مقارنة بمواقع التجارة الإلكترونية. هذا بسبب وجود العديد من الميزات. مثل قواعد بيانات المنتجات ، والمدفوعات لتطوير موقع إلكتروني لـ E-Com.بناءً على احتياجاتك ، يقوم فريقنا بصياغة أفضل أنظمة إدارة المحتوى والتقنيات الأخرى لتطوير موقع الويب الخاص بك. تتقاضى العديد من الشركات ما بين 5000 دولار إلى 15000 دولار لموقع واحد. لمساعدتك على النمو وجني المزيد من الأرباح ، نقدم تطوير ويب فعال التكلفة في الهند. تبدأ حزم تطوير الويب الخاصة بنا من 550 دولارًا وتصل إلى 2،599 دولارًا. في هذه ، نغطي جميع جوانب تطوير المواقع الأساسية والمتقدمة وتحسين محركات البحث.</p>
-             
-              <ul class="social-business-listing row">
-                <li class="col-lg-6 col-md-6 col-12 mb-30">PHP Web Development</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">Mobile App Development</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">Wordpress</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">Magento</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">CMS Development</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">.net Development</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">Client Requirements</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">Create Plan to Achieve Goal</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">Design Approval from Client</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">Designing & Development</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">Testing By Experts</li>
-                <li class="col-lg-6 col-md-6 col-12 mb-30">Launch the Website</li>
-              </ul>
-              <p></p>
-            </div>
-          </div><!-- col-lg-6 col-md-6 col-12 mb-30-->
-        </div>
-      </div><!-- container -->
-    </section>
 
 
     <section class="commentoggg">
       <div class="container">
 
-        <div class="blog-post-comment mb--50">
-          <h4 class="box_header">اكتب تلعيفاتك حتي يتم الرد عليك </h4>
-          <form action="#" class="rt-contact-form comments-form-style-1">
-            <div class="row">
-              <div class="col-xl-4">
-                <div class="form-group">
-                  <label for="name">اسمك *</label>
-                  <input type="text" name="name" id="name" class="form-control" >
-                </div>
-              </div>
-              <div class="col-xl-4">
-                <div class="form-group">
-                  <label for="email">البريد الإلكتروني *</label>
-                  <input type="text" name="email" id="email" class="form-control">
-                </div>
-              </div>
-              <div class="col-xl-4">
-                <div class="form-group">
-                  <label for="website">موقع الكتروني *</label>
-                  <input type="text" name="website" id="website" class="form-control">
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group">
-                  <label for="comment">تعليقات *</label>
-                  <textarea name="comment" id="comment" class="form-control text-area" ></textarea>
-                </div>
-              </div>
-
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary"> أضف تعليقا</button>
-              </div>
-            </div>
-          </form>
-        </div>
+        
 
         <div class="row page_margin_top_section">
-          <h4 class="box_header">اكتب تلعيفاتك حتي يتم الرد عليك </h4>
+          
           <ul id="comments_list">
             <li class="comment clearfix" id="comment-1">
               <div class="comment_author_avatar">
@@ -238,7 +158,26 @@ Services - خدماتنا
             </li>
           </ul>
         </div>
+        <div class="blog-post-comment mb--50">
+          <h4 class="box_header">اكتب تلعيفاتك حتي يتم الرد عليك </h4>
+          <form action="#" class="rt-contact-form comments-form-style-1">
+            <div class="row">
+              
+         
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="comment">تعليقات *</label>
+                  <textarea name="comment" id="comment" class="form-control text-area" ></textarea>
+                </div>
+              </div>
 
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary"> أضف تعليقا</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 

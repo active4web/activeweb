@@ -56,10 +56,16 @@ Services - خدماتنا
                         <i class="fas fa-seedling"></i>
                       </div>
                       <div class="about-info-content">
-                        <a href="my-services.html">
+                       
                           <h6>خدماتي</h6>
-                          <p>المحاربون القدامى في مجال التكنولوجيا والمهوسون والمهووسون جميعًا على أهبة الاستعداد لتحسين تجربتك. سواء كنت على اتصال بدعمنا ، أو اقرأ قاعدة المعرفة الخاصة بنا ، أو تبدأ موضوعًا.</p>
-                        </a>
+                          <ul>
+                            @foreach($servicerequests as $servicerequest)
+                            <li>
+                               <a href="{{route('Front.my-services',$servicerequest->services->id)}}">{{$servicerequest->services->getTranslation('title',\App::getLocale())}} </a>
+                            </li>
+                            @endforeach
+                          </ul>
+                       
                       </div>
                     </li>
                     <li>
@@ -67,7 +73,7 @@ Services - خدماتنا
                         <i class="fab fa-wolf-pack-battalion"></i>
                       </div>
                       <div class="about-info-content">
-                        <a href="Request-new-service.html">
+                        <a href="{{route('Front.service.request')}}">
                           <h6>طلب  خدمة  جديدة</h6>
                           <p>مع مواقع مراكز البيانات المتعددة ، والتبريد الزائد ، ومولدات الطوارئ ، والمراقبة المستمرة ، نحن قادرون على تقديم ضمان وقت التشغيل بنسبة 100٪.</p>
                         </a>
@@ -78,7 +84,7 @@ Services - خدماتنا
               </div><!-- col-lg-4 order-1 col-md-6 col-sm-8 -->
               <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="about-img">
-                  <img src="public/img/work-img.png">
+                  <img src="{{asset('assets/front/img/work-img.png')}}">
                 </div>
               </div><!-- col-lg-4 order-0 order-lg-2 -->
               <div class="col-lg-4 col-md-6 col-sm-12 pl-0">

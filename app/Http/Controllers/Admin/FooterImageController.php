@@ -23,12 +23,12 @@ class FooterImageController extends Controller
 
     public function index(){
         $footerimages= $this->footerImageModel::get();
-        return view('admin.footerimages.index',compact('footerimages'));
+        return view('Admin.footerimages.index',compact('footerimages'));
 
     }
 
     public function create(){
-        return view('admin.footerimages.create');
+        return view('Admin.footerimages.create');
     }
 
 
@@ -72,7 +72,7 @@ class FooterImageController extends Controller
         $footerImage= $this->footerImageModel::findorfail($id);
         if($footerImage){
             $footerImage->delete();
-            unlink(public_path('images/footerimage/'.$footerImage->image));
+            unlink('images/footerimage/'.$footerImage->image);
         }
         Alert::success('success', 'footerimage deleted  Successfully');
         return redirect(route('Admin.footerimage.index'));
