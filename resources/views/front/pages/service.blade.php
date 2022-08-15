@@ -81,62 +81,25 @@ Services - خدماتنا
               </div>
             </div>
 
+
+
+            @foreach($servicessteps  as $key=> $servicestep)
             <div class="row upset justify-content-center mt60">
               <div class="col-lg-4 v-center order1">
                 <div class="image-block1">
-                  <img src="{{ asset('assets/front/img/process-1.png')}}" alt="Process" class="img-fluid">
+                  <img src="{{ asset('images/servicestep/'.$servicestep->image)}}" alt="Process" class="img-fluid">
                 </div>
               </div>
               <div class="col-lg-7 v-center order2">
                 <div class="ps-block">
-                  <span>1</span>
-                  <h3>جمع شرط</h3>
-                  <p class="mb30">نحن نفكر بشكل كبير ولدينا أيدي في جميع منصات التكنولوجيا الرائدة لنقدم لك مجموعة واسعة من الخدمات.</p>
+                  <span>{{++ $key}}</span>
+                  <h3> {{$servicestep->getTranslation('title',\App::getLocale())}}</h3>
+                  <p class="mb30">{!! $service->getTranslation('description',\App::getLocale()) !!}</p>
                 </div>
               </div>
             </div>
-            <div class="row upset justify-content-center mt60">
-              <div class="col-lg-7 v-center order2">
-                <div class="ps-block">
-                  <span>2</span>
-                  <h3>النموذج المبدئي</h3>
-                  <p class="mb30">نحن نفكر بشكل كبير ولدينا أيدي في جميع منصات التكنولوجيا الرائدة لنقدم لك مجموعة واسعة من الخدمات.</p>
-                </div>
-              </div>
-              <div class="col-lg-4 v-center order1">
-                <div class="image-block1">
-                  <img src="{{ asset('assets/front/img/process-2.png')}}" alt="Process" class="img-fluid">
-                </div>
-              </div>
-            </div>
-            <div class="row upset justify-content-center mt60">
-              <div class="col-lg-4 v-center order1">
-                <div class="image-block1">
-                  <img src="{{ asset('assets/front/img/process-3.png')}}" alt="Process" class="img-fluid">
-                </div>
-              </div>
-              <div class="col-lg-7 v-center order2">
-                <div class="ps-block">
-                  <span>3</span>
-                  <h3>تعيين</h3>
-                  <p class="mb30">نحن نفكر بشكل كبير ولدينا أيدي في جميع منصات التكنولوجيا الرائدة لنقدم لك مجموعة واسعة من الخدمات.</p>
-                </div>
-              </div>
-            </div>
-            <div class="row upset justify-content-center mt60">
-              <div class="col-lg-7 v-center order2">
-                <div class="ps-block">
-                  <span>4</span>
-                  <h3>الدعم الفني والتواصل لحل مشلكة</h3>
-                  <p class="mb30">نحن نفكر بشكل كبير ولدينا أيدي في جميع منصات التكنولوجيا الرائدة لنقدم لك مجموعة واسعة من الخدمات.</p>
-                </div>
-              </div>
-              <div class="col-lg-4 v-center order1">
-                <div class="image-block1">
-                  <img src="{{ asset('assets/front/img/process-4.png')}}" alt="Process" class="img-fluid">
-                </div>
-              </div>
-            </div>
+            @endforeach
+            
           </div>
         </section>
         

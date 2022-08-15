@@ -27,6 +27,7 @@ use App\Http\Requests\CreateServiceRequest;
 use App\Http\Requests\CreateServiceRequestRequest;
 use App\Http\Requests\Contact\CreateContactRequest;
 use App\Http\Requests\CreateTechnicalSupportRequest;
+use App\Models\ServiceStep;
 
 class FrontController extends Controller
 {
@@ -43,6 +44,7 @@ class FrontController extends Controller
     protected $serviceCommentModel;
     protected $clientCommentModel;
     protected $clientContactModel;
+    protected $serviceStepModel;
 
     public function __construct(
         Setting $setting,
@@ -58,6 +60,7 @@ class FrontController extends Controller
        ServiceComment $servicecomments,
        ClientComment $clientcomment,
         ClientContact $clientcontact,
+        ServiceStep $serviceStep,
     ) {
         $this->settingModel = $setting;
         $this->bannerModel = $banners;
@@ -72,6 +75,7 @@ class FrontController extends Controller
         $this->serviceCommentModel=$servicecomments;
         $this->clientCommentModel=$clientcomment;
         $this->clientContactModel=$clientcontact;
+        $this->serviceStepModel=$serviceStep;
     }
     public function index()
     {
@@ -139,7 +143,8 @@ class FrontController extends Controller
     public function services()
     {
         $services = $this->serviceModel::get();
-        return view('front.pages.service', compact('services'));
+        $servicessteps= $this->serviceStepModel::get();
+        return view('front.pages.service', compact('services','servicessteps'));
     }
 
     public function myServices($id)

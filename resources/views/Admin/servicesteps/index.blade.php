@@ -1,7 +1,6 @@
+@extends('Admin.layouts.master')
 
-  @extends('Admin.layouts.master')
-
-@section('title','Services')
+@section('title','Services-Steps')
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/datatables.css')}}">
 @endsection
@@ -12,8 +11,8 @@
 <div class="col-sm-12">
   <div class="card">
     <div class="card-header">
-      <h5>Services</h5>
-      <a class="btn btn-success" href="{{route('Admin.service.create')}}"> Add Service</a>
+      <h5>Services Steps</h5>
+      <a class="btn btn-success" href="{{route('Admin.servicestep.create')}}"> Add Service step</a>
 
     </div>
     <div class="card-body">
@@ -32,35 +31,35 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($services as $key=> $service)
+            @foreach($servicesteps as $key=> $servicestep)
             <tr>
               <td>{{$key +1}}</td>
-              <td>{{$service->title}}</td>
-              <td>{!! Str::words($service->description,20) !!}</td>
-              <td> <img style="width:60px;" src="{{asset('images/service/'.$service->image)}}"></td>
+              <td>{{$servicestep->title}}</td>
+              <td>{!! Str::words($servicestep->description,20) !!}</td>
+              <td> <img style="width:60px;" src="{{asset('images/servicestep/'.$servicestep->image)}}"></td>
               <td>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$service->id}}" data-whatever="@mdo"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$service->id}}"><i class="fa fa-trash-o"></i></button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo{{$servicestep->id}}" data-whatever="@mdo"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$servicestep->id}}"><i class="fa fa-trash-o"></i></button>
 
 
               </td>
             </tr>
             <!-- modal edit !-->
-            <div class="modal fade" id="exampleModalmdo{{$service->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModalmdo{{$servicestep->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">{{$service->title}}</h5>
+                    <h5 class="modal-title">{{$servicestep->title}}</h5>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form action="{{route('Admin.service.update',$service->id)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('Admin.servicestep.update',$servicestep->id)}}" method="post" enctype="multipart/form-data">
                       @csrf
                       @method ('PUT')
                       <div class="mb-3">
-                        <input type="hidden" id="id" name="id" value="{{$service->id}}">
+                        <input type="hidden" id="id" name="id" value="{{$servicestep->id}}">
                         <label class="col-form-label" for="recipient-name">Title in English </label>
-                        <input class="form-control  @error('title') is-invalid fparsley-error parsley-error @enderror" type="text" name="title_en" value="{{old('title_en',$service->getTranslation('title','en'))}}">
+                        <input class="form-control  @error('title') is-invalid fparsley-error parsley-error @enderror" type="text" name="title_en" value="{{old('title_en',$servicestep->getTranslation('title','en'))}}">
                         @error('title_en')
                         <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
                           <p>{{ $message }}</p>
@@ -71,7 +70,7 @@
                       <div class="mb-3">
 
                         <label class="col-form-label" for="recipient-name">Title in Arabic </label>
-                        <input class="form-control  @error('title') is-invalid fparsley-error parsley-error @enderror" type="text" name="title_ar" value="{{old('title_ar',$service->getTranslation('title','ar'))}}">
+                        <input class="form-control  @error('title') is-invalid fparsley-error parsley-error @enderror" type="text" name="title_ar" value="{{old('title_ar',$servicestep->getTranslation('title','ar'))}}">
                         @error('title _ar')
                         <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
                           <p>{{ $message }}</p>
@@ -82,7 +81,7 @@
                       <div class="mb-3">
 
                         <label class="col-form-label" for="recipient-name">Description in English </label>
-                        <textarea class="form-control ckeditor @error('description_en') is-invalid fparsley-error parsley-error @enderror" name="description_en" id="exampleFormControlTextarea4" rows="3">{{old('description_en',$service->getTranslation('description','en'))}}</textarea>
+                        <textarea class="form-control ckeditor @error('description_en') is-invalid fparsley-error parsley-error @enderror" name="description_en" id="exampleFormControlTextarea4" rows="3">{{old('description_en',$servicestep->getTranslation('description','en'))}}</textarea>
                         @error('decription_en')
                         <span class="invalid-feedback ckeditor  text-black font-weight-bold text-capitalize mt-2" role="alert">
                           <p>{{ $message }}</p>
@@ -93,7 +92,7 @@
                       <div class="mb-3">
 
                         <label class="col-form-label" for="recipient-name">Description in Arabic</label>
-                        <textarea class="form-control ckeditor @error('description_en') is-invalid fparsley-error parsley-error @enderror" name="description_ar" id="exampleFormControlTextarea4" rows="3">{{old('description_en',$service->getTranslation('description','ar'))}}</textarea>
+                        <textarea class="form-control ckeditor @error('description_en') is-invalid fparsley-error parsley-error @enderror" name="description_ar" id="exampleFormControlTextarea4" rows="3">{{old('description_en',$servicestep->getTranslation('description','ar'))}}</textarea>
                         @error('decription_ar')
                         <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
                           <p>{{ $message }}</p>
@@ -103,7 +102,7 @@
 
                       <div class="mb-3">
                         <label class="col-form-label" for="recipient-name">image </label>
-                        <input class="form-control @error('image') is-invalid fparsley-error parsley-error @enderror" name="image" type="file" value="{{$service->link}}">
+                        <input class="form-control @error('image') is-invalid fparsley-error parsley-error @enderror" name="image" type="file" value="{{$servicestep->image}}">
                         @error('image')
                         <span class="invalid-feedback text-black font-weight-bold text-capitalize mt-2" role="alert">
                           <p>{{ $message }}</p>
@@ -122,18 +121,18 @@
               </div>
             </div>
             <!-- modal delete !-->
-            <div class="modal fade" id="exampleModal{{$service->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal{{$servicestep->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">delete service</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">delete servicestep</h5>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form method="post" action="{{route('Admin.service.destroy',$service->id)}}">
+                    <form method="post" action="{{route('Admin.servicestep.destroy',$servicestep->id)}}">
                       @csrf
                       @method('DELETE')
-                      <p> Are you sure you want to delete this service ?</p>
+                      <p> Are you sure you want to delete this servicestep ?</p>
                   </div>
                   <div class="modal-footer">
                     <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Close</button>
