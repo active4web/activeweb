@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ClientRegisterRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -13,13 +14,8 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
 
-    public function register(Request $request){
-        $validation = Validator::make($request->all(),[
-            'name'=>'required',
-            'email'=>'required',
-            'password'=> 'required|min:6' ,
-            
-          ]) ;
+    public function register(ClientRegisterRequest $request){
+     
    
               User::create([
                'name'         => $request->name,
@@ -37,10 +33,10 @@ class AuthController extends Controller
 
         $credintials= $request->only('phone','password');
         if(Auth::attempt($credintials)){
-            return view('front.pages.service-request-details');
+            return redirect(route('Front.service.request.details'));
         }
     
-        return redirect()->back();
+        return redirect()->back()->withErrors(['error' => 'You Don\'t Have Access To Login']);;
 
     }
     public function logout(){

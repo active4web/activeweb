@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\BlogDetailController;
 use App\Http\Controllers\Admin\FooterImageController;
 use App\Http\Controllers\Admin\SocialMediaController;
 use App\Http\Controllers\Admin\BlogComponentController;
+use App\Http\Controllers\Admin\ClientCommentController;
+use App\Http\Controllers\Admin\ClientContactController;
 use App\Http\Controllers\Admin\OurWorkDetailController;
 use App\Http\Controllers\Admin\ServiceDetailController;
 use App\Http\Controllers\Admin\ServiceCommentController;
@@ -163,6 +165,19 @@ Route::group(['prefix'=> 'ourworkdetail', 'as' => 'ourworkdetail.'],function(){
 Route::group(['prefix'=> 'contact', 'as' => 'contact.'],function(){
     Route::get('/',[ContactController::class,'index'])->name('index');
     Route::put('/delete/{id}',[ContactController::class,'destroy'])->name('destroy');
+});
+
+                /*   client-contact   */
+Route::group(['prefix'=> 'clientcontact', 'as' => 'clientcontact.'],function(){
+    Route::get('/',[ClientContactController::class,'index'])->name('index');
+    Route::put('/delete/{id}',[ClientContactController::class,'destroy'])->name('destroy');
+});
+
+
+                /*   client-comments   */
+Route::group(['prefix'=> 'clientcomment', 'as' => 'clientcomment.'],function(){
+    Route::get('/',[ClientCommentController::class,'index'])->name('index');
+    Route::put('/reply/{id}',[ClientCommentController::class,'reply'])->name('reply');
 });
 
         

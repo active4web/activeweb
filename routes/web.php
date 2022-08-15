@@ -48,7 +48,10 @@ Route::group([ 'as'=>'Front.' ],function(){
     Route::get('/service/request/details',[FrontController::class,'serviceRequestDetails'])->name('service.request.details');
     Route::get('/technicalsupport/register',[FrontController::class,'technicalSupportRegister'])->name('technicalsupport.register');
     Route::get('/technicalsupport/login',[FrontController::class,'technicalSupportLogin'])->name('technicalsupport.login');
-  
+    Route::post('/myservices/client-comment',[FrontController::class,'clientComment'])->name('clientcomment');
+    Route::put('/myservices/comment-reply/{id}',[FrontController::class,'commentReply'])->name('commentreply');
+    Route::get('/client/contact',[FrontController::class,'clientConatct'])->name('clientcontact');
+    Route::post('/client/contact/store',[FrontController::class,'clientConatctStore'])->name('clientcontactstore');
 });
   Route::post('/client-register',[AuthController::class,'register'])->name('client-register');
   Route::post('/client-login',[AuthController::class,'login'])->name('client-login');
