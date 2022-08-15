@@ -43,27 +43,16 @@
               <div class="left-sec contact-page">
                 <h2 class="titleopo">للتواصل مع ادارة </h2>
                 
-                <form class="form-contact">
+                <form class="form-contact" action=" {{route('Front.clientcontactstore')}} " method="post">
+                  @csrf
 
-                  <div class="form-group form-focus">
-                    <label class="control-label">اسم العميل</label>
-                    <input class="form-control floating" type="text">
-                  </div>
-
-                  <div class="form-group form-focus">
-                    <label class="control-label">رقم التليفون</label>
-                    <input class="form-control floating" type="text">
-                  </div>
-                  <div class="form-group form-focus">
-                    <label class="control-label">البريد  الالكتروني</label>
-                    <input class="form-control floating" type="email">
-                  </div>
+                  
                   <div class="form-group">
                      <label class="control-label">اكتب رسالتك</label>
                     <textarea name="message"></textarea>
                   </div>
 
-                  <a class="btn btn--primary" href="{{route('Front.service.request.details')}}"> ارسال </a>
+                  <button class="btn btn-primary  btn-outline-light" style="background-color: #007bff ;" type="submit"> ارسال </button>
                 </form>                 
               </div>
             </div>

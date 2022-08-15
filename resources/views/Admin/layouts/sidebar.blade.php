@@ -76,6 +76,14 @@
                                 data-feather="layout"></i><span>Contacts</span></a>
                        
                     </li>
+                    <li><a class="nav-link" href="{{route('Admin.clientcontact.index')}}"><i
+                                data-feather="layout"></i><span>Clients Contacts</span></a>
+                       
+                    </li>
+                    <li><a class="nav-link" href="{{route('Admin.clientcomment.index')}}"><i
+                                data-feather="layout"></i><span>Clients Comments</span></a>
+                       
+                    </li>
                     <li><a class="nav-link" href="{{route('Admin.servicerequest.index')}}"><i
                                 data-feather="layout"></i><span>ServiceRequests</span></a>
                        

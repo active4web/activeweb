@@ -43,6 +43,13 @@
                   <h2 class="titleopo"> تسجيل الدخول </h2>
                   
                   <form class="form-contact" action="{{route('client-login')}}" method="post">
+                    @if ($errors->any())
+		                    	@foreach ($errors->all() as $error)
+		                    	<div class="alert alert-danger text-center my-1" role="alert">
+				                      {{ $error }}
+		                               	</div>
+		                            	@endforeach
+		                                 	@endif
                     @csrf
 
 

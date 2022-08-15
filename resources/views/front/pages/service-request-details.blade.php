@@ -58,12 +58,15 @@ Services - خدماتنا
                       <div class="about-info-content">
                        
                           <h6>خدماتي</h6>
-                          <ul>
+                          <ul >
+                           @isset($servicerequests)
                             @foreach($servicerequests as $servicerequest)
-                            <li>
-                               <a href="{{route('Front.my-services',$servicerequest->services->id)}}">{{$servicerequest->services->getTranslation('title',\App::getLocale())}} </a>
+                            <li class=" m-auto " >
+                               <a href="{{route('Front.my-services',$servicerequest->id)}}">{{$servicerequest->services->getTranslation('title',\App::getLocale())}} </a>
                             </li>
                             @endforeach
+                            @endisset
+                            
                           </ul>
                        
                       </div>
@@ -95,7 +98,7 @@ Services - خدماتنا
                         <i class="fas fa-cannabis"></i>
                       </div>
                       <div class="about-info-content">
-                        <a href="Communicate-with-management.html">
+                        <a href="{{route('Front.clientcontact')}}">
                           <h6>التواصل مع ادارة</h6>
                           <p>تمنحك لوحة التحكم البديهية الخاصة بنا وصولاً إداريًا إلى جميع منتجات DreamHost الخاصة بك. قم بتحديث معلومات المجال بسهولة ، أضف مستخدمين ، واضبط إعدادات البريد الإلكتروني ، واكتسب حق الوصول.</p>
                         </a>

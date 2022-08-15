@@ -12,15 +12,20 @@ use App\Models\Setting;
 use App\Models\Category;
 use App\Models\AboutStep;
 use Illuminate\Http\Request;
+use App\Models\ClientComment;
+use App\Models\ClientContact;
+use App\Models\ServiceComment;
 use App\Models\ServiceRequest;
 use App\Models\TechnicalSupport;
 use CreateTechnicalSupportsTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\ClientCommentRequest;
 use App\Http\Requests\CreateServiceRequest;
-use App\Http\Requests\Contact\CreateContactRequest;
 use App\Http\Requests\CreateServiceRequestRequest;
+use App\Http\Requests\Contact\CreateContactRequest;
 use App\Http\Requests\CreateTechnicalSupportRequest;
 
 class FrontController extends Controller
@@ -35,6 +40,9 @@ class FrontController extends Controller
     protected $aboutModel;
     protected $aboutStepModel;
     protected $serviceRequestModel;
+    protected $serviceCommentModel;
+    protected $clientCommentModel;
+    protected $clientContactModel;
 
     public function __construct(
         Setting $setting,
@@ -47,6 +55,9 @@ class FrontController extends Controller
         About $about,
         AboutStep $aboutstep,
        ServiceRequest $servicerequest,
+       ServiceComment $servicecomments,
+       ClientComment $clientcomment,
+        ClientContact $clientcontact,
     ) {
         $this->settingModel = $setting;
         $this->bannerModel = $banners;
@@ -58,6 +69,9 @@ class FrontController extends Controller
         $this->aboutModel = $about;
         $this->aboutStepModel = $aboutstep;
         $this->serviceRequestModel= $servicerequest;
+        $this->serviceCommentModel=$servicecomments;
+        $this->clientCommentModel=$clientcomment;
+        $this->clientContactModel=$clientcontact;
     }
     public function index()
     {
@@ -129,9 +143,10 @@ class FrontController extends Controller
     }
 
     public function myServices($id)
-    {    
-        $service= $this->serviceModel::where('id',$id)->first();
-        return view('front.pages.my-services',compact('service'));
+    {  
+         $servicerequest= $this->serviceRequestModel::where('id',$id)->with('services','users','clientComments')->first();
+         $servicecomments= $this->serviceCommentModel::where('service_id',$id)->get();
+        return view('front.pages.my-services',compact('servicerequest','servicecomments'));
     }
 
     public function serviceDetails($id)
@@ -152,11 +167,13 @@ class FrontController extends Controller
             'user_id' => Auth::user()->id,
             'service_id' => $request->service_id,
         ]);
-        return redirect()->back();
+        
+        return redirect(route('Front.service.request.details'));
     }
     
     public function serviceRequestDetails()
     {     $servicerequests= $this->serviceRequestModel::where('user_id',auth()->user()->id)->with('services')->get();
+       
         return view('front.pages.service-request-details',compact('servicerequests'));
     }
    
@@ -168,4 +185,26 @@ class FrontController extends Controller
     {
         return view('front.pages.Technical-support-and-login');
     }
+
+    public function clientComment( ClientCommentRequest $request){
+     $comment= $this->clientCommentModel::create([
+           'comment' => $request->comment,
+           'service_request_id'=> $request->servicerequest_id
+     ]);
+     return redirect()->back();
+    }
+
+   public function clientConatct(){
+     
+    return view('front.pages.Communicate-with-management');
+   }
+   
+   public function clientConatctStore(Request $request){
+    $contact = $this->clientContactModel::create([
+       
+        'message' => $request->message,
+        'user_id' => Auth::user()->id ,
+    ]);
+    return redirect(route('Front.service.request.details'));
+   }
 }
