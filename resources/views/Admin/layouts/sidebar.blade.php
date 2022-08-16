@@ -17,7 +17,7 @@
                     </li>
                     <li class="sidebar-main-title">
                         <div>
-                            <h6>Dashboard </h6>
+                        <a  href="{{route('home')}}"><h6>Dashboard </h6></a> 
                         </div>
                     </li>
                     <li><a class="nav-link" href="{{route('Admin.setting.edit')}}"><i
