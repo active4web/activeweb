@@ -48,6 +48,10 @@
                                 data-feather="layout"></i><span>Service Details</span></a>
                        
                     </li>
+                    <li><a class="nav-link" href="{{route('Admin.servicestep.index')}}"><i
+                                data-feather="layout"></i><span>ServiceSteps</span></a>
+                       
+                    </li>
                     <li><a class="nav-link" href="{{route('Admin.blog.index')}}"><i
                                 data-feather="layout"></i><span>Blogs</span></a>
                        

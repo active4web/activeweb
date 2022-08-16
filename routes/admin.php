@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AboutStepController;
 use App\Http\Controllers\Admin\BlogDetailController;
 use App\Http\Controllers\Admin\FooterImageController;
+use App\Http\Controllers\Admin\ServiceStepController;
 use App\Http\Controllers\Admin\SocialMediaController;
 use App\Http\Controllers\Admin\BlogComponentController;
 use App\Http\Controllers\Admin\ClientCommentController;
@@ -96,6 +97,15 @@ Route::group(['prefix'=> 'servicedetail', 'as' => 'servicedetail.'],function(){
     Route::put('/update/{id}',[ServiceDetailController::class,'update'])->name('update');
     Route::delete('/delete/{id}',[ServiceDetailController::class,'destroy'])->name('destroy');
 });
+         /*   services  steps   */
+Route::group(['prefix'=> 'servicetep', 'as' => 'servicestep.'],function(){
+    Route::get('/',[ServiceStepController::class,'index'])->name('index');
+    Route::get('/create',[ServiceStepController::class,'create'])->name('create');
+    Route::post('/store',[ServiceStepController::class,'store'])->name('store');
+    Route::put('/update/{id}',[ServiceStepController::class,'update'])->name('update');
+    Route::delete('/delete/{id}',[ServiceStepController::class,'destroy'])->name('destroy');
+});
+ 
 
               /*   service requests  */
 Route::group(['prefix'=> 'servicerequest', 'as' => 'servicerequest.'],function(){
