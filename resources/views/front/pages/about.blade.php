@@ -11,7 +11,7 @@ about us
 
 <section class="aboutcontent">
 
-  <section class="hero-section ptb-100 gradient-overlay" style="background: url({{ asset('assets/front/img/header-bg-5.jpg')}}) no-repeat center center / cover">
+  <section class="hero-section ptb-100 gradient-overlay" style="background: url({{ asset('images/pagesbanner/'.$banner->image)}}) no-repeat center center / cover">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 col-lg-7">
@@ -210,14 +210,14 @@ about us
 
 
             <div class="row">
-            @foreach($aboutSteps as $key => $aboutstep)
+            @foreach($aboutgoals as $key => $aboutgoal)
               <div class="col-sm-6">
                 <div class="number">
                   <span>{{ ++ $key }}</span>
                 </div>
                 <div class="wrappercustom">
-                  <h4>{{$aboutstep->getTranslation('title',\App::getLocale())}}</h4>
-                  <p> {{$aboutstep->getTranslation('description',\App::getLocale())}}</p>
+                  <h4>{{$aboutgoal->getTranslation('title',\App::getLocale())}}</h4>
+                  <p> {{$aboutgoal->getTranslation('description',\App::getLocale())}}</p>
                 </div>
               </div>
               @endforeach

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             SettingSeeder::class,
             SocialMediaSeeder::class,
+            PagesBannerSeeder::class
         ]);
     }
 }
