@@ -12,7 +12,7 @@
    <div class="col-sm-12">
                 <div class="card">
                   <div class="card-header">
-                    <h5>Base style </h5><span><code>stripe</code></span>
+                    <h5>Socialmedia </h5>
 
                     
                   </div>
