@@ -13,20 +13,20 @@ Services - خدماتنا
  
 @section('content')  
        
-    <section class="hero-section ptb-100 gradient-overlay" style="background: url({{ asset('assets/front/img/header-bg-5.jpg')}})no-repeat center center / cover">
+    <section class="hero-section ptb-100 gradient-overlay" style="background:url({{ asset('images/pagesbanner/'.$banner->image)}})no-repeat center center / cover">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-7">
-            <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
-              <h1 class="text-white mb-0">دعم فني وطلب خدمة</h1>
-              <div class="custom-breadcrumb">
-                <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
-                  <li class="list-inline-item"><a href="index.html">الرئسية</a><i class="fas fa-angle-right fa-fw"></i></li>
-                  <li class="list-inline-item"><a href="#">الصفحات</a><i class="fas fa-angle-right fa-fw"></i></li>
-                  <li class="list-inline-item active">دعم  فني وطلب خدمة</li>
-                </ol>
+          <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
+              <h1 class="text-white mb-0">{{trans('front.ask-new-service')}}</h1></h1>
+                <div class="custom-breadcrumb">
+                  <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
+                    <li class="list-inline-item"><a href="{{route('Front.index')}}">{{trans('front.Home')}}</a><i class="fas fa-angle-right fa-fw"></i></li>
+                    <li class="list-inline-item"><a href="#">{{trans('front.pages')}}</a><i class="fas fa-angle-right fa-fw"></i></li>
+                    <li class="list-inline-item active">{{trans('front.ask-new-service')}}</li>
+                  </ol>
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -38,10 +38,10 @@ Services - خدماتنا
           <div class="row justify-content-center">
             <div class="col-md-10 col-lg-9">
               <div class="section-heading text-center">
-                <strong class="color-secondary">خدماتي</strong>
-                <h2>ما الذي يجعلنا الأفضل في البرمجة التسويق الرقمي</h2>
+               
+                <h2>{{trans('front.my-services')}}</h2>
                 <span class="animate-border mr-auto ml-auto mb-4"></span>
-                <p class="lead">ابدأ العمل مع شركة يمكنها توفير كل ما تحتاجه لزيادة الوعي , جذب حركة المرور والتواصل مع العملاء وزيادة المبيعات.</p>
+          
               </div>
             </div>
           </div>
@@ -57,8 +57,8 @@ Services - خدماتنا
                       </div>
                       <div class="about-info-content">
                        
-                          <h6>خدماتي</h6>
-                          <ul >
+                          <h6>{{trans('front.my-services')}}</h6>
+                          <ul>
                            @isset($servicerequests)
                             @foreach($servicerequests as $servicerequest)
                             <li class=" m-auto " >
@@ -71,17 +71,7 @@ Services - خدماتنا
                        
                       </div>
                     </li>
-                    <li>
-                      <div class="about-info-icon">
-                        <i class="fab fa-wolf-pack-battalion"></i>
-                      </div>
-                      <div class="about-info-content">
-                        <a href="{{route('Front.service.request')}}">
-                          <h6>طلب  خدمة  جديدة</h6>
-                          <p>مع مواقع مراكز البيانات المتعددة ، والتبريد الزائد ، ومولدات الطوارئ ، والمراقبة المستمرة ، نحن قادرون على تقديم ضمان وقت التشغيل بنسبة 100٪.</p>
-                        </a>
-                      </div>
-                    </li>
+                   
                   </ul>
                 </div>
               </div><!-- col-lg-4 order-1 col-md-6 col-sm-8 -->
@@ -99,19 +89,19 @@ Services - خدماتنا
                       </div>
                       <div class="about-info-content">
                         <a href="{{route('Front.clientcontact')}}">
-                          <h6>التواصل مع ادارة</h6>
+                          <h6>{{trans('front.contact-with-admins')}}</h6>
                           <p>تمنحك لوحة التحكم البديهية الخاصة بنا وصولاً إداريًا إلى جميع منتجات DreamHost الخاصة بك. قم بتحديث معلومات المجال بسهولة ، أضف مستخدمين ، واضبط إعدادات البريد الإلكتروني ، واكتسب حق الوصول.</p>
                         </a>
                       </div>
                     </li>
                     <li>
                       <div class="about-info-icon">
-                        <i class="fas fa-tractor"></i>
+                        <i class="fab fa-wolf-pack-battalion"></i>
                       </div>
                       <div class="about-info-content">
-                        <a href="Social-Media.html ">
-                          <h6>سوشيال ميديا</h6>
-                          <p>لا حاجة للبحث في مجموعة من الوثائق. ما عليك سوى تثبيت تطبيقات الويب مثل WordPress و Joomla! و اكثر. إدارة الفرص السليمة اقتصاديًا بشكل أحادي.</p>
+                        <a href="{{route('Front.service.request')}}">
+                          <h6>{{trans('front.ask-service')}}</h6>
+                          <p>مع مواقع مراكز البيانات المتعددة ، والتبريد الزائد ، ومولدات الطوارئ ، والمراقبة المستمرة ، نحن قادرون على تقديم ضمان وقت التشغيل بنسبة 100٪.</p>
                         </a>
                       </div>
                     </li>

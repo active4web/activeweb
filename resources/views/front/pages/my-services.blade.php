@@ -12,20 +12,20 @@ Services - خدماتنا
 
 
 @section('content')   
-    <section class="hero-section ptb-100 gradient-overlay" style="background: url('public/img/header-bg-5.jpg')no-repeat center center / cover">
+    <section class="hero-section ptb-100 gradient-overlay" style="background: url({{ asset('images/pagesbanner/'.$banner->image)}})no-repeat center center / cover">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-7">
-            <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
-              <h1 class="text-white mb-0">خدماتي</h1>
-              <div class="custom-breadcrumb">
-                <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
-                  <li class="list-inline-item"><a href="index.html">الرئسية</a><i class="fas fa-angle-right fa-fw"></i></li>
-                  <li class="list-inline-item"><a href="#">الصفحات</a><i class="fas fa-angle-right fa-fw"></i></li>
-                  <li class="list-inline-item active">دعم  فني وطلب خدمة</li>
-                </ol>
+          <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
+              <h1 class="text-white mb-0">{{trans('front.ask-new-service')}}</h1></h1>
+                <div class="custom-breadcrumb">
+                  <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
+                    <li class="list-inline-item"><a href="{{route('Front.index')}}">{{trans('front.Home')}}</a><i class="fas fa-angle-right fa-fw"></i></li>
+                    <li class="list-inline-item"><a href="#">{{trans('front.pages')}}</a><i class="fas fa-angle-right fa-fw"></i></li>
+                    <li class="list-inline-item active">{{trans('front.ask-new-service')}}</li>
+                  </ol>
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -142,7 +142,7 @@ Services - خدماتنا
           </ul>
         </div>
         <div class="blog-post-comment mb--50">
-          <h4 class="box_header">اكتب تعليفاتك حتي يتم الرد عليك </h4>
+          <h4 class="box_header">{{trans('front.leave-comment')}}</h4>
           <form action="{{route('Front.clientcomment')}}" method="post" class="rt-contact-form comments-form-style-1">
           @csrf
           <div class="row">
@@ -151,14 +151,14 @@ Services - خدماتنا
               <div class="col-12">
                 <div class="form-group">
                   <input type="hidden" name="servicerequest_id" value="{{$servicerequest->id}}">
-                  <label for="comment">تعليقات *</label>
+                  <label for="comment">{{trans('front.comments')}}*</label>
                   <textarea name="comment" id="comment" class="form-control text-area" >{{old('comment')}}</textarea>
                 </div>
               </div>
 
               </div>
               <div class="col-12">
-                <button type="submit" class="btn btn-primary"> أضف تعليقا</button>
+                <button type="submit" class="btn btn-primary"> {{trans('front.add-comment')}}</button>
               </div>
             </div>
           </form>

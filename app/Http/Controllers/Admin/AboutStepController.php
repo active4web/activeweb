@@ -39,7 +39,7 @@ class AboutStepController extends Controller
             'description'   => ['en' => $request->description_en, 'ar' => $request->description_ar,],
           
         ]);
-        Alert::success('success', 'aboutstep  added  Successfully');
+        Alert::success('success', 'about step  added  Successfully');
         return redirect(route('Admin.aboutstep.index'));
     }
 
@@ -56,19 +56,19 @@ class AboutStepController extends Controller
 
         ]);
 
-        Alert::success('success', 'blog component  updated  Successfully');
+        Alert::success('success', 'about step updated  Successfully');
         return redirect(route('Admin.aboutstep.index'));
     }
 
     public function destroy($id)
     {
 
-        $aboutstep = $this->aboutStepModel::findorfail($id);
+        $aboutstep = $this->aboutStepModel::find($id);
         if ($aboutstep) {
 
             $aboutstep->delete();
         }
-        Alert::success('success', 'blog component deleted  Successfully');
+        Alert::success('success', 'about step deleted  Successfully');
         return redirect(route('Admin.aboutstep.index'));
     }
 }

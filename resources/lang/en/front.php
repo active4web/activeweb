@@ -38,6 +38,12 @@ return[
     'information'                       => 'Information About Us ',
     'happy-clients'                     =>  ' Clients who were happy with our work and services',
     'reservation'                       => 'you have to make early reservation before meeting with the mangers',
+    'my-services'                        => 'My-Services',
+    'contact-with-admins'                => 'Contact with Admins',
+    'ask-service'                        => 'New Service',
+    'add-comment'                        => 'Add Comment',
+    'comments'                            => 'comments',
+    'leave-comment'                       =>' Leave Comment',
     /* -------------------Contact Page ----------------*/
 
     'contact-info'                      =>   'We are pleased to contact you and receive your inquiries',
@@ -49,8 +55,10 @@ return[
     'details'                           =>   'Details',
     'address'                           =>   'Address',
     'user-name'                         =>  'User Name',
-    'ask-service'                       =>  ' Services',
-    'ask-new-service'                   => 'Ask for New Service'
+    'ask-service'                       =>  'Services',
+    'ask-new-service'                   => 'Ask for New Service & Technical Support',
+    'password'                          =>'password',
+    'login'                             => 'Login'
 
 
 ];

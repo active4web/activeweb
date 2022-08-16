@@ -11,6 +11,8 @@ use App\Models\Service;
 use App\Models\Setting;
 use App\Models\Category;
 use App\Models\AboutStep;
+use App\Models\PagesBanner;
+use App\Models\ServiceStep;
 use Illuminate\Http\Request;
 use App\Models\ClientComment;
 use App\Models\ClientContact;
@@ -27,7 +29,7 @@ use App\Http\Requests\CreateServiceRequest;
 use App\Http\Requests\CreateServiceRequestRequest;
 use App\Http\Requests\Contact\CreateContactRequest;
 use App\Http\Requests\CreateTechnicalSupportRequest;
-use App\Models\ServiceStep;
+use App\Models\AboutGoal;
 
 class FrontController extends Controller
 {
@@ -45,6 +47,8 @@ class FrontController extends Controller
     protected $clientCommentModel;
     protected $clientContactModel;
     protected $serviceStepModel;
+    protected $pagesBannerModel;
+    protected $aboutGoalModel;
 
     public function __construct(
         Setting $setting,
@@ -61,7 +65,9 @@ class FrontController extends Controller
        ClientComment $clientcomment,
         ClientContact $clientcontact,
         ServiceStep $serviceStep,
-    ) {
+        PagesBanner $pagesBanner,
+        AboutGoal  $aboutGoal,
+           ) {
         $this->settingModel = $setting;
         $this->bannerModel = $banners;
         $this->serviceModel = $services;
@@ -76,6 +82,8 @@ class FrontController extends Controller
         $this->clientCommentModel=$clientcomment;
         $this->clientContactModel=$clientcontact;
         $this->serviceStepModel=$serviceStep;
+        $this->pagesBannerModel=$pagesBanner;
+        $this->aboutGoalModel=$aboutGoal;
     }
     public function index()
     {
@@ -93,28 +101,33 @@ class FrontController extends Controller
     {
         $about         =      $this->aboutModel::first();
         $aboutSteps    =      $this->aboutStepModel::get();
-          return view('front.pages.about',compact('about','aboutSteps'));
+        $aboutgoals     =      $this->aboutGoalModel::get();
+        $banner        =      $this->pagesBannerModel::where('title','aboutus')->first();
+          return view('front.pages.about',compact('about','aboutSteps','aboutgoals','banner'));
     }
 
     public function blog()
     {
+        $banner        =      $this->pagesBannerModel::where('title','blogs')->first();
         $blogs = $this->blogModel::get();
         $categories = $this->categoryModel::get();
-        return view('front.pages.blog', compact('categories', 'blogs'));
+        return view('front.pages.blog', compact('categories', 'blogs','banner'));
     }
 
     public function blogDetails($id)
     {
+        $banner        =      $this->pagesBannerModel::where('title','blogs')->first();
         $blogs = $this->blogModel::take(4)->orderBy('id', 'DESC')->get();
         $blog = $this->blogModel::where('id',$id)->with('blogDetails', 'blogComponents')->first();    
         $categories = $this->categoryModel::get();
-        return view('front.pages.blog-details', compact('categories', 'blogs', 'blog'));
+        return view('front.pages.blog-details', compact('categories', 'blogs', 'blog','banner'));
     }
 
     public function contactUs()
     {
+        $banner        =      $this->pagesBannerModel::where('title','contactus')->first();
         $setting =  $this->settingModel::first();
-        return view('front.pages.contact-us', compact('setting'));
+        return view('front.pages.contact-us', compact('setting','banner'));
     }
     public function storeContactUs(CreateContactRequest $request)
     {
@@ -128,42 +141,48 @@ class FrontController extends Controller
 
     public function ourWorks()
     {
+        $banner        =      $this->pagesBannerModel::where('title','ourworks')->first();
         $ourworks = $this->ourWorkModel::get();
-        return view('front.pages.our-works', compact('ourworks'));
+        return view('front.pages.our-works', compact('ourworks','banner'));
     }
 
     public function ourWorksDetails($id)
     {
+        $banner        =      $this->pagesBannerModel::where('title','ourworks')->first();
         $work= $this->ourWorkModel::where('id',$id)->with('ourWorkDetails')->first();
         $blogs = $this->blogModel::take(4)->orderBy('id', 'DESC')->get();
         $categories = $this->categoryModel::get();
-        return view('front.pages.our-works-details',compact('blogs','categories','work'));
+        return view('front.pages.our-works-details',compact('blogs','categories','work','banner'));
     }
 
     public function services()
     {
+        $banner        =      $this->pagesBannerModel::where('title','services')->first();
         $services = $this->serviceModel::get();
         $servicessteps= $this->serviceStepModel::get();
-        return view('front.pages.service', compact('services','servicessteps'));
+        return view('front.pages.service', compact('services','servicessteps','banner'));
     }
 
     public function myServices($id)
     {  
+        $banner        =      $this->pagesBannerModel::where('title','services')->first();
          $servicerequest= $this->serviceRequestModel::where('id',$id)->with('services','users','clientComments')->first();
          $servicecomments= $this->serviceCommentModel::where('service_id',$id)->get();
-        return view('front.pages.my-services',compact('servicerequest','servicecomments'));
+        return view('front.pages.my-services',compact('servicerequest','servicecomments','banner'));
     }
 
     public function serviceDetails($id)
     {
+        $banner        =      $this->pagesBannerModel::where('title','services')->first();
         $service = $this->serviceModel::where('id',$id)->with('serviceDetails')->first();
-        return view('front.pages.service-details',compact('service'));
+        return view('front.pages.service-details',compact('service','banner'));
     }
 
     public function serviceRequest()
     {
+        $banner        =      $this->pagesBannerModel::where('title','services')->first();
         $services = $this->serviceModel::get();
-        return view('front.pages.Request-new-service',compact('services'));
+        return view('front.pages.Request-new-service',compact('services','banner'));
     }
     public function serviceRequestStore(CreateServiceRequestRequest $request){
 
@@ -177,18 +196,22 @@ class FrontController extends Controller
     }
     
     public function serviceRequestDetails()
-    {     $servicerequests= $this->serviceRequestModel::where('user_id',auth()->user()->id)->with('services')->get();
+    {  
+        $banner        =      $this->pagesBannerModel::where('title','services')->first();
+        $servicerequests= $this->serviceRequestModel::where('user_id',auth()->user()->id)->with('services')->get();
        
-        return view('front.pages.service-request-details',compact('servicerequests'));
+        return view('front.pages.service-request-details',compact('servicerequests','banner'));
     }
    
     public function technicalSupportRegister()
     {
-        return view('front.pages.Technical-support-and-register');
+        $banner        =      $this->pagesBannerModel::where('title','technicalsupport')->first();
+        return view('front.pages.Technical-support-and-register',compact('banner'));
     }
     public function technicalSupportLogin()
     {
-        return view('front.pages.Technical-support-and-login');
+        $banner        =      $this->pagesBannerModel::where('title','technicalsupport')->first();
+        return view('front.pages.Technical-support-and-login',compact('banner'));
     }
 
     public function clientComment( ClientCommentRequest $request){
@@ -200,8 +223,8 @@ class FrontController extends Controller
     }
 
    public function clientConatct(){
-     
-    return view('front.pages.Communicate-with-management');
+    $banner        =      $this->pagesBannerModel::where('title','contactus')->first();
+    return view('front.pages.Communicate-with-management',compact('banner'));
    }
    
    public function clientConatctStore(Request $request){

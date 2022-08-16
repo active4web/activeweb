@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-@if(Auth::user()->role == 0)
+@if(Auth::check() && Auth::user()->role == 0)
 <div class="card-body">
                 <div class="alert alert-danger text-center" style="width: 350px;">
                     <p> You dont have access to this dashboard </p>
